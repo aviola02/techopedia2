@@ -8,10 +8,40 @@
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Custom Stylesheet -->
 	<link rel="stylesheet" href="style.css">
+		 
+	<?php
+	function aixx(){
+	$dbh= mysql_connect('phpmyadmin.in.cs.ucy.ac.cy','technopedia2','WbJPQrRav5')
+		or die("Couldn't connect to database.");
 
+		$db = mysql_select_db("technopedia2", $dbh) 
+		or die("Couldn't select database.");
+		
+		$sql= 'SELECT * FROM Staff';
+		$result = mysql_query($sql) 
+		or die("Something is wrong with your SQL statement.");
+		
+		while ($row = mysql_fetch_array($result)) {
+		$name=$row['FirstName'];
+		echo $name;
+		echo '\n';
+		}
+
+		
+		mysql_close($dbh);
+
+	}
+	
+	if($_GET['hello']){
+		aixx();
+	}
+	?>
 	</head>
 
 <body>
+	
+	
+		
 	<div class="container" style="height:auto">
 		<div class="top">
 			<h1 id="title" class="hidden">Welcome To TechnoPedia!</h1>
@@ -28,10 +58,10 @@
 			<br/>
 			<input type="password" id="password">
 			<br/>
-			<button type="submit">Sign In</button>
+			<a href='home_page.php?hello=true'  type="submit" class="button">Sign In</a>
 			</div>
 			<br/>
-			<br/>
+			<br/>						
 	</div>
 </body>
 </html>
