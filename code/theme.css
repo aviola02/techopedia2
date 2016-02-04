@@ -957,7 +957,8 @@ transition: all .2s ease-in-out;
 	display: none
 }
 .widget-menu>li>a.collapsed .icon-chevron-down {
-	display: block
+	display: block;
+	
 }
 .widget-menu>li>a:hover {
 	background-color: #28262c;
