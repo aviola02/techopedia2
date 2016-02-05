@@ -11,13 +11,24 @@
         <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
         <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
             rel='stylesheet'>
+            <script type="text/javascript">
+            function show_popup() {
+			  var p = window.createPopup()
+			  var pbody = p.document.body
+			  pbody.style.backgroundColor = "lime"
+			  pbody.style.border = "solid black 1px"
+			  pbody.innerHTML = "This is a pop-up! Click outside to close."
+			  p.show(150,150,200,50,document.body)
+			}
+            
+            </script>
     </head>
     <body>
         <div class="navbar navbar-fixed-top" >
             <div class="navbar-inner" style="background-color:#2d2b32">
                 <div class="container" style="background-color:#2d2b32;">
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-                        <i class="icon-reorder shaded"></i></a><a class="brand" href="index.html">TechnoPedia</a>
+                        <i class="icon-reorder shaded"></i></a><a class="brand" onclick="show_popup" href="index.html">TechnoPedia</a>
                     <div class="nav-collapse collapse navbar-inverse-collapse" style="left: 0px; top: 0px">
                         <ul class="nav pull-left">
                             <li><a href="#" style="background-color:gray; color:white">Timetable</a></li>
