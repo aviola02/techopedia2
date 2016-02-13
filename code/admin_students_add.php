@@ -83,18 +83,19 @@
 
                     <div class="module">
                         <div class="module-head">
-                            <h3>Add a </h3> <h3 id="FormName">Student</h3>
+                            <h3>Add a Student</h3>
                         </div>
                         <div class="module-body">
 
 
 
-                            <form action="welcome.php" method="post" class="form-horizontal row-fluid">
+                            <form action="readForm.php" method="post" class="form-horizontal row-fluid">
 
                                 <div class="control-group">
                                     <label class="control-label" for="CandidateID">CandidateID</label>
                                     <div class="controls">
                                         <input type="text" name="field0" id="CandidateID" placeholder="Type CandidateID here..." class="span8">
+                                        <input style="visibility: hidden" type="text" name="formName" id="formName" placeholder="Type CandidateID here..." class="span8">
                                     </div>
                                 </div>
 
