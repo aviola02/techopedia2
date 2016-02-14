@@ -33,6 +33,8 @@ function insert($table, $tableName){
     $columns = rtrim($columns,",");
     $columns=$columns.");";
 
+    echo $columns;
+
     mysql_query($columns);
 
 

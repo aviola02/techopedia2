@@ -21,7 +21,7 @@ while(isset($_POST[$str.$count])){ // checks if POST exists
 foreach($table as $value){
     echo $value.'<br>';
 }
-
+include 'dbManipulation.php';
 insert($table, $tableName);
 
 ?>
