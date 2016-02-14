@@ -1,9 +1,9 @@
-/**
+<!--/**
  * Created by PhpStorm.
  * User: hamdy
  * Date: 2/13/16
  * Time: 8:33 PM
- */
+ */!-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +19,7 @@
         <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
               rel='stylesheet'>
     </head>
+<<<<<<< HEAD
 <body onload="setTitle()">
 <div class="navbar navbar-fixed-top" >
     <div class="navbar-inner" style="background-color:#2d2b32">
@@ -43,11 +44,18 @@
                 </ul>
             </div>
         </div>
+=======
+<body>
+>>>>>>> origin/master
 
-    </div>
 
-    <!-- /navbar-inner -->
-</div>
+<?php
+include 'MainMenu.php';
+
+?>
+<script type="text/javascript">
+document.getElementById("student").style.backgroundColor="gray";
+</script>
 
 
 
