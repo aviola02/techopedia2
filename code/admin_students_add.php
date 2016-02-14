@@ -7,7 +7,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,40 +19,14 @@
         <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
               rel='stylesheet'>
     </head>
-<<<<<<< HEAD
-<body onload="setTitle()">
-<div class="navbar navbar-fixed-top" >
-    <div class="navbar-inner" style="background-color:#2d2b32">
-        <div class="container" style="background-color:#2d2b32;">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-                <i class="icon-reorder shaded"></i></a><a class="brand" href="index.html">TechnoPedia</a>
-            <div class="nav-collapse collapse navbar-inverse-collapse" style="left: 0px; top: 0px">
-                <ul class="nav pull-left">
-                    <li><a href="#" style="color:white">Timetable</a></li>
-                    <li><a href="#" style="background-color:gray; color:white">Students</a></li>
-                    <li><a href="#" style="color:white">Staff</a></li>
-                    <li><a href="#" style="color:white">Schedule</a></li>
-                    <li><a href="#" style="color:white">Events</a></li>
-                    <li><a href="#" style="color:white">Attendances</a></li>
-                    <li><a href="#" style="color:white">Fees</a></li>
-                    <li><a href="#" style="color:white">Exams&Results</a></li>
-                    <li><a href="#" style="color:white">Expenses</a></li>
 
 
-
-
-                </ul>
-            </div>
-        </div>
-=======
-<body>
->>>>>>> origin/master
 
 
 <?php
 include 'MainMenu.php';
-
 ?>
+
 <script type="text/javascript">
 document.getElementById("student").style.backgroundColor="gray";
 </script>
@@ -103,7 +77,7 @@ document.getElementById("student").style.backgroundColor="gray";
                                     <label class="control-label" for="CandidateID">CandidateID</label>
                                     <div class="controls">
                                         <input type="text" name="field0" id="CandidateID" placeholder="Type CandidateID here..." class="span8">
-                                        <input style="visibility: hidden" type="text" name="formName" id="formName" placeholder="Type CandidateID here..." class="span8">
+                                        <input style="display: none" type="text" name="formName" id="formName" placeholder="Type CandidateID here..." class="span8">
                                     </div>
                                 </div>
 
@@ -319,3 +293,5 @@ document.getElementById("student").style.backgroundColor="gray";
 <script src="scripts/common.js" type="text/javascript"></script>
 
 </body>
+
+</html>
