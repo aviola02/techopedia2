@@ -20,9 +20,15 @@
               rel='stylesheet'>
     </head>
 <body>
+
+
 <?php
 include 'MainMenu.php';
+
 ?>
+<script type="text/javascript">
+document.getElementById("student").style.backgroundColor="gray";
+</script>
 
 
 
