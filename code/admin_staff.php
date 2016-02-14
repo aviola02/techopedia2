@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <head>
@@ -120,27 +120,51 @@
                                                 
                                             </tr>
                                         </thead>
+                                        
+                                        
+								
                                         <tbody>
-                                            
-                                            <tr>
-                                                <th>
-                                                    aviola02
-                                                </th>
-                                                <th>
-                                                    Andreas
-                                                </th>
-                                                <th>
-                                                    Violantis
-                                                </th>
-                                                <th>
-                                                    <input type='button' name='osx' value='Demo' class='osx demo'/>
-                                                    <button type="button" name='osx' value='Demo' class='osx demo'><img alt="edit" src="images/eye_logo.png" height="16" width="16"/></button>
-                                                    <button><img alt="edit" src="images/edit_logo.png" height="16" width="16"/></button>
-                                                    <button style="background-color:red"><img alt="delete" src="images/delete_logo.png" height="16" width="16"/></button>
-                                                </th>
-   												</tbody>
-                                                                                    
+                                        <?php
+                                        $dbh= mysql_connect('phpmyadmin.in.cs.ucy.ac.cy','technopedia2','WbJPQrRav5')
+										or die("Couldn't connect to database.");
+								
+										$db = mysql_select_db("technopedia2", $dbh) 
+										or die("Couldn't select database.");
+								
+										$sql= 'SELECT Username,FirstName,LastName FROM Staff';
+										
+										$result = mysql_query($sql) 
+										or die("Something is wrong with your SQL statement.");
+                                           
+                                           while ($row = mysql_fetch_array($result)) {
+ 											$username = $row['Username'];
+ 											$name = $row['FirstName'];
+ 											$surname = $row['LastName'];
+                                            echo '<tr>';
+                                                echo '<th>';
+                                                    echo $username;
+                                                echo '</th>';
+                                                echo '<th>';
+                                                    echo $name;
+                                                echo '</th>';
+                                                echo '<th>';
+                                                    echo $surname;
+                                                echo '</th>';
+                                                echo '<th>';
+                                                 
+                                                    echo'<input type='button' name='osx' value='Demo' class='osx demo'/>';
+                                                    echo '<button type="button" name='osx' value='Demo' class='osx demo'><img alt="edit" src="images/eye_logo.png" height="16" width="16"/></button>';
+                                                    echo '<button><img alt="edit" src="images/edit_logo.png" height="16" width="16"/></button>';
+                                                    echo '<button style="background-color:red"><img alt="delete" src="images/delete_logo.png" height="16" width="16"/></button>';
+                                                	
+                                                echo '</th>';
+   												}
+   												
+   										mysql_close($dbh);		
+                                        ?>
+                                        </tbody>                                            
                                         <tfoot>
+                                        
                                      </table>
                                 </div>
                             </div>

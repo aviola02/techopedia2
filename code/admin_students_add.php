@@ -19,7 +19,7 @@
         <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
               rel='stylesheet'>
     </head>
-<body>
+<body onload="setTitle()">
 <div class="navbar navbar-fixed-top" >
     <div class="navbar-inner" style="background-color:#2d2b32">
         <div class="container" style="background-color:#2d2b32;">
