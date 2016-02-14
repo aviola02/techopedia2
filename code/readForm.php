@@ -21,6 +21,9 @@ while(isset($_POST[$str.$count])){ // checks if POST exists
 foreach($table as $value){
     echo $value.'<br>';
 }
+
+insert($table, $tableName);
+
 ?>
 
 
