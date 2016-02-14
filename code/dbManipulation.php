@@ -37,6 +37,39 @@ function insert($table, $tableName){
 
     mysql_query($columns);
 
+    mysql_close($dbh);
 
 
+}
+
+function view($table, $tableName){
+    $columns = null;
+    $count = 0;
+
+    $dbh= mysql_connect('phpmyadmin.in.cs.ucy.ac.cy','technopedia2','WbJPQrRav5')
+    or die("Couldn't connect to database.");
+
+    $db = mysql_select_db("technopedia2", $dbh)
+    or die("Couldn't select database.");
+
+    $readColNames = "SHOW COLUMNS FROM ".$tableName;
+    $result = mysql_query($readColNames);
+
+
+    while($row = mysql_fetch_array($result)){
+        $columns[$count]=$row['Field'];
+        $count++;
+    }
+
+
+
+    foreach($table as $value){
+        foreach($columns as $value2){
+            echo $value[$value2].' ';
+        }
+        echo '<br>';
+    }
+
+
+    mysql_close($dbh);
 }
