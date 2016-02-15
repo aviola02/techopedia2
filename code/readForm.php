@@ -6,14 +6,11 @@
 $str="field";
 $count=0;
 $table;
-$tableName = "Student";
-
-
 
 /**
  * Creates table that includes all form's data.
  */
-$tableName = $_POST["formName"];
+$tableName = $_POST['formName'];
 echo 'the table name is : '.$tableName.'<br>';
 while(isset($_POST[$str.$count])){ // checks if POST exists
     $table[$count]=$_POST[$str.$count];

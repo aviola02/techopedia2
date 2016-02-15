@@ -4,5 +4,7 @@
 function setTitle() {
     var el = document.getElementById("label");
     var text = el.innerHTML;
-    document.getElementById("formName").innerHTML = text;
+    var sptext;
+    sptext= text.split(" ");
+    document.getElementById("formName").value = sptext[2];
 }

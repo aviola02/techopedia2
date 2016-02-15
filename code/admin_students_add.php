@@ -18,6 +18,7 @@
         <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
         <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
               rel='stylesheet'>
+
     </head>
 
 
@@ -31,7 +32,7 @@ include 'MainMenu.php';
 document.getElementById("student").style.backgroundColor="gray";
 </script>
 
-
+    <body onload="setTitle()">
 
 <!-- /navbar -->
 <div class="wrapper">
@@ -65,7 +66,7 @@ document.getElementById("student").style.backgroundColor="gray";
 
                     <div class="module">
                         <div class="module-head">
-                            <h3>Add a Student</h3>
+                            <h3 name="label" id="label">Add a Student</h3>
                         </div>
                         <div class="module-body">
 
@@ -76,7 +77,7 @@ document.getElementById("student").style.backgroundColor="gray";
                                 <div class="control-group">
                                     <label class="control-label" for="CandidateID">CandidateID</label>
                                     <div class="controls">
-                                        <input style="display: none" type="text" name="formName" id="formName" placeholder="Type CandidateID here..." class="span8">
+                                        <input style="display: none" type="text" name="formName" id="formName" >
                                         <input type="text" name="field0" id="CandidateID" placeholder="Type CandidateID here..." class="span8">
                                     </div>
                                 </div>
@@ -284,6 +285,7 @@ document.getElementById("student").style.backgroundColor="gray";
 <div class="footer">
 
 </div>
+</body>
 <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
 <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
@@ -291,7 +293,9 @@ document.getElementById("student").style.backgroundColor="gray";
 <script src="scripts/flot/jquery.flot.resize.js" type="text/javascript"></script>
 <script src="scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
 <script src="scripts/common.js" type="text/javascript"></script>
+<script src="scripts.js" type="text/javascript"></script>
 
-</body>
+
+
 
 </html>

@@ -135,10 +135,6 @@
 
                                 <tfoot>
                             </table>
-                            <?php
-                            include 'pullData.php';
-                            
-                            ?>
                         </div>
                     </div>images
                     <!--/.module-->
