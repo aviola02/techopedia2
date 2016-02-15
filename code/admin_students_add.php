@@ -76,8 +76,8 @@ document.getElementById("student").style.backgroundColor="gray";
                                 <div class="control-group">
                                     <label class="control-label" for="CandidateID">CandidateID</label>
                                     <div class="controls">
-                                        <input type="text" name="field0" id="CandidateID" placeholder="Type CandidateID here..." class="span8">
                                         <input style="display: none" type="text" name="formName" id="formName" placeholder="Type CandidateID here..." class="span8">
+                                        <input type="text" name="field0" id="CandidateID" placeholder="Type CandidateID here..." class="span8">
                                     </div>
                                 </div>
 
