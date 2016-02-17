@@ -11,8 +11,7 @@
 <div class="navbar navbar-fixed-top" >
     <div class="navbar-inner" style="background-color:#2d2b32">
         <div class="container" style="background-color:#2d2b32;">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-                <i class="icon-reorder shaded"></i></a><a class="brand" href="index.html">TechnoPedia</a>
+            
             <div class="nav-collapse collapse navbar-inverse-collapse" style="left: 0px; top: 0px">
                 <ul class="nav pull-left">
                     <li><a id="timetable" href="#" style="color:white">Timetable</a></li>
@@ -30,7 +29,11 @@
 
                 </ul>
             </div>
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+
         </div>
+                <i  class="icon-reorder shaded"></i><a href="index.html"><img style="padding-right:100px; padding-left:100px" alt="technopedia" class="brand" src="images/TechnoPedia2.png" ></a>
+
 
     </div>
 

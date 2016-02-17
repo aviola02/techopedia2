@@ -128,15 +128,15 @@
                                         </div>
 
                                         <!--<button type="button" name='osx' value='Demo' class='osx demo'><img alt="edit" src="images/eye_logo.png" height="16" width="16"/></button>-->
-                                        <button><img alt="edit" src="images/edit_logo.png" height="16" width="16"/></button>
-                                        <button style="background-color:red"><img alt="delete" src="images/delete_logo.png" height="16" width="16"/></button>
+                                        <input type='image' src="images/edit_logo.png" alt="view" name='osx' height="16" width="16" />
+                                        <input type='image' src="images/delete_logo.png" alt="view" name='osx' height="16" width="16" />
                                     </th>
                                 </tbody>
 
                                 <tfoot>
                             </table>
                         </div>
-                    </div>images
+                    </div>
                     <!--/.module-->
                 </div>
                 <!--/.content-->
