@@ -9,8 +9,8 @@
 
 
 <div class="navbar navbar-fixed-top" >
-    <div class="navbar-inner" style="background-color:#2d2b32">
-        <div class="container" style="background-color:#2d2b32;">
+    <div class="navbar-inner" style="background-color:#2d2b32; width:100%">
+        <div class="container" style="background-color:#2d2b32; width:62%; margin:auto">
             
             <div class="nav-collapse collapse navbar-inverse-collapse" style="left: 0px; top: 0px">
                 <ul class="nav pull-left">
@@ -32,7 +32,7 @@
         <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
 
         </div>
-                <i  class="icon-reorder shaded"></i><a href="index.html"><img style="padding-right:100px; padding-left:100px" alt="technopedia" class="brand" src="images/TechnoPedia2.png" ></a>
+                <i  class="icon-reorder shaded"></i><a href="#"><img style="padding-right:100px; padding-left:100px" alt="technopedia" class="brand" src="images/TechnoPedia2.png" ></a>
 
 
     </div>
