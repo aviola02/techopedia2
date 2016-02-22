@@ -9,32 +9,38 @@
  * Time: 12:25 AM
  */
 
-$str="field";
-$count=0;
-$table;
-$tableName = "ClassCourse";
+function getData($tableName){
 
-$dbh= mysql_connect('phpmyadmin.in.cs.ucy.ac.cy','technopedia2','WbJPQrRav5')
-or die("Couldn't connect to database.");
-
-$db = mysql_select_db("technopedia2", $dbh)
-or die("Couldn't select database.");
+    $count=0;
+//    $table;
+//$tableName = "Class";
 
 
-$sql = "Select * From ".$tableName;
+    $dbh= mysql_connect('phpmyadmin.in.cs.ucy.ac.cy','technopedia2','WbJPQrRav5')
+    or die("Couldn't connect to database.");
 
-$result = mysql_query($sql);
+    $db = mysql_select_db("technopedia2", $dbh)
+    or die("Couldn't select database.");
 
-while ($row = mysql_fetch_array($result)) {
-    $table[$count]=$row;
-    $count++;
+
+    $sql = "Select * From ".$tableName;
+
+    $result = mysql_query($sql);
+
+    while ($row = mysql_fetch_array($result)) {
+        $table[$count]=$row;
+        $count++;
+    }
+
+    mysql_close($dbh);
+
+    include "dbManipulation.php";
+
+    $results=view($table, $tableName);
+
+    return $results;
+
 }
-
-mysql_close($dbh);
-
-include "dbManipulation.php";
-
-view($table, $tableName);
 
 ?>
 

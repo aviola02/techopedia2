@@ -50,9 +50,14 @@ function insert($table, $tableName){
 
 }
 
+/**
+ * @param $table
+ * @param $tableName
+ */
 function view($table, $tableName){
     $columns = null;
     $count = 0;
+
 
     $dbh= mysql_connect('phpmyadmin.in.cs.ucy.ac.cy','technopedia2','WbJPQrRav5')
     or die("Couldn't connect to database.");
@@ -71,12 +76,19 @@ function view($table, $tableName){
 
 
 
+    $i=0;
+    $j=0;
     foreach($table as $value){
         foreach($columns as $value2){
-            echo $value[$value2].' ';
+            $results[$i][$j]= $value[$value2].' ';
+            $j++;
         }
-        echo '<br>';
+        $i++;
+        $j=0;
     }
+
+
+    return $results;
 
 
     mysql_close($dbh);
