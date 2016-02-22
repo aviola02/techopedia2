@@ -14,12 +14,12 @@
             </div>
             <div class="tab-content">
                 <div id="login" class="tab-pane active">
-                    <form action="index.html" class="form-signin">
+                    <form action="sample.php" method="post" class="form-signin">
                         <p class="muted text-center">
                             Enter your username and password
                         </p>
-                        <input type="text" placeholder="Username" class="input-block-level">
-                        <input type="password" placeholder="Password" class="input-block-level">
+                        <input type="text" name="Username" id="Username" placeholder="Username" class="input-block-level">
+                        <input type="password" name="Password" id="Password" placeholder="Password" class="input-block-level">
                         <button class="btn btn-large btn-primary btn-block" type="submit">Sign in</button>
                     </form>
                 </div>
@@ -51,7 +51,9 @@
                     <li><a class="muted" href="#signup" data-toggle="tab">Signup</a></li>
                 </ul>
             </div>
-
+            <p id="msgBox"  class="muted text-center" style="color: red; visibility: hidden; ">
+                Wrong username or password!
+            </p>
 
         </div> <!-- /container -->
 
