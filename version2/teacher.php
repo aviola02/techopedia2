@@ -16,9 +16,25 @@
     <link type="text/css" rel="stylesheet" href="assets/css/calendar.css">
     <link type="text/css" rel="stylesheet" href="assets/css/DT_bootstrap.css"/>
     <link rel="stylesheet" href="assets/css/responsive-tables.css">
-
-
     <link rel="stylesheet" href="assets/css/theme.css">
+
+    <script type="text/javascript"> // ajax for view Schedule
+       function showSchedule(var str){
+            if (window.XMLHttpRequest) {
+               xmlhttp = new XMLHttpRequest();
+           }
+           else{
+               xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+           }
+           xmlhttp.onreadystatechange = function(){
+               if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                   document.getElementById("tableBody").innerHTML = xmlhttp.responseText;
+               }
+           }
+           xmlhttp.open("GET", "viewSchedule.php?q="+str, true);
+           xmlhttp.send();
+       }
+    </script>
 
     <script type="text/javascript" src="assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -272,7 +288,7 @@
 
                                         </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id = "tableBody">
 
                                         <tr>
                                             <td>1</td>
