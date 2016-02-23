@@ -21,7 +21,8 @@ or die("Couldn't select database.");
 $sql = "Select * From Class Where "."`TeacherUsername` = '".$username."'";
 $result = mysql_query($sql);
 while($row = mysql_fetch_array($result)){
-    echo '<li><a onclick="foo()" href="icon.html"><i class="icon-angle-right"></i>'. $row['CourseName']."-".$row['ClassNo'].'</a></li>';
+    $str = $row['CourseName']."-".$row['ClassNo'];
+    echo '<li><a onclick="showSchedule($str)" href="icon.html"><i class="icon-angle-right"></i>'. $str.'</a></li>';
 }
 
 mysql_close($dbh);
