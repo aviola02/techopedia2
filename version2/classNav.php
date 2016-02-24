@@ -22,7 +22,10 @@ $sql = "Select * From Class Where "."`TeacherUsername` = '".$username."'";
 $result = mysql_query($sql);
 while($row = mysql_fetch_array($result)){
     $str = $row['CourseName']."-".$row['ClassNo'];
-    echo '<li><a onclick="showSchedule($str)" href="icon.html"><i class="icon-angle-right"></i>'. $str.'</a></li>';
+    $str2 = "\"".$str."\"";
+    $str2 = htmlspecialchars($str2, ENT_QUOTES);
+    echo '<li><a onclick = showSchedule('.$str2.')><i class="icon-angle-right"></i>'. $str.'</a></li>';
+
 }
 
 mysql_close($dbh);

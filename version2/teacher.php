@@ -18,22 +18,24 @@
     <link rel="stylesheet" href="assets/css/responsive-tables.css">
     <link rel="stylesheet" href="assets/css/theme.css">
 
-    <script type="text/javascript"> // ajax for view Schedule
-       function showSchedule(var str){
+    <script type="text/javascript">
+        function showSchedule(str){
+            var xmlhttp = null;
             if (window.XMLHttpRequest) {
-               xmlhttp = new XMLHttpRequest();
-           }
-           else{
-               xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-           }
-           xmlhttp.onreadystatechange = function(){
-               if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-                   document.getElementById("tableBody").innerHTML = xmlhttp.responseText;
-               }
-           }
-           xmlhttp.open("GET", "viewSchedule.php?q="+str, true);
-           xmlhttp.send();
-       }
+                xmlhttp = new XMLHttpRequest();
+            }
+            else{
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function(){
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                    document.getElementById("tableBody").innerHTML = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", "viewSchedule.php?q="+str, true);
+            xmlhttp.send();
+        }
+
     </script>
 
     <script type="text/javascript" src="assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>

@@ -26,8 +26,7 @@ or die("Couldn't connect to database.");
 $db = mysql_select_db("technopedia2", $dbh)
 or die("Couldn't select database.");
 
-$sql = "Select * From Tschedule Where CourseName = ".$className." And ClassNo = ".$ClassNo." And Year = ".$year;
-echo $sql;
+$sql = "Select * From Tschedule Where CourseName = '".$className."' And ClassNo = ".$classNo." And Year = ".$year;
 
 $result = mysql_query($sql);
 
