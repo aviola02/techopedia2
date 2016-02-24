@@ -31,6 +31,9 @@ echo $sql;
 
 $result = mysql_query($sql);
 
+<script >
+
+
 while ($row = mysql_fetch_array($result)){
     echo '<tr>
      <td>'.$row['ProgramCode'].'</td>
