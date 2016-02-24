@@ -24,7 +24,7 @@ while($row = mysql_fetch_array($result)){
     $str = $row['CourseName']."-".$row['ClassNo'];
     $str2 = "\"".$str."\"";
     $str2 = htmlspecialchars($str2, ENT_QUOTES);
-    echo '<li><a onclick = showSchedule('.$str2.')><i class="icon-angle-right"></i>'. $str.'</a></li>';
+    echo '<li><a href="#" onclick = showSchedule('.$str2.')><i class="icon-angle-right"></i>'. $str.'</a></li>';
 
 }
 
