@@ -18,22 +18,29 @@
     <link rel="stylesheet" href="assets/css/responsive-tables.css">
     <link rel="stylesheet" href="assets/css/theme.css">
 
-    <script type="text/javascript"> // ajax for view Schedule
-       function showSchedule(var str){
+    <script type="text/javascript">
+        function showSchedule(str){
+            var xmlhttp = null;
             if (window.XMLHttpRequest) {
-               xmlhttp = new XMLHttpRequest();
-           }
-           else{
-               xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-           }
-           xmlhttp.onreadystatechange = function(){
-               if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-                   document.getElementById("tableBody").innerHTML = xmlhttp.responseText;
-               }
-           }
-           xmlhttp.open("GET", "viewSchedule.php?q="+str, true);
-           xmlhttp.send();
-       }
+                xmlhttp = new XMLHttpRequest();
+            }
+            else{
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function(){
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+
+                    document.getElementById("tableBody").innerHTML = xmlhttp.responseText;
+
+                    //alert(xmlhttp.responseText);
+                    //eval(xmlhttp.responseText);
+                }
+            }
+
+            xmlhttp.open("GET", "viewSchedule.php?q="+str, true);
+            xmlhttp.send();
+        }
+
     </script>
 
     <script type="text/javascript" src="assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
@@ -48,82 +55,6 @@
 <body>
 <!-- BEGIN WRAP -->
 <div id="wrap">
-
-
-    <!-- BEGIN TOP BAR -->
-    <div id="top">
-        <!-- .navbar -->
-        <div class="navbar navbar-inverse navbar-static-top">
-            <div class="navbar-inner">
-                <div class="container-fluid">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <a class="brand" href="index.html">Metis</a>
-                    <!-- .topnav -->
-                    <div class="btn-toolbar topnav">
-                        <div class="btn-group">
-                            <a id="changeSidebarPos" class="btn btn-success" rel="tooltip"
-                               data-original-title="Show / Hide Sidebar" data-placement="bottom">
-                                <i class="icon-resize-horizontal"></i>
-                            </a>
-                        </div>
-                        <div class="btn-group">
-                            <a class="btn btn-inverse" rel="tooltip" data-original-title="E-mail" data-placement="bottom">
-                                <i class="icon-envelope"></i>
-                                <span class="label label-warning">5</span>
-                            </a>
-                            <a class="btn btn-inverse" rel="tooltip" href="#" data-original-title="Messages"
-                               data-placement="bottom">
-                                <i class="icon-comments"></i>
-                                <span class="label label-important">4</span>
-                            </a>
-                        </div>
-                        <div class="btn-group">
-                            <a class="btn btn-inverse" rel="tooltip" href="#" data-original-title="Document"
-                               data-placement="bottom">
-                                <i class="icon-file"></i>
-                            </a>
-                            <a href="#helpModal" class="btn btn-inverse" rel="tooltip" data-placement="bottom"
-                               data-original-title="Help" data-toggle="modal">
-                                <i class="icon-question-sign"></i>
-                            </a>
-                        </div>
-                        <div class="btn-group">
-                            <a class="btn btn-inverse" data-placement="bottom" data-original-title="Logout" rel="tooltip"
-                               href="login.html"><i class="icon-off"></i></a></div>
-                    </div>
-                    <!-- /.topnav -->
-                    <div class="nav-collapse collapse">
-                        <!-- .nav -->
-                        <ul class="nav">
-                            <li class="active"><a href="index.html">Dashboard</a></li>
-                            <li><a href="table.html">Tables</a></li>
-                            <li><a href="file.html">File Manager</a></li>
-                            <li class="dropdown">
-                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                    Form Elements <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="form-general.html">General</a></li>
-                                    <li><a href="form-validation.html">Validation</a></li>
-                                    <li><a href="form-wysiwyg.html">WYSIWYG</a></li>
-                                    <li><a href="form-wizard.html">Wizard &amp; File Upload</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <!-- /.nav -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /.navbar -->
-    </div>
-    <!-- END TOP BAR -->
-
-
     <!-- BEGIN HEADER.head -->
     <header class="head">
         <div class="search-bar">
@@ -184,11 +115,6 @@
         <!-- /.user-media -->
 
 
-        <?php
-        include 'pullData.php';
-
-        ?>
-
         <!-- BEGIN MAIN NAVIGATION -->
         <ul id="menu" class="unstyled accordion collapse in">
 
@@ -208,7 +134,7 @@
             </li>
             <li class="accordion-group ">
                 <a data-parent="#menu" data-toggle="collapse" class="accordion-toggle collapsed" data-target="#form-nav">
-                    <i class="icon-pencil icon-large"></i> Forms <span class="label label-inverse pull-right">4</span>
+                    <i class="icon-pencil icon-large"></i> Old Classes <span class="label label-inverse pull-right">4</span>
                 </a>
                 <ul class="collapse " id="form-nav">
                     <li><a href="form-general.html"><i class="icon-angle-right"></i> General</a></li>
@@ -217,30 +143,6 @@
                     <li><a href="form-wizard.html"><i class="icon-angle-right"></i> Wizard &amp; File Upload</a></li>
                 </ul>
             </li>
-            <li><a href="table.html"><i class="icon-table icon-large"></i> Tables</a></li>
-            <li><a href="file.html"><i class="icon-file icon-large"></i> File Manager</a></li>
-            <li><a href="typography.html"><i class="icon-font icon-large"></i> Typography</a></li>
-            <li><a href="maps.html"><i class="icon-map-marker icon-large"></i> Maps</a></li>
-            <li><a href="chart.html"><i class="icon-bar-chart icon-large"></i> Charts</a></li>
-            <li><a href="calendar.html"><i class="icon-calendar icon-large"></i> Calendar</a></li>
-            <li class="accordion-group ">
-                <a data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#error-nav">
-                    <i class="icon-warning-sign icon-large"></i> Error Pages <span
-                        class="label label-inverse pull-right">7</span>
-                </a>
-                <ul class="collapse" id="error-nav">
-                    <li><a href="403.html"><i class="icon-angle-right"></i> 403</a></li>
-                    <li><a href="404.html"><i class="icon-angle-right"></i> 404</a></li>
-                    <li><a href="405.html"><i class="icon-angle-right"></i> 405</a></li>
-                    <li><a href="500.html"><i class="icon-angle-right"></i> 500</a></li>
-                    <li><a href="503.html"><i class="icon-angle-right"></i> 503</a></li>
-                    <li><a href="offline.html"><i class="icon-angle-right"></i> offline</a></li>
-                    <li><a href="countdown.html"><i class="icon-angle-right"></i> Under Construction</a></li>
-                </ul>
-            </li>
-            <li><a href="grid.html"><i class="icon-columns icon-large"></i> Grid</a></li>
-            <li><a href="blank.html"><i class="icon-check-empty icon-large"></i> Blank Page</a></li>
-            <li><a href="login.html"><i class="icon-signin icon-large"></i> Login Page</a></li>
         </ul>
         <!-- END MAIN NAVIGATION -->
 
@@ -257,7 +159,7 @@
                 <!-- .inner -->
                 <div class="span12 inner">
                     <div class="row-fluid">
-                        <div class="span12">
+                        <div id = "target" class="span12">
                             <div class="box">
                                 <header>
                                     <div class="icons"><i class="icon-edit"></i></div>
@@ -266,7 +168,6 @@
                                         <a href="#actionTable" data-toggle="collapse" class="accordion-toggle minimize-box"></a>
                                     </div>
                                 </header>
-
                                 <div id="actionTable" class="body">
                                     <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped responsive">
                                         <thead>
@@ -285,39 +186,16 @@
                                                 <i class="icon-sort"></i><i class="icon-sort-down"></i> <i class="icon-sort-up"></i></th>
                                             <th>Action
                                                 <i class="icon-sort"></i><i class="icon-sort-down"></i> <i class="icon-sort-up"></i></th>
-
                                         </tr>
                                         </thead>
+
+
+
                                         <tbody id = "tableBody">
 
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Word</td>
-                                            <td>pdf</td>
-                                            <td>-</td>
-                                            <td>C</td>
-                                            <td>-</td>
-                                            <td>
-                                                <button class="btn edit"><i class="icon-edit"></i></button>
-                                                <button class="btn btn-danger remove" data-toggle="confirmation"><i class="icon-remove"></i></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>All others</td>
-                                            <td>-</td>
-                                            <td>-</td>
-                                            <td>U</td>
-                                            <td>-</td>
-                                            <td>
-                                                <button class="btn edit"><i class="icon-edit"></i></button>
-                                                <button class="btn btn-danger remove" data-toggle="confirmation"><i class="icon-remove"></i></button>
-                                            </td>
-                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
-
                             </div>
 
                         </div>

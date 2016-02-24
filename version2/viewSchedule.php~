@@ -30,6 +30,11 @@ $sql = "Select * From Tschedule Where CourseName = '".$className."' And ClassNo 
 
 $result = mysql_query($sql);
 
+<<<<<<< HEAD
+<script >
+=======
+>>>>>>> 23fd0567ea05fbe260973a4baf384f77034bf4ef
+
 
 while ($row = mysql_fetch_array($result)){
 
