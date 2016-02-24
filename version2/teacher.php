@@ -20,7 +20,7 @@
 
     <script type="text/javascript">
         function showSchedule(str){
-            var xmlhttp = null;
+          var xmlhttp = null;
             if (window.XMLHttpRequest) {
                 xmlhttp = new XMLHttpRequest();
             }
@@ -32,14 +32,17 @@
 
                     document.getElementById("tableBody").innerHTML = xmlhttp.responseText;
 
-                    //alert(xmlhttp.responseText);
-                    //eval(xmlhttp.responseText);
                 }
             }
 
             xmlhttp.open("GET", "viewSchedule.php?q="+str, true);
             xmlhttp.send();
-        }
+
+
+
+
+
+       }
 
     </script>
 
@@ -192,7 +195,15 @@
 
 
                                         <tbody id = "tableBody">
-
+                                            <tr>
+                                                <td>1</td>
+                                                <td>2</td>
+                                                <td>3</td>
+                                                <td>4</td>
+                                                <td>5</td>
+                                                <td>6</td>
+                                                <td>7</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
