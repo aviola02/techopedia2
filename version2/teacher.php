@@ -30,7 +30,7 @@
             xmlhttp.onreadystatechange = function(){
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
 
-                    document.getElementById("tableBody").innerHTML = xmlhttp.responseText;
+                    document.getElementById("cell1").innerHTML = xmlhttp.responseText;
 
                 }
             }
@@ -196,7 +196,7 @@
 
                                         <tbody id = "tableBody">
                                             <tr>
-                                                <td>1</td>
+                                                <td id = "cell1">1</td>
                                                 <td>2</td>
                                                 <td>3</td>
                                                 <td>4</td>

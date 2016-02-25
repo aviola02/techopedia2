@@ -33,11 +33,8 @@ $result = mysql_query($sql);
 
 while ($row = mysql_fetch_array($result)){
 
-    /*echo 'document.getElementById("tableBody").innerHTML += "<tr> <td>'.$row['ProgramCode'].'</td> </tr>";';*/
-
-
     echo '<tr>
-     <td class="sorting_1">'.$row['ProgramCode'].'</td>
+     <td>'.$row['ProgramCode'].'</td>
         <td>'.$row['Topic'].'</td>
         <td>'.$row['Exercises'].'</td>
         <td>'.$row['Notes'].'</td>
@@ -49,6 +46,8 @@ while ($row = mysql_fetch_array($result)){
         </td>
 
     </tr>';
+
+
 
 
 }
