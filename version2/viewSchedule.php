@@ -37,7 +37,7 @@ while ($row = mysql_fetch_array($result)){
 
 
     echo '<tr>
-     <td>'.$row['ProgramCode'].'</td>
+     <td class="sorting_1">'.$row['ProgramCode'].'</td>
         <td>'.$row['Topic'].'</td>
         <td>'.$row['Exercises'].'</td>
         <td>'.$row['Notes'].'</td>

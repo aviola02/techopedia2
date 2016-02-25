@@ -39,7 +39,7 @@
             xmlhttp.send();
 
 
-
+            alert(document.getElementById("tableBody").innerHTML);
 
 
        }

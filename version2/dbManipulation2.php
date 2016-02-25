@@ -80,7 +80,9 @@ function view($table, $tableName){
     }
 
 
-    return $results;
+    foreach ($results as $kati) {
+        echo $kati."</br>";
+    }
 
 
     mysql_close($dbh);

@@ -10,26 +10,7 @@ function setTitle() {
 }
 
 function wrongLogin(){
-    alert("in");
     document.getElementById("Username").clearAttributes();
     document.getElementById("Password").clearAttributes();
     document.getElementById("msgBox").style.display = "clock";
-}
-
-//ajax for view Schedule
-function showSchedule(str){
-    var xmlhttp = null;
-    if (window.XMLHttpRequest) {
-        xmlhttp = new XMLHttpRequest();
-    }
-    else{
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange = function(){
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-            document.getElementById("tableBody").innerHTML = xmlhttp.responseText;
-        }
-    }
-    xmlhttp.open("GET", "viewSchedule.php?q="+str, true);
-    xmlhttp.send();
 }
