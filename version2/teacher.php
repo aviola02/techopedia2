@@ -17,38 +17,6 @@
     <link type="text/css" rel="stylesheet" href="assets/css/DT_bootstrap.css"/>
     <link rel="stylesheet" href="assets/css/responsive-tables.css">
     <link rel="stylesheet" href="assets/css/theme.css">
-
-<<<<<<< HEAD
-=======
-    <script type="text/javascript">
-        function showSchedule(str){
-          var xmlhttp = null;
-            if (window.XMLHttpRequest) {
-                xmlhttp = new XMLHttpRequest();
-            }
-            else{
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange = function(){
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-
-                    document.getElementById("cell1").innerHTML = xmlhttp.responseText;
-
-                }
-            }
-
-            xmlhttp.open("GET", "viewSchedule.php?q="+str, true);
-            xmlhttp.send();
-
-
-            alert(document.getElementById("tableBody").innerHTML);
-
-
-       }
-
-    </script>
-
->>>>>>> 95efeb9b27f50552b0193658be1242d98e0e0086
     <script type="text/javascript" src="assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -199,21 +167,7 @@
 
 
                                         <tbody id = "tableBody">
-<<<<<<< HEAD
 
-
-
-=======
-                                            <tr>
-                                                <td id = "cell1">1</td>
-                                                <td>2</td>
-                                                <td>3</td>
-                                                <td>4</td>
-                                                <td>5</td>
-                                                <td>6</td>
-                                                <td>7</td>
-                                            </tr>
->>>>>>> 95efeb9b27f50552b0193658be1242d98e0e0086
                                         </tbody>
                                     </table>
                                 </div>
