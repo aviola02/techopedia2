@@ -17,6 +17,30 @@
 		<script type='text/javascript' src='scripts/jquery.simplemodal.js'></script>
 		<script type='text/javascript' src='scripts/osx.js'></script>
 
+        <script type="text/javascript">
+            function showSchedule(str){
+                var xmlhttp = null;
+                if (window.XMLHttpRequest) {
+                    xmlhttp = new XMLHttpRequest();
+                }
+                else{
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function(){
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+
+                        document.getElementById("tableBody").innerHTML = xmlhttp.responseText;
+
+                    }
+                }
+
+                xmlhttp.open("GET", "viewSchedule.php?q="+str, true);
+                xmlhttp.send();
+
+
+            }
+
+        </script>
 
     </head>
     <body>
@@ -43,7 +67,7 @@
 
                     <!--/.widget-nav-->
                     <ul class="widget widget-menu unstyled">
-                        <li><a href="#" style="background-color:#808080; color:white"><i class="menu-icon "></i>View</a></li>
+                        <li><a href="#" onclick="showSchedule('EPL361-1')" style="background-color:#808080; color:white"><i class="menu-icon "></i>View</a></li>
                         <li><a href="#" style="color:white"><i class="menu-icon" ></i>Add</a></li>
                         <li><a href="#" style="color:white"><i class="menu-icon "></i>Edit</a></li>
                         <li><a href="#" style="color:white"><i class="menu-icon "></i>Reports</a></li>
@@ -96,41 +120,50 @@
                                     <th>
                                         Edit / Delete
                                     </th>
+                                    <th>
+                                        Edit / Delete
+                                    </th>
+                                    <th>
+                                        Edit / Delete
+                                    </th>
+                                    <th>
+                                        Edit / Delete
+                                    </th>
 
 
                                 </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id = "tableBody">
 
-                                <tr>
-                                    <th>
-                                        aviola02
-                                    </th>
-                                    <th>
-                                        Andreas
-                                    </th>
-                                    <th>
-                                        Violantis
-                                    </th>
-                                    <th>
-                                        <input type='image' src="images/eye_logo.png" alt="view" name='osx' class='osx demo' height="16" width="16" />
-                                        <div id="osx-modal-content">
-                                            <div id="osx-modal-title">OSX Style Modal Dialog</div>
-                                            <div class="close"><a href="#" class="simplemodal-close">x</a></div>
-                                            <div id="osx-modal-data">
-                                                <h2>More Details</h2>
-                                                <?php
-                                                include 'pullData.php';
-
-                                                ?>
-                                                <p><button class="simplemodal-close">Close</button> <span>(or press ESC or click the overlay)</span></p>
-                                            </div>
-                                        </div>
-
-                                        <!--<button type="button" name='osx' value='Demo' class='osx demo'><img alt="edit" src="images/eye_logo.png" height="16" width="16"/></button>-->
-                                        <input type='image' src="images/edit_logo.png" alt="view" name='osx' height="16" width="16" />
-                                        <input type='image' src="images/delete_logo.png" alt="view" name='osx' height="16" width="16" />
-                                    </th>
+<!--                                <tr>-->
+<!--                                    <th>-->
+<!--                                        aviola02-->
+<!--                                    </th>-->
+<!--                                    <th>-->
+<!--                                        Andreas-->
+<!--                                    </th>-->
+<!--                                    <th>-->
+<!--                                        Violantis-->
+<!--                                    </th>-->
+<!--                                    <th>-->
+<!--                                        <input type='image' src="images/eye_logo.png" alt="view" name='osx' class='osx demo' height="16" width="16" />-->
+<!--                                        <div id="osx-modal-content">-->
+<!--                                            <div id="osx-modal-title">OSX Style Modal Dialog</div>-->
+<!--                                            <div class="close"><a href="#" class="simplemodal-close">x</a></div>-->
+<!--                                            <div id="osx-modal-data">-->
+<!--                                                <h2>More Details</h2>-->
+<!--                                                --><?php
+//                                                include 'pullData.php';
+//
+//                                                ?>
+<!--                                                <p><button class="simplemodal-close">Close</button> <span>(or press ESC or click the overlay)</span></p>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!---->
+<!--                                        <!--<button type="button" name='osx' value='Demo' class='osx demo'><img alt="edit" src="images/eye_logo.png" height="16" width="16"/></button>-->-->
+<!--                                        <input type='image' src="images/edit_logo.png" alt="view" name='osx' height="16" width="16" />-->
+<!--                                        <input type='image' src="images/delete_logo.png" alt="view" name='osx' height="16" width="16" />-->
+<!--                                    </th>-->
                                 </tbody>
 
                                 <tfoot>

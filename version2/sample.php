@@ -9,4 +9,5 @@
 $username = $_POST['Username'];
 $password = $_POST['Password'];
 include 'dbManipulation.php';
+
 checkValidLogin($username, $password);

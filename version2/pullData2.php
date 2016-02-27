@@ -10,40 +10,35 @@
  */
 
 
-function getData($tableName){
-
-    $count=0;
-    $table;
-//$tableName = "Class";
 
 
-    $dbh= mysql_connect('phpmyadmin.in.cs.ucy.ac.cy','technopedia2','WbJPQrRav5')
-    or die("Couldn't connect to database.");
+$str="field";
+$count=0;
+$table;
+$tableName = "Class";
 
-    $db = mysql_select_db("technopedia2", $dbh)
-    or die("Couldn't select database.");
+
+$dbh= mysql_connect('phpmyadmin.in.cs.ucy.ac.cy','technopedia2','WbJPQrRav5')
+or die("Couldn't connect to database.");
+
+$db = mysql_select_db("technopedia2", $dbh)
+or die("Couldn't select database.");
 
 
-    $sql = "Select * From ".$tableName;
+$sql = "Select * From ".$tableName;
 
-    $result = mysql_query($sql);
+$result = mysql_query($sql);
 
-    while ($row = mysql_fetch_array($result)) {
-        $table[$count]=$row;
-        $count++;
-    }
-
-    mysql_close($dbh);
-
-    include "dbManipulation.php";
-
-    $results=view($table, $tableName);
-
-    return $results;
-
+while ($row = mysql_fetch_array($result)) {
+    $table[$count]=$row;
+    $count++;
 }
 
+mysql_close($dbh);
 
+include "dbManipulation.php";
+
+view($table, $tableName);
 
 ?>
 
