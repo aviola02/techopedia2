@@ -18,31 +18,6 @@
     <link rel="stylesheet" href="assets/css/responsive-tables.css">
     <link rel="stylesheet" href="assets/css/theme.css">
 
-    <script type="text/javascript">
-        function showSchedule(str){
-            var xmlhttp = null;
-            if (window.XMLHttpRequest) {
-                xmlhttp = new XMLHttpRequest();
-            }
-            else{
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange = function(){
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-
-                    document.getElementById("tableBody").innerHTML = xmlhttp.responseText;
-
-                    //alert(xmlhttp.responseText);
-                    //eval(xmlhttp.responseText);
-                }
-            }
-
-            xmlhttp.open("GET", "viewSchedule.php?q="+str, true);
-            xmlhttp.send();
-        }
-
-    </script>
-
     <script type="text/javascript" src="assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -168,6 +143,7 @@
                                         <a href="#actionTable" data-toggle="collapse" class="accordion-toggle minimize-box"></a>
                                     </div>
                                 </header>
+
                                 <div id="actionTable" class="body">
                                     <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped responsive">
                                         <thead>
@@ -192,6 +168,8 @@
 
 
                                         <tbody id = "tableBody">
+
+
 
                                         </tbody>
                                     </table>
@@ -349,12 +327,13 @@
 <script type="text/javascript" src="assets/js/lib/DT_bootstrap.js"></script>
 <script type="text/javascript" src="assets/js/lib/jquery.tablesorter.min.js"></script>
 <script src="assets/js/lib/responsive-tables.js"></script>
+<script type="text/javascript" src="assets/js/main.js"></script>
 <script type="text/javascript">
     $(function() {
         metisTable();
     });
 </script>
-<script type="text/javascript" src="assets/js/main.js"></script>
+
 <script src="assets/js/lib/jquery.mousewheel.js"></script>
 <script src="assets/js/lib/jquery.sparkline.min.js"></script>
 <script src="assets/flot/jquery.flot.js"></script>

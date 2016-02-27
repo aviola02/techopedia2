@@ -31,11 +31,14 @@ $sql = "Select * From Tschedule Where CourseName = '".$className."' And ClassNo 
 $result = mysql_query($sql);
 
 
+
 while ($row = mysql_fetch_array($result)){
+
 
     /*echo 'document.getElementById("tableBody").innerHTML += "<tr> <td>'.$row['ProgramCode'].'</td> </tr>";';*/
 
 
+//    echo json_encode($row);
     echo '<tr>
      <td>'.$row['ProgramCode'].'</td>
         <td>'.$row['Topic'].'</td>
