@@ -19,6 +19,25 @@
     <link rel="stylesheet" href="assets/css/theme.css">
     <script type="text/javascript" src="assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <script type="text/javascript">
+        function ajaxAttendances(str){
+            var xmlhttp = null;
+                if (window.XMLHttpRequest) {
+                    xmlhttp = new XMLHttpRequest();
+                }
+                else{
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function(){
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                        document.getElementById("attendancesDataTable").innerHTML = xmlhttp.responseText;
+                    }
+                }
+
+                xmlhttp.open("GET", "viewAttendances.php?q="+str, false);
+                xmlhttp.send();
+        }
+    </script>
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <!--[if IE 7]>
@@ -73,18 +92,9 @@
         <div class="media user-media hidden-phone">
             <a href="" class="user-link">
                 <img src="assets/img/user.gif" alt="" class="media-object img-polaroid user-img">
-                <span class="label user-label">16</span>
             </a>
 
-            <div class="media-body hidden-tablet">
-                <h5 class="media-heading">Archie</h5>
-                <ul class="unstyled user-info">
-                    <li><a href="">Administrator</a></li>
-                    <li>Last Access : <br/>
-                        <small><i class="icon-calendar"></i> 16 Mar 16:32</small>
-                    </li>
-                </ul>
-            </div>
+
         </div>
         <!-- /.user-media -->
 
@@ -92,31 +102,10 @@
         <!-- BEGIN MAIN NAVIGATION -->
         <ul id="menu" class="unstyled accordion collapse in">
 
-            <li class="accordion-group ">
-                <a data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#component-nav">
-                    <i class="icon-tasks icon-large"></i> Classes <span class="label label-inverse pull-right"></span>
-                </a>
-
-                <ul class="collapse " id="component-nav">
-
-
                     <?php
                     include 'classNav.php';
                     ?>
 
-                </ul>
-            </li>
-            <li class="accordion-group ">
-                <a data-parent="#menu" data-toggle="collapse" class="accordion-toggle collapsed" data-target="#form-nav">
-                    <i class="icon-pencil icon-large"></i> Old Classes <span class="label label-inverse pull-right">4</span>
-                </a>
-                <ul class="collapse " id="form-nav">
-                    <li><a href="form-general.html"><i class="icon-angle-right"></i> General</a></li>
-                    <li><a href="form-validation.html"><i class="icon-angle-right"></i> Validation</a></li>
-                    <li><a href="form-wysiwyg.html"><i class="icon-angle-right"></i> WYSIWYG</a></li>
-                    <li><a href="form-wizard.html"><i class="icon-angle-right"></i> Wizard &amp; File Upload</a></li>
-                </ul>
-            </li>
         </ul>
         <!-- END MAIN NAVIGATION -->
 
@@ -189,12 +178,8 @@
                                                     class="icon-sort-up"></i></th>
                                         </tr>
                                         </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>Andreas</td>
-                                            <td>Violantis</td>
-                                            <td><input type="checkbox" id="attendance" name = "attendance" ></td>
-                                        </tr>
+                                        <tbody id="attendancesDataTable">
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -236,7 +221,7 @@
 
 <!-- BEGIN FOOTER -->
 <div id="footer">
-    <p>2013 © Metis Admin</p>
+    <p>2016 - UCY - Hamdy Ay, Andres Violantis</p>
 </div>
 <!-- END FOOTER -->
 
@@ -344,7 +329,7 @@
         dashboard();
     });
 </script>
-<script type="text/javascript" src="assets/js/style-switcher.js"></script>
+
 
 </body>
 </html>

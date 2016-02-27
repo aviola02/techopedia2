@@ -18,7 +18,10 @@ while($token !== false){
 }
 $className = $x[0];
 $classNo = $x[1];
-$year = date("Y");
+if(count($x)== 2)
+    $year = date("Y"); //for current year classes
+else
+    $year = $x[2]; //for classes from previous years
 
 $dbh= mysql_connect('phpmyadmin.in.cs.ucy.ac.cy','technopedia2','WbJPQrRav5')
 or die("Couldn't connect to database.");
@@ -34,14 +37,6 @@ $result = mysql_query($sql);
 
 while ($row = mysql_fetch_array($result)){
 
-<<<<<<< HEAD
-
-    /*echo 'document.getElementById("tableBody").innerHTML += "<tr> <td>'.$row['ProgramCode'].'</td> </tr>";';*/
-
-
-//    echo json_encode($row);
-=======
->>>>>>> 95efeb9b27f50552b0193658be1242d98e0e0086
     echo '<tr>
      <td>'.$row['ProgramCode'].'</td>
         <td>'.$row['Topic'].'</td>
@@ -52,6 +47,7 @@ while ($row = mysql_fetch_array($result)){
         <td>
         <button class="btn edit"><i class="icon-edit"></i></button>
         <button class="btn btn-danger remove" data-toggle="confirmation"><i class="icon-remove"></i></button>
+        <button class="btn attendances" onClick = ajaxAttendances('.$row['ProgramCode'].')><i class="icon-user"></i></button>
         </td>
 
     </tr>';

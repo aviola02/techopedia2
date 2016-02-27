@@ -494,7 +494,7 @@ body.fixed .pattern-switcher {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff555555', endColorstr='#ff333333', GradientType=0);
   color: #FFFFFF;
   display: block;
-  font-size: 11px;
+  font-size: 16px;
   font-weight: bold;
   padding: 10px;
   position: relative;
