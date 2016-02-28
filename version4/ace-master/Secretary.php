@@ -410,7 +410,7 @@
 
         <ul class="nav nav-list">
             <li class="">
-                <a href="index.html" onclick="showStudents()">
+                <a onclick="showStudents()">
                     <i class="menu-icon glyphicon glyphicon-user"></i>
                     <span class="menu-text"> Students </span>
                 </a>

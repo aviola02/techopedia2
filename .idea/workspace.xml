@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58a4604e-a039-437c-b18b-bf9e990f7009" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version4/ace-master/Secretary.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version4/ace-master/jqgrid.html" afterPath="$PROJECT_DIR$/version4/ace-master/jqgrid.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version4/ace-master/Secretary.php" afterPath="$PROJECT_DIR$/version4/ace-master/Secretary.php" />
     </list>
     <ignored path="techopedia2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,14 +63,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Secretary.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Secretary.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/version4/ace-master/Secretary.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.63784665">
-              <caret line="426" column="37" selection-start-line="426" selection-start-column="37" selection-end-line="426" selection-end-column="37" />
+            <state vertical-scroll-proportion="-4.8965516">
+              <caret line="417" column="37" selection-start-line="417" selection-start-column="37" selection-end-line="417" selection-end-column="37" />
               <folding>
-                <marker date="1456670439008" expanded="true" signature="23932:24038" placeholder="..." />
+                <marker date="1456671441664" expanded="true" signature="23914:24020" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="viewStudents.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/version4/ace-master/viewStudents.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -159,7 +167,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP_1" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
+    <option name="x" value="1431" />
     <option name="y" value="-772" />
     <option name="width" value="1301" />
     <option name="height" value="772" />
@@ -253,7 +261,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-772" width="1301" height="772" extended-state="6" />
+    <frame x="1431" y="-772" width="1301" height="772" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22213681" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -320,13 +328,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/version2/dbManipulation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/version2/viewSchedule.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -762,11 +763,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/version4/ace-master/Secretary.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63784665">
-          <caret line="426" column="37" selection-start-line="426" selection-start-column="37" selection-end-line="426" selection-end-column="37" />
+        <state vertical-scroll-proportion="-4.8965516">
+          <caret line="417" column="37" selection-start-line="417" selection-start-column="37" selection-end-line="417" selection-end-column="37" />
           <folding>
-            <marker date="1456670439008" expanded="true" signature="23932:24038" placeholder="..." />
+            <marker date="1456671441664" expanded="true" signature="23914:24020" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version4/ace-master/viewStudents.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
