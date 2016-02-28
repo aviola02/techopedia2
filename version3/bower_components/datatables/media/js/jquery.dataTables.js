@@ -15016,6 +15016,7 @@
 		_fnLengthOverflow: _fnLengthOverflow,
 		_fnRenderer: _fnRenderer,
 		_fnDataSource: _fnDataSource,
+		_fnDestroy: _fnDestroy,
 		_fnRowAttributes: _fnRowAttributes,
 		_fnCalculateEnd: function () {} // Used by a lot of plug-ins, but redundant
 		                                // in 1.10, so this dead-end function is

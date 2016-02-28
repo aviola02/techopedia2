@@ -20,23 +20,7 @@
     <script type="text/javascript" src="assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <script type="text/javascript">
-        function ajaxAttendances(str){
-            var xmlhttp = null;
-                if (window.XMLHttpRequest) {
-                    xmlhttp = new XMLHttpRequest();
-                }
-                else{
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function(){
-                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-                        document.getElementById("attendancesDataTable").innerHTML = xmlhttp.responseText;
-                    }
-                }
 
-                xmlhttp.open("GET", "viewAttendances.php?q="+str, false);
-                xmlhttp.send();
-        }
     </script>
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->

@@ -116,7 +116,7 @@ function checkValidLogin($username, $password){
                     break;
                 }
                 case 'Secretary':{ //if user is teacher
-                    /**/
+                    Include "Secretary.php";
                     break;
                 }
                 case 'Teacher':{ //if user is secretary
