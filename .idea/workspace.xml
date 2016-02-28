@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58a4604e-a039-437c-b18b-bf9e990f7009" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/studentsNav.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/viewFullStudent.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/viewStaff.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version2/viewStudent.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version3/js/ourScripts.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version3/pages/classNav.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version3/pages/teacher.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/version4/ace-master/Secretary.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version2/Secretary.php" afterPath="$PROJECT_DIR$/version2/Secretary.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version2/assets/js/main.js" afterPath="$PROJECT_DIR$/version2/assets/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version2/dbManipulation.php" afterPath="$PROJECT_DIR$/version2/dbManipulation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version2/teacher.php" afterPath="$PROJECT_DIR$/version2/teacher.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version3/bower_components/datatables/media/js/jquery.dataTables.js" afterPath="$PROJECT_DIR$/version3/bower_components/datatables/media/js/jquery.dataTables.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/version4/ace-master/jqgrid.html" afterPath="$PROJECT_DIR$/version4/ace-master/jqgrid.html" />
     </list>
     <ignored path="techopedia2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,84 +26,87 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Secretary.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/version2/Secretary.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.3448277">
+              <caret line="94" column="135" selection-start-line="94" selection-start-column="135" selection-end-line="94" selection-end-column="135" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version3/pages/index.html">
+        <entry file="file://$PROJECT_DIR$/version4/ace-master/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="941" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="teacher.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version3/pages/teacher.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.37037">
-              <caret line="584" column="31" selection-start-line="584" selection-start-column="31" selection-end-line="584" selection-end-column="31" />
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="2411" selection-end-column="0" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1456664848132" expanded="true" signature="67334:67437" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jquery.dataTables.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version3/bower_components/datatables/media/js/jquery.dataTables.js">
+      <file leaf-file-name="viewStudent.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/version2/viewStudent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="86.93104">
-              <caret line="15018" column="31" selection-start-line="15018" selection-start-column="31" selection-end-line="15018" selection-end-column="31" />
+            <state vertical-scroll-proportion="-14.666667">
+              <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
               <folding>
-                <marker date="1456661465824" expanded="true" signature="114421:114446" placeholder="..." />
+                <marker date="1456602719071" expanded="true" signature="326:399" placeholder="Select * Fro... $" />
+                <marker date="1456602719071" expanded="true" signature="326:400" placeholder="Select * Fro... ${$year}" />
+                <marker date="1456602719071" expanded="true" signature="326:403" placeholder="Select * Fro... ${$year}" />
+                <marker date="1456602719071" expanded="true" signature="491:523" placeholder="/*echo 'docu... " />
+                <marker date="1456602719071" expanded="true" signature="615:1129" placeholder="..." />
+                <marker date="1456602719071" expanded="true" signature="800:1118" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ourScripts.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/version3/js/ourScripts.js">
+      <file leaf-file-name="Secretary.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/version4/ace-master/Secretary.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2364532">
-              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="viewSchedule.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version3/pages/viewSchedule.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.37037">
-              <caret line="46" column="33" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.63784665">
+              <caret line="426" column="37" selection-start-line="426" selection-start-column="37" selection-end-line="426" selection-end-column="37" />
               <folding>
-                <marker date="1456659913156" expanded="true" signature="637:735" placeholder="Select * Fro... Tschedule" />
-                <marker date="1456659913156" expanded="true" signature="834:1187" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="classNav.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version3/pages/classNav.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.703704">
-              <caret line="41" column="45" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
-              <folding>
-                <element signature="e#6#87#0#PHP" expanded="true" />
-                <marker date="1456656603372" expanded="true" signature="299:440" placeholder="..." />
-                <marker date="1456656603372" expanded="true" signature="454:547" placeholder="Select * Fro... Class" />
-                <marker date="1456656603372" expanded="true" signature="879:1024" placeholder="..." />
-                <marker date="1456656603372" expanded="true" signature="1038:1132" placeholder="Select * Fro... Class" />
+                <marker date="1456670439008" expanded="true" signature="23932:24038" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="tables.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version3/pages/tables.html">
+        <entry file="file://$PROJECT_DIR$/version4/ace-master/tables.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.413793">
-              <caret line="1117" column="4" selection-start-line="1117" selection-start-column="4" selection-end-line="1140" selection-end-column="13" />
+            <state vertical-scroll-proportion="-3.3448277">
+              <caret line="638" column="43" selection-start-line="638" selection-start-column="36" selection-end-line="638" selection-end-column="43" />
+              <folding>
+                <marker date="1456664848132" expanded="true" signature="105151:105254" placeholder="..." />
+                <marker date="1456664848132" expanded="true" signature="109136:109266" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jqgrid.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/version4/ace-master/jqgrid.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.4827585">
+              <caret line="1502" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="1505" selection-end-column="0" />
+              <folding>
+                <marker date="1456668559168" expanded="true" signature="29215:29318" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ourScripts.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/version4/ace-master/assets/js/ourScripts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="106" column="21" selection-start-line="106" selection-start-column="21" selection-end-line="106" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -151,6 +144,8 @@
         <option value="$PROJECT_DIR$/version3/bower_components/datatables/media/js/jquery.dataTables.js" />
         <option value="$PROJECT_DIR$/version3/pages/teacher.php" />
         <option value="$PROJECT_DIR$/version3/js/ourScripts.js" />
+        <option value="$PROJECT_DIR$/version4/ace-master/jqgrid.html" />
+        <option value="$PROJECT_DIR$/version4/ace-master/Secretary.php" />
       </list>
     </option>
   </component>
@@ -325,45 +320,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/version2/table.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1037" column="60" selection-start-line="1037" selection-start-column="60" selection-end-line="1037" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version2/teacher.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version2/teacher.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="165" column="20" selection-start-line="165" selection-start-column="12" selection-end-line="165" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version2/assets/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="866" column="67" selection-start-line="827" selection-start-column="3" selection-end-line="866" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version2/sample.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/version2/dbManipulation.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -613,30 +569,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version2/assets/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1280" column="1" selection-start-line="1280" selection-start-column="1" selection-end-line="1280" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version2/viewStudent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="18" selection-start-line="0" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding>
-            <element signature="e#6#90#0#PHP" expanded="false" />
-            <marker date="1456602719071" expanded="true" signature="326:399" placeholder="Select * Fro... $" />
-            <marker date="1456602719071" expanded="true" signature="326:400" placeholder="Select * Fro... ${$year}" />
-            <marker date="1456602719071" expanded="true" signature="326:403" placeholder="Select * Fro... ${$year}" />
-            <marker date="1456602719071" expanded="true" signature="491:523" placeholder="/*echo 'docu... " />
-            <marker date="1456602719071" expanded="true" signature="615:1129" placeholder="..." />
-            <marker date="1456602719071" expanded="true" signature="800:1118" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/version1/code/admin_students_add.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0927835">
@@ -657,14 +589,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version2/Secretary.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.37037">
-          <caret line="467" column="14" selection-start-line="467" selection-start-column="14" selection-end-line="467" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/version3/pages/grid.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -677,14 +601,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6166395">
           <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version3/pages/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="941" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -727,16 +643,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version3/bower_components/datatables/media/js/jquery.dataTables.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="86.93104">
-          <caret line="15018" column="31" selection-start-line="15018" selection-start-column="31" selection-end-line="15018" selection-end-column="31" />
-          <folding>
-            <marker date="1456661465824" expanded="true" signature="114421:114446" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/version3/pages/teacher.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-17.37037">
@@ -760,9 +666,107 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/version3/js/ourScripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2364532">
+        <state vertical-scroll-proportion="-4.645161">
           <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version3/bower_components/datatables/media/js/jquery.dataTables.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17512275">
+          <caret line="15164" column="26" selection-start-line="15164" selection-start-column="26" selection-end-line="15164" selection-end-column="26" />
+          <folding>
+            <marker date="1456661465824" expanded="true" signature="114421:114446" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version3/pages/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="941" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version4/ace-master/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="2411" selection-end-column="0" />
+          <folding>
+            <marker date="1456664848132" expanded="true" signature="67334:67437" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version2/Secretary.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.3448277">
+          <caret line="94" column="135" selection-start-line="94" selection-start-column="135" selection-end-line="94" selection-end-column="135" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version2/assets/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="4.2140627">
+          <caret line="1137" column="9" selection-start-line="1137" selection-start-column="9" selection-end-line="1137" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version4/ace-master/assets/js/ourScripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="106" column="21" selection-start-line="106" selection-start-column="21" selection-end-line="106" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version4/ace-master/tables.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.3448277">
+          <caret line="638" column="43" selection-start-line="638" selection-start-column="36" selection-end-line="638" selection-end-column="43" />
+          <folding>
+            <marker date="1456664848132" expanded="true" signature="105151:105254" placeholder="..." />
+            <marker date="1456664848132" expanded="true" signature="109136:109266" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version4/ace-master/jqgrid.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.4827585">
+          <caret line="1502" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="1505" selection-end-column="0" />
+          <folding>
+            <marker date="1456668559168" expanded="true" signature="29215:29318" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version2/viewStudent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.666667">
+          <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
+          <folding>
+            <marker date="1456602719071" expanded="true" signature="326:399" placeholder="Select * Fro... $" />
+            <marker date="1456602719071" expanded="true" signature="326:400" placeholder="Select * Fro... ${$year}" />
+            <marker date="1456602719071" expanded="true" signature="326:403" placeholder="Select * Fro... ${$year}" />
+            <marker date="1456602719071" expanded="true" signature="491:523" placeholder="/*echo 'docu... " />
+            <marker date="1456602719071" expanded="true" signature="615:1129" placeholder="..." />
+            <marker date="1456602719071" expanded="true" signature="800:1118" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version4/ace-master/Secretary.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63784665">
+          <caret line="426" column="37" selection-start-line="426" selection-start-column="37" selection-end-line="426" selection-end-column="37" />
+          <folding>
+            <marker date="1456670439008" expanded="true" signature="23932:24038" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
