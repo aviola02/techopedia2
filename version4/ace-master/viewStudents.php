@@ -1,32 +1,35 @@
-<!--/**-->
-<!-- * Created by PhpStorm.-->
-<!-- * User: hamdy-->
-<!-- * Date: 2/24/16-->
-<!-- * Time: 1:16 PM-->
-<!-- */-->
-
-
-
                 <?php
-                include 'pullData.php';
 
-                $students = getData("Student");
-                $str = '[';
-                for($i=0; $i<sizeof($students); $i++){
-                    $str .= '<br>';
-                    $str .= '{fName:'."\"".$students[$i][2]."\",";
-                    $str .= 'lName:'."\"".$students[$i][3]."\",";
-                    $str .= 'id:'."\"".$students[$i][4]."\",";
-                    $str .= 'ecdlNum:'."\"".$students[$i][6]."\"},";
+
+                $str = $_REQUEST["q"];
+
+                $dbh= mysql_connect('phpmyadmin.in.cs.ucy.ac.cy','technopedia2','WbJPQrRav5')
+                or die("Couldn't connect to database.");
+
+                $db = mysql_select_db("technopedia2", $dbh)
+                or die("Couldn't select database.");
+
+                $sql = "Select FirstNameEnglish, LastNameEnglish, IdentityNo, ECDL_LogbookNo From " .$str;
+
+                $result = mysql_query($sql);
+
+
+                $str2 = '[';
+                while ($row = mysql_fetch_array($result)){
+
+                    $str2 .= '{fName:'."\"".$row['FirstNameEnglish']."\",";
+                    $str2 .= 'lName:'."\"".$row['LastNameEnglish']."\",";
+                    $str2 .= 'id:'."\"".$row['IdentityNo']."\",";
+                    $str2 .= 'ecdlNum:'."\"".$row['ECDL_LogbookNo']."\"},";
 
                 }
-                $str = substr($str,0,-1);
-                $str .= '<br>';
-                $str .= '];';
+
+                $str2 = substr($str2,0,-1);
+                $str2 .= ']';
 
 
-                echo $str;
-
+                echo $str2;
+                mysql_close($dbh);
 
 
 /*
