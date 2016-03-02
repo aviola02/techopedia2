@@ -50,6 +50,45 @@ function insert($table, $tableName){
 
 }
 
+function edit($table, $tableName){
+
+    $dbh= mysql_connect('phpmyadmin.in.cs.ucy.ac.cy','technopedia2','WbJPQrRav5')
+    or die("Couldn't connect to database.");
+
+    $db = mysql_select_db("technopedia2", $dbh)
+    or die("Couldn't select database.");
+    $i=0;
+
+    /*
+     *
+     * Change Code Here
+     *
+     *
+     *
+     * */
+    $columns = "UPDATE ".$tableName." SET ";
+
+    $readColNames = "SHOW COLUMNS FROM ".$tableName;
+    $result = mysql_query($readColNames);
+    while($row = mysql_fetch_array($result)) {
+        $columns .= $row['Field'] . " = " . $table[$i].", ";
+        $i++;
+    }
+
+    $columns = rtrim($columns,",");
+
+    $columns=$columns."WHERE ";
+    /*eminame dame*/
+
+    echo $columns;
+
+    mysql_query($columns);
+
+    mysql_close($dbh);
+
+
+}
+
 /**
  * @param $table
  * @param $tableName
@@ -93,6 +132,7 @@ function view($table, $tableName){
 
     mysql_close($dbh);
 }
+
 
 function checkValidLogin($username, $password){
     $tableName = "Staff";

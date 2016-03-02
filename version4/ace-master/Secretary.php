@@ -677,7 +677,7 @@
     </a>
 </div><!-- /.main-container -->
 
-<!-- The Modal -->
+<!-- The ADD Modal -->
 <div  id="myModal" class="modal">
 
     <!-- Modal content -->
@@ -696,7 +696,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Candidate ID: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" id="formName" name="formName"  class="col-xs-10 col-sm-5" />
+                            <input style="display: none" type="text" id="formName" name="formName"  class="col-xs-10 col-sm-5" />
                             <input type="text" name="field0" placeholder="Put Candidate ID..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
@@ -705,7 +705,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> First Name in Greek: </label>
 
                         <div class="col-sm-9">
-                            <input type="text"  name="field1" placeholder="First Name in Greek..." class="col-xs-10 col-sm-5" />
+                            <input required type="text"  name="field1" placeholder="First Name in Greek..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -713,7 +713,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Last Name in Greek: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" name="field2" placeholder="Last Name in Greek..." class="col-xs-10 col-sm-5" />
+                            <input required type="text" name="field2" placeholder="Last Name in Greek..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -721,7 +721,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> First Name: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" name="field3" placeholder="First Name in English..." class="col-xs-10 col-sm-5" />
+                            <input required type="text" name="field3" placeholder="First Name in English..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -729,7 +729,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Last Name: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" name="field4" placeholder="Last Name in English..." class="col-xs-10 col-sm-5" />
+                            <input required type="text" name="field4" placeholder="Last Name in English..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -737,7 +737,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Identity Number: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" name="field5" placeholder="ID..." class="col-xs-10 col-sm-5" />
+                            <input required type="text" name="field5" placeholder="ID..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -745,7 +745,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Identity Type: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" name="field6" placeholder="ID Type..." class="col-xs-10 col-sm-5" />
+                            <input required type="text" name="field6" placeholder="ID Type..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -753,7 +753,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> ECDL LogBook Number: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" name="field7" placeholder="ECDL LogBook Number..." class="col-xs-10 col-sm-5" />
+                            <input required type="text" name="field7" placeholder="ECDL LogBook Number..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -860,7 +860,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Home Phone: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" name="field14" placeholder="Home Phone..." class="col-xs-10 col-sm-5" />
+                            <input required type="text" name="field14" placeholder="Home Phone..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -884,7 +884,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> E-mail: </label>
 
                         <div class="col-sm-9">
-                            <input type="email" name="field17" placeholder="E-mail..." class="col-xs-10 col-sm-5" />
+                            <input type="email" pattern="[^ @]*@[^ @]*" name="field17" placeholder="E-mail..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -984,6 +984,312 @@
     </div>
 
 </div>
+<!--Edit modal-->
+<div  id="myEditModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+
+        <span class="close">×</span>
+
+        <h4 id = "label" class="blue bigger">Edit the Student</h4>
+        <div   class="row">
+            <div class="col-xs-12">
+                <!-- PAGE CONTENT BEGINS -->
+                <hr>
+                <form id="editForm" action="readForm.php" method="post" class="form-horizontal" role="form">
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Candidate ID: </label>
+
+                        <div class="col-sm-9">
+                            <input style="display: none" type="text" id="formName" name="formName"  class="col-xs-10 col-sm-5" />
+                            <input type="text" id="edit_field0" name="field0" placeholder="Put Candidate ID..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> First Name in Greek: </label>
+
+                        <div class="col-sm-9">
+                            <input required type="text" id="edit_field1"  name="field1" placeholder="First Name in Greek..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Last Name in Greek: </label>
+
+                        <div class="col-sm-9">
+                            <input required type="text" id="edit_field2" name="field2" placeholder="Last Name in Greek..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> First Name: </label>
+
+                        <div class="col-sm-9">
+                            <input required type="text" id="edit_field3" id="field3" name="edit_field3" placeholder="First Name in English..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Last Name: </label>
+
+                        <div class="col-sm-9">
+                            <input required type="text" id="edit_field4" name="field4" placeholder="Last Name in English..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Identity Number: </label>
+
+                        <div class="col-sm-9">
+                            <input required type="text" id="edit_field5" name="field5" placeholder="ID..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Identity Type: </label>
+
+                        <div class="col-sm-9">
+                            <input required type="text" id="edit_field6" name="field6" placeholder="ID Type..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> ECDL LogBook Number: </label>
+
+                        <div class="col-sm-9">
+                            <input required type="text" id="edit_field7" name="field7" placeholder="ECDL LogBook Number..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Date of Birth: </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" style="display: none" id="edit_field8" name="field8" id="field8" class="col-xs-10 col-sm-5" />
+
+                            <select onchange="getDate()" class="chosen-select form-control" id="Day" data-placeholder="Choose a Day...">
+                                <option value="01">1</option>
+                                <option value="02">2</option>
+                                <option value="03">3</option>
+                                <option value="04">4</option>
+                                <option value="05">5</option>
+                                <option value="06">6</option>
+                                <option value="07">7</option>
+                                <option value="08">8</option>
+                                <option value="09">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                            <br>
+                            <select onchange="getDate()" class="chosen-select form-control" id="Month" data-placeholder="Choose a Day...">
+                                <option value="01">January</option>
+                                <option value="02">February</option>
+                                <option value="03">March</option>
+                                <option value="04">April</option>
+                                <option value="05">May</option>
+                                <option value="06">June</option>
+                                <option value="07">July</option>
+                                <option value="08">August</option>
+                                <option value="09">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                            <br>
+                            <input onchange="getDate()" type="text" id="Year" value="2000" class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> First Address: </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" id="edit_field9" name="field9" placeholder="Address..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Second Address: </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" id="edit_field10" name="field10" placeholder="Second Address if exists..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> City: </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" id="edit_field11" name="field11" placeholder="City..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Town or Village: </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" id="edit_field12" name="field12" placeholder="Town or Village" class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> ZIP Code: </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" id="edit_field13" name="field13" placeholder="ZIP Code..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Home Phone: </label>
+
+                        <div class="col-sm-9">
+                            <input required type="text" id="edit_field14" name="field14" placeholder="Home Phone..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Mobile Phone: </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" id="edit_field15" name="field15" placeholder="Mobile Phone..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Work Phone: </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" id="edit_field16" name="field16" placeholder="Work Phone..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> E-mail: </label>
+
+                        <div class="col-sm-9">
+                            <input type="email" pattern="[^ @]*@[^ @]*" id="edit_field17" name="field17" placeholder="E-mail..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Test Center: </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" id="edit_field18" name="field18" placeholder="Test Center..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Registration Level: </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" id="edit_field19" name="field19" placeholder="Registration Level..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Father Name: </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" id="edit_field20" name="field20" placeholder="Father Name..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Father Job: </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" id="edit_field21" name="field21" placeholder="Father Job..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Father Phone: </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" id="edit_field22" name="field22" placeholder="Father Phone..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Mother Name: </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" id="edit_field23" name="field23" placeholder="Mother Name..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Mother Job: </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" id="edit_field24" name="field24" placeholder="Mother Job..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Mother Phone: </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" id="edit_field25" name="field25" placeholder="Mother Phone..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Document: </label>
+
+                        <div class="col-sm-9">
+                            <input type="file" id="edit_field26" name="field26" placeholder="Add a Document..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="clearfix form-actions">
+                        <div class="col-md-offset-3 col-md-9">
+                            <button class="btn btn-info" type="submit">
+                                <i class="ace-icon fa fa-check bigger-110"></i>
+                                Submit
+                            </button>
+
+                            &nbsp; &nbsp; &nbsp;
+                            <button class="btn" type="reset">
+                                <i class="ace-icon fa fa-undo bigger-110"></i>
+                                Reset
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <!-- PAGE CONTENT ENDS -->
+
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+
+
+    </div>
+    </div>
 
 <!-- basic scripts -->
 

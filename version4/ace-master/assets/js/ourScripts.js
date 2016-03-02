@@ -455,41 +455,15 @@ function showStudents(str){
 
 
         jQuery(grid_selector).jqGrid({
-            //direction: "rtl",
-
-            //subgrid options
-            subGrid : false,
-            //subGridModel: [{ name : ['No','Item Name','Qty'], width : [55,200,80] }],
-            //datatype: "xml",
-            subGridOptions : {
-                plusicon : "ace-icon fa fa-plus center bigger-110 blue",
-                minusicon  : "ace-icon fa fa-minus center bigger-110 blue",
-                openicon : "ace-icon fa fa-chevron-right center orange"
-            },
-            //for this example we are using local data
-            subGridRowExpanded: function (subgridDivId, rowId) {
-                var subgridTableId = subgridDivId + "_t";
-                $("#" + subgridDivId).html("<table id='" + subgridTableId + "'></table>");
-                $("#" + subgridTableId).jqGrid({
-                    datatype: 'local',
-                    data: subgrid_data,
-                    colNames: ['No','Item Name','Qty'],
-                    colModel: [
-                        { name: 'id', width: 50 },
-                        { name: 'name', width: 150 },
-                        { name: 'qty', width: 50 }
-                    ]
-                });
-            },
 
 
 
             data: grid_data,
             datatype: "local",
             height: 250,
-            colNames:[' ', 'First Name','Last Name','Identity Number', 'ECDL LogBook Number'],
+            colNames:['First Name','Last Name','Identity Number', 'ECDL LogBook Number'],
             colModel:[
-                {name:'myac',index:'', width:80, fixed:true, sortable:false, resize:false,
+               /* {name:'myac',index:'', width:80, fixed:true, sortable:false, resize:false,
                     formatter:'actions',
                     formatoptions:{
                         keys:true,
@@ -498,7 +472,7 @@ function showStudents(str){
                         delOptions:{recreateForm: true, beforeShowForm:beforeDeleteCallback},
                         //editformbutton:true, editOptions:{recreateForm: true, beforeShowForm:beforeEditCallback}
                     }
-                },
+                },*/
                 {name:'fName',index:'fName', width:150, editable: true, editoptions:{size:"20",maxlength:"30"}},
                 {name:'lName',index:'lName', width:150, editable: true, editoptions:{size:"20",maxlength:"30"}},
                 {name:'id',index:'id', width:150,editable: true, editoptions:{size:"20",maxlength:"30"}},
@@ -512,7 +486,7 @@ function showStudents(str){
             altRows: true,
             //toppager: true,
 
-            multiselect: true,
+            multiselect: false,
             //multikey: "ctrlKey",
             multiboxonly: true,
 
@@ -784,41 +758,110 @@ function showStudents(str){
         });
     });
 
-    kati2();
+    setAddButton();
+    setEditButton();
 
 }
 
-function kati2(){
+function setAddButton(){
 
-    // Get the modal
     var modal = document.getElementById('myModal');
-
-
-// Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
 
     document.getElementById('add_grid-table').onclick = function (){
+        document.getElementById("editmodgrid-table").style.display="none";
+        document.getElementById("cData").click();
         modal.style.display = "block";
-        //alert('Add');
     }
 
-// When the user clicks on <span> (x), close the modal
     span.onclick = function() {
         modal.style.display = "none";
     }
 
-// When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
         }
     }
 
-    document.getElementById('edit_grid-table').onclick = function (){ alert('Edit');}
-    //document.getElementById('TblGrid_staff-table').load.onclick = function (){ document.getElementById('TblGrid_staff-table').append('<tr id="haha" class="FormData" rowpos="5"></tr>');}
+}
+
+function setEditButton(){
+
+    var editModal = document.getElementById('myEditModal');
+    var editSpan = document.getElementsByClassName("close")[1];
+
+    document.getElementById('edit_grid-table').onclick = function (){
+        document.getElementById("editmodgrid-table").style.display="none";
+        document.getElementById("cData").click();
+        editModal.style.display = "block";
+        forOnTableRows();
+    }
+
+    editSpan.onclick = function() {
+        editModal.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+        if (event.target == editModal) {
+            editModal.style.display = "none";
+        }
+    }
 
 }
 
+function forOnTableRows(){
+    var rowID;
+    var table = document.getElementById("grid-table");
+    for (var i = 0, row; row = table.rows[i]; i++) {
+        if (row.getAttribute("aria-selected")){
+            rowID = row.getAttribute("id");
+            ajaxFillForm(rowID);
+            break;
+        }
+    }
+    document.getElementById("refresh_grid-table").click();
+}
+
+function ajaxFillForm(id){
+    var xmlhttp = null;
+    if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+    }
+    else{
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function(){
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+            handleJSON(xmlhttp.responseText);
+        }
+    }
+
+    xmlhttp.open("GET", "fillStudentForm.php?q="+id, false);
+    xmlhttp.send();
+}
+
+function handleJSON(params){
+    var json = JSON.parse(params);
+    var count=0;
+    var str="";
+    for(var i in json){
+
+        var key = i;
+        var val = json[i];
+        for(var j in val){
+
+            var sub_key = j;
+            var sub_val = val.j;
+            str=("edit_field" + count);
+            count++;
+            document.getElementById(str).value = json[0][sub_key];
+
+        }
+
+    }
+
+}
 function showStaff(str){
 
     //ajaxCall(str,"staff","staffTable");
