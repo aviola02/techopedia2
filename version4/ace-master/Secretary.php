@@ -997,14 +997,14 @@
             <div class="col-xs-12">
                 <!-- PAGE CONTENT BEGINS -->
                 <hr>
-                <form id="editForm" action="readForm.php" method="post" class="form-horizontal" role="form">
+                <form id="editForm" action="readEditForm.php" method="post" class="form-horizontal" role="form">
 
                     <div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Candidate ID: </label>
 
                         <div class="col-sm-9">
-                            <input style="display: none" type="text" id="formName" name="formName"  class="col-xs-10 col-sm-5" />
-                            <input type="text" id="edit_field0" name="field0" placeholder="Put Candidate ID..." class="col-xs-10 col-sm-5" />
+                            <input style="display: none" type="text" id="editFormName" name="editFormName"  class="col-xs-10 col-sm-5" />
+                            <input type="text" id="edit_field0" name="edit_field0" placeholder="Put Candidate ID..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1012,7 +1012,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> First Name in Greek: </label>
 
                         <div class="col-sm-9">
-                            <input required type="text" id="edit_field1"  name="field1" placeholder="First Name in Greek..." class="col-xs-10 col-sm-5" />
+                            <input required type="text" id="edit_field1"  name="edit_field1" placeholder="First Name in Greek..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1020,7 +1020,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Last Name in Greek: </label>
 
                         <div class="col-sm-9">
-                            <input required type="text" id="edit_field2" name="field2" placeholder="Last Name in Greek..." class="col-xs-10 col-sm-5" />
+                            <input required type="text" id="edit_field2" name="edit_field2" placeholder="Last Name in Greek..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1028,7 +1028,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> First Name: </label>
 
                         <div class="col-sm-9">
-                            <input required type="text" id="edit_field3" id="field3" name="edit_field3" placeholder="First Name in English..." class="col-xs-10 col-sm-5" />
+                            <input required type="text" id="edit_field3" id="edit_field3" name="edit_field3" placeholder="First Name in English..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1036,7 +1036,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Last Name: </label>
 
                         <div class="col-sm-9">
-                            <input required type="text" id="edit_field4" name="field4" placeholder="Last Name in English..." class="col-xs-10 col-sm-5" />
+                            <input required type="text" id="edit_field4" name="edit_field4" placeholder="Last Name in English..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1044,7 +1044,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Identity Number: </label>
 
                         <div class="col-sm-9">
-                            <input required type="text" id="edit_field5" name="field5" placeholder="ID..." class="col-xs-10 col-sm-5" />
+                            <input required type="text" id="edit_field5" name="edit_field5" placeholder="ID..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1052,7 +1052,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Identity Type: </label>
 
                         <div class="col-sm-9">
-                            <input required type="text" id="edit_field6" name="field6" placeholder="ID Type..." class="col-xs-10 col-sm-5" />
+                            <input required type="text" id="edit_field6" name="edit_field6" placeholder="ID Type..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1060,7 +1060,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> ECDL LogBook Number: </label>
 
                         <div class="col-sm-9">
-                            <input required type="text" id="edit_field7" name="field7" placeholder="ECDL LogBook Number..." class="col-xs-10 col-sm-5" />
+                            <input required type="text" id="edit_field7" name="edit_field7" placeholder="ECDL LogBook Number..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1068,9 +1068,9 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Date of Birth: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" style="display: none" id="edit_field8" name="field8" id="field8" class="col-xs-10 col-sm-5" />
+                            <input type="text" style="display: none" id="edit_field8" name="edit_field8" id="field8" class="col-xs-10 col-sm-5" />
 
-                            <select onchange="getDate()" class="chosen-select form-control" id="Day" data-placeholder="Choose a Day...">
+                            <select onchange="getDateForEdit()" class="chosen-select form-control" id="editDay" data-placeholder="Choose a Day...">
                                 <option value="01">1</option>
                                 <option value="02">2</option>
                                 <option value="03">3</option>
@@ -1104,7 +1104,7 @@
                                 <option value="31">31</option>
                             </select>
                             <br>
-                            <select onchange="getDate()" class="chosen-select form-control" id="Month" data-placeholder="Choose a Day...">
+                            <select onchange="getDateForEdit()" class="chosen-select form-control" id="editMonth" data-placeholder="Choose a Day...">
                                 <option value="01">January</option>
                                 <option value="02">February</option>
                                 <option value="03">March</option>
@@ -1119,7 +1119,7 @@
                                 <option value="12">December</option>
                             </select>
                             <br>
-                            <input onchange="getDate()" type="text" id="Year" value="2000" class="col-xs-10 col-sm-5" />
+                            <input onchange="getDateForEdit()" type="text" id="editYear" value="2000" class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1127,7 +1127,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> First Address: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" id="edit_field9" name="field9" placeholder="Address..." class="col-xs-10 col-sm-5" />
+                            <input type="text" id="edit_field9" name="edit_field9" placeholder="Address..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1135,7 +1135,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Second Address: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" id="edit_field10" name="field10" placeholder="Second Address if exists..." class="col-xs-10 col-sm-5" />
+                            <input type="text" id="edit_field10" name="edit_field10" placeholder="Second Address if exists..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1143,7 +1143,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> City: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" id="edit_field11" name="field11" placeholder="City..." class="col-xs-10 col-sm-5" />
+                            <input type="text" id="edit_field11" name="edit_field11" placeholder="City..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1151,7 +1151,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Town or Village: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" id="edit_field12" name="field12" placeholder="Town or Village" class="col-xs-10 col-sm-5" />
+                            <input type="text" id="edit_field12" name="edit_field12" placeholder="Town or Village" class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1159,7 +1159,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> ZIP Code: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" id="edit_field13" name="field13" placeholder="ZIP Code..." class="col-xs-10 col-sm-5" />
+                            <input type="text" id="edit_field13" name="edit_field13" placeholder="ZIP Code..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1167,7 +1167,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Home Phone: </label>
 
                         <div class="col-sm-9">
-                            <input required type="text" id="edit_field14" name="field14" placeholder="Home Phone..." class="col-xs-10 col-sm-5" />
+                            <input required type="text" id="edit_field14" name="edit_field14" placeholder="Home Phone..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1175,7 +1175,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Mobile Phone: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" id="edit_field15" name="field15" placeholder="Mobile Phone..." class="col-xs-10 col-sm-5" />
+                            <input type="text" id="edit_field15" name="edit_field15" placeholder="Mobile Phone..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1183,7 +1183,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Work Phone: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" id="edit_field16" name="field16" placeholder="Work Phone..." class="col-xs-10 col-sm-5" />
+                            <input type="text" id="edit_field16" name="edit_field16" placeholder="Work Phone..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1191,7 +1191,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> E-mail: </label>
 
                         <div class="col-sm-9">
-                            <input type="email" pattern="[^ @]*@[^ @]*" id="edit_field17" name="field17" placeholder="E-mail..." class="col-xs-10 col-sm-5" />
+                            <input type="email" pattern="[^ @]*@[^ @]*" id="edit_field17" name="edit_field17" placeholder="E-mail..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1199,7 +1199,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Test Center: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" id="edit_field18" name="field18" placeholder="Test Center..." class="col-xs-10 col-sm-5" />
+                            <input type="text" id="edit_field18" name="edit_field18" placeholder="Test Center..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1207,7 +1207,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Registration Level: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" id="edit_field19" name="field19" placeholder="Registration Level..." class="col-xs-10 col-sm-5" />
+                            <input type="text" id="edit_field19" name="edit_field19" placeholder="Registration Level..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1215,7 +1215,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Father Name: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" id="edit_field20" name="field20" placeholder="Father Name..." class="col-xs-10 col-sm-5" />
+                            <input type="text" id="edit_field20" name="edit_field20" placeholder="Father Name..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1223,7 +1223,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Father Job: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" id="edit_field21" name="field21" placeholder="Father Job..." class="col-xs-10 col-sm-5" />
+                            <input type="text" id="edit_field21" name="edit_field21" placeholder="Father Job..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1231,7 +1231,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Father Phone: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" id="edit_field22" name="field22" placeholder="Father Phone..." class="col-xs-10 col-sm-5" />
+                            <input type="text" id="edit_field22" name="edit_field22" placeholder="Father Phone..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1239,7 +1239,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Mother Name: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" id="edit_field23" name="field23" placeholder="Mother Name..." class="col-xs-10 col-sm-5" />
+                            <input type="text" id="edit_field23" name="edit_field23" placeholder="Mother Name..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1247,7 +1247,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Mother Job: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" id="edit_field24" name="field24" placeholder="Mother Job..." class="col-xs-10 col-sm-5" />
+                            <input type="text" id="edit_field24" name="edit_field24" placeholder="Mother Job..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1255,7 +1255,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Mother Phone: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" id="edit_field25" name="field25" placeholder="Mother Phone..." class="col-xs-10 col-sm-5" />
+                            <input type="text" id="edit_field25" name="edit_field25" placeholder="Mother Phone..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1263,7 +1263,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Document: </label>
 
                         <div class="col-sm-9">
-                            <input type="file" id="edit_field26" name="field26" placeholder="Add a Document..." class="col-xs-10 col-sm-5" />
+                            <input type="file" id="edit_field26" name="edit_field26" placeholder="Add a Document..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1290,6 +1290,232 @@
 
     </div>
     </div>
+<!--View modal-->
+<div  id="myViewModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+
+        <span class="close">×</span>
+
+        <h4 id = "label" class="blue bigger">View Student</h4>
+        <div   class="row">
+            <div class="col-xs-12">
+                <!-- PAGE CONTENT BEGINS -->
+                <div style="width: 100%" class="col-xs-12 col-sm-9">
+
+
+                    <div class="space-12"></div>
+
+                    <div id="studentView" class="profile-user-info profile-user-info-striped">
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> CandidateID</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field0"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> First Name Greek</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field1"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Last Name Greek</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field2"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> First Name English</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field3"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Last Name English</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field4"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Identity Number</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field5"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Identity Type</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field6"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> ECDL LogBook Number</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field7"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Date Of Birth</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field8"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Address 1</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field9"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Address 2</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field10"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> City</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field11"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Town Village</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field12"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Zip Code</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field13"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Home Phone</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field14"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Mobile Phone</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field15"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Work Phone</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field16"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Email</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field17"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Test Center</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field18"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Registration Level</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field19"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Father Name</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field20"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Father Job</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field21"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Father Phone</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field22"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Mother Name</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field23"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Mother Job</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field24"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Mother Phone</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field25"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Documents</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="view_field26"></span>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="space-20"></div>
+                <div class="space-6"></div>
+
+
+                </div>
+            </div>
+        </div>
+
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+
+
+    </div>
+
+
 
 <!-- basic scripts -->
 

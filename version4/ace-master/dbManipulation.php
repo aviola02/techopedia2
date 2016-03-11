@@ -59,26 +59,21 @@ function edit($table, $tableName){
     or die("Couldn't select database.");
     $i=0;
 
-    /*
-     *
-     * Change Code Here
-     *
-     *
-     *
-     * */
     $columns = "UPDATE ".$tableName." SET ";
 
     $readColNames = "SHOW COLUMNS FROM ".$tableName;
     $result = mysql_query($readColNames);
     while($row = mysql_fetch_array($result)) {
-        $columns .= $row['Field'] . " = " . $table[$i].", ";
+        $columns .= $row['Field'] . ' = "' . $table[$i].'", ';
         $i++;
     }
 
-    $columns = rtrim($columns,",");
+    $columns = substr($columns,0,strlen($columns) - 2);
 
-    $columns=$columns."WHERE ";
-    /*eminame dame*/
+    $columns=$columns." WHERE ";
+    if ($tableName == "Student"){
+        $columns.="CandidateID = ".$table[0];
+    }
 
     echo $columns;
 

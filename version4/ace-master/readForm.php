@@ -2,11 +2,10 @@
 <body>
 
 <?php
-function read($type)
-{
+
     $str = "field";
     $count = 0;
-    $table;
+    $table = null;
 
     /**
      * Creates table that includes all form's data.
@@ -21,11 +20,9 @@ function read($type)
         echo $value . '<br>';
     }
     include 'dbManipulation.php';
-    if ($type=="insert")
+
         insert($table, $tableName);
-    elseif ($type=="edit")
-        edit($table, $tableName);;
-}
+
 ?>
 
 

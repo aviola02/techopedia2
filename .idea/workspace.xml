@@ -25,11 +25,58 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Secretary.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/version4/ace-master/Secretary.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-19.038462">
+              <caret line="1310" column="45" selection-start-line="1310" selection-start-column="45" selection-end-line="1310" selection-end-column="45" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1457722339999" expanded="true" signature="69526:69632" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ourScripts.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/version4/ace-master/assets/js/ourScripts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.24610052">
+              <caret line="847" column="8" selection-start-line="847" selection-start-column="8" selection-end-line="847" selection-end-column="8" />
+              <folding>
+                <element signature="n#!!block;n#setAddButton#0" expanded="false" />
+                <element signature="n#!!block;n#setEditButton#0" expanded="false" />
+                <element signature="n#!!block;n#setViewButton#0" expanded="false" />
+                <element signature="n#!!block;n#forOnTableRows#0" expanded="false" />
+                <marker date="1457727337716" expanded="true" signature="56932:57938" placeholder="..." />
+                <marker date="1457727337716" expanded="true" signature="56982:57927" placeholder="..." />
+                <marker date="1457727337716" expanded="true" signature="57034:57915" placeholder="..." />
+                <marker date="1457727337716" expanded="true" signature="57085:57595" placeholder="..." />
+                <marker date="1457727337716" expanded="true" signature="57179:57196" placeholder="..." />
+                <marker date="1457727337716" expanded="true" signature="57266:57582" placeholder="..." />
+                <marker date="1457727337716" expanded="true" signature="57628:57902" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="deleteRecord.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/version4/ace-master/assets/js/deleteRecord.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.230769">
+              <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+              <folding>
+                <element signature="e#6#90#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="fillStudentForm.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/version4/ace-master/fillStudentForm.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.3773584">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state vertical-scroll-proportion="-4.576923">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="20" />
               <folding>
                 <marker date="1456945795821" expanded="true" signature="322:363" placeholder="Select * Fro... Student" />
               </folding>
@@ -37,41 +84,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Secretary.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version4/ace-master/Secretary.php">
+      <file leaf-file-name="pullData.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/version4/ace-master/pullData.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.2545457">
-              <caret line="1209" column="46" selection-start-line="1209" selection-start-column="46" selection-end-line="1209" selection-end-column="46" />
+            <state vertical-scroll-proportion="-13.076923">
+              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding>
-                <marker date="1456948972454" expanded="true" signature="59296:59402" placeholder="..." />
+                <element signature="e#6#91#0#PHP" expanded="false" />
+                <marker date="1457714032810" expanded="true" signature="383:431" placeholder="Select * Fro... ${$tableName}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ourScripts.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version4/ace-master/assets/js/ourScripts.js">
+      <file leaf-file-name="date.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/version4/ace-master/assets/js/date.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.827586">
-              <caret line="490" column="30" selection-start-line="490" selection-start-column="30" selection-end-line="490" selection-end-column="30" />
-              <folding>
-                <marker date="1456953264685" expanded="true" signature="53368:54374" placeholder="..." />
-                <marker date="1456953264685" expanded="true" signature="53418:54363" placeholder="..." />
-                <marker date="1456953264685" expanded="true" signature="53470:54351" placeholder="..." />
-                <marker date="1456953264685" expanded="true" signature="53521:54031" placeholder="..." />
-                <marker date="1456953264685" expanded="true" signature="53615:53632" placeholder="..." />
-                <marker date="1456953264685" expanded="true" signature="53702:54018" placeholder="..." />
-                <marker date="1456953264685" expanded="true" signature="54064:54338" placeholder="..." />
-              </folding>
+            <state vertical-scroll-proportion="0.0">
+              <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editStudent.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version4/ace-master/assets/js/editStudent.php">
+      <file leaf-file-name="readEditForm.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/version4/ace-master/readEditForm.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -80,8 +120,8 @@
       <file leaf-file-name="viewStudents.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/version4/ace-master/viewStudents.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.076923">
-              <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
               <folding>
                 <marker date="1456870429631" expanded="true" signature="354:428" placeholder="Select First... ${$str}" />
               </folding>
@@ -89,47 +129,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form-elements.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version4/ace-master/form-elements.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.65384614">
-              <caret line="1129" column="42" selection-start-line="1116" selection-start-column="36" selection-end-line="1129" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tables.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version4/ace-master/tables.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.3272727">
-              <caret line="636" column="46" selection-start-line="636" selection-start-column="46" selection-end-line="636" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dbManipulation.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dbManipulation.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/version4/ace-master/dbManipulation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.18965517">
-              <caret line="52" column="32" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="108" column="5" selection-start-line="101" selection-start-column="4" selection-end-line="108" selection-end-column="5" />
               <folding>
-                <marker date="1456956008699" expanded="true" signature="598:626" placeholder="INSERT INTO ${$tableName}... " />
-                <marker date="1456956008699" expanded="true" signature="1479:1495" placeholder="INSERT INTO ${$tableName}... " />
-                <marker date="1456956008699" expanded="true" signature="2782:2886" placeholder="Select * Fro... ${$tableName}" />
-                <marker date="1456956008699" expanded="true" signature="3097:3211" placeholder="..." />
+                <marker date="1457625675394" expanded="true" signature="598:626" placeholder="INSERT INTO ${$tableName}... " />
+                <marker date="1457625675394" expanded="true" signature="1410:1426" placeholder="INSERT INTO ${$tableName}... " />
+                <marker date="1457625675394" expanded="true" signature="2801:2905" placeholder="Select * Fro... ${$tableName}" />
+                <marker date="1457625675394" expanded="true" signature="3116:3230" placeholder="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="readForm.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version4/ace-master/readForm.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.423077">
-              <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -145,7 +155,10 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="WARN_ABOUT_CRLF" value="false" />
+    <option name="WARN_ABOUT_DETACHED_HEAD" value="false" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -175,15 +188,22 @@
         <option value="$PROJECT_DIR$/version4/ace-master/viewStaff.php" />
         <option value="$PROJECT_DIR$/version4/ace-master/assets/css/images/ourCSS.css" />
         <option value="$PROJECT_DIR$/version4/ace-master/form-wizard.html" />
-        <option value="$PROJECT_DIR$/version4/ace-master/assets/css/modals.css" />
         <option value="$PROJECT_DIR$/version4/ace-master/assets/js/jquery.jqGrid.min.js" />
-        <option value="$PROJECT_DIR$/version4/ace-master/assets/js/editStudent.php" />
         <option value="$PROJECT_DIR$/version4/ace-master/editStudent.php" />
         <option value="$PROJECT_DIR$/version4/ace-master/fillStudentForm.php" />
-        <option value="$PROJECT_DIR$/version4/ace-master/Secretary.php" />
-        <option value="$PROJECT_DIR$/version4/ace-master/assets/js/ourScripts.js" />
+        <option value="$PROJECT_DIR$/version4/ace-master/assets/js/editStudent.php" />
         <option value="$PROJECT_DIR$/version4/ace-master/readForm.php" />
+        <option value="$PROJECT_DIR$/version4/ace-master/readEditForm.php" />
+        <option value="$PROJECT_DIR$/version4/ace-master/assets/js/date.js" />
         <option value="$PROJECT_DIR$/version4/ace-master/dbManipulation.php" />
+        <option value="$PROJECT_DIR$/version4/ace-master/profile.html" />
+        <option value="$PROJECT_DIR$/version1/code/pullData.php" />
+        <option value="$PROJECT_DIR$/version4/ace-master/pullData.php" />
+        <option value="$PROJECT_DIR$/version4/ace-master/Secretary.php" />
+        <option value="$PROJECT_DIR$/version4/ace-master/assets/css/ace.min.css" />
+        <option value="$PROJECT_DIR$/version4/ace-master/assets/css/modals.css" />
+        <option value="$PROJECT_DIR$/version4/ace-master/assets/js/deleteRecord.php" />
+        <option value="$PROJECT_DIR$/version4/ace-master/assets/js/ourScripts.js" />
       </list>
     </option>
   </component>
@@ -199,7 +219,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1378" />
+    <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -227,8 +247,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -309,16 +327,18 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -368,10 +388,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22173275" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30966324" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -410,60 +430,11 @@
           <line>825</line>
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/version2/classNav.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-33.037037">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version2/assets/css/bootstrap-responsive.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="8" column="5189" selection-start-line="8" selection-start-column="5184" selection-end-line="8" selection-end-column="5189" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version2/table.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1037" column="60" selection-start-line="1037" selection-start-column="60" selection-end-line="1037" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version2/pullData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="51" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version2/readForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version1/code/admin_students_add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0927835">
-          <caret line="76" column="32" selection-start-line="76" selection-start-column="32" selection-end-line="264" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version2/viewFullStudent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/version3/pages/grid.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -549,13 +520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version4/ace-master/Teacher.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="428" column="23" selection-start-line="428" selection-start-column="23" selection-end-line="428" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/version4/ace-master/viewSchedule.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.46982056">
@@ -575,7 +539,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1313" column="2" selection-start-line="1136" selection-start-column="12" selection-end-line="1313" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -590,15 +553,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.990212">
           <caret line="1575" column="8" selection-start-line="1575" selection-start-column="8" selection-end-line="1770" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version4/ace-master/assets/css/modals.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49918434">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -612,9 +566,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/version4/ace-master/tables.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3272727">
+        <state vertical-scroll-proportion="0.0">
           <caret line="636" column="46" selection-start-line="636" selection-start-column="46" selection-end-line="636" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -681,15 +634,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3938294">
           <caret line="1292" column="48" selection-start-line="1292" selection-start-column="48" selection-end-line="1292" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version4/ace-master/form-elements.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="1129" column="42" selection-start-line="1116" selection-start-column="36" selection-end-line="1129" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -697,9 +641,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.811253">
           <caret line="1192" column="72" selection-start-line="1192" selection-start-column="68" selection-end-line="1192" selection-end-column="72" />
-          <folding>
-            <marker date="1456870429535" expanded="true" signature="67334:67437" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -707,7 +648,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -715,7 +655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.7">
           <caret line="94" column="135" selection-start-line="94" selection-start-column="135" selection-end-line="94" selection-end-column="135" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -723,11 +662,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3224138">
           <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-          <folding>
-            <marker date="1456870429333" expanded="true" signature="326:384" placeholder="Select First... ${$str}" />
-            <marker date="1456870429333" expanded="true" signature="599:999" placeholder="..." />
-            <marker date="1456870429333" expanded="true" signature="796:988" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -735,7 +669,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.2896552">
           <caret line="49" column="125" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="125" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -743,7 +676,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.61551726">
           <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -759,46 +691,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8241379">
           <caret line="41" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <marker date="1456594563282" expanded="true" signature="331:381" placeholder="Select * Fro... ScheduleStudent" />
-            <marker date="1456594563282" expanded="true" signature="551:707" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version4/ace-master/fillStudentForm.php">
+    <entry file="file://$PROJECT_DIR$/version4/ace-master/Teacher.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.3773584">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <marker date="1456945795821" expanded="true" signature="322:363" placeholder="Select * Fro... Student" />
-          </folding>
+        <state vertical-scroll-proportion="126.11539">
+          <caret line="428" column="23" selection-start-line="428" selection-start-column="23" selection-end-line="428" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version4/ace-master/Secretary.php">
+    <entry file="file://$PROJECT_DIR$/version4/ace-master/form-elements.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.2545457">
-          <caret line="1209" column="46" selection-start-line="1209" selection-start-column="46" selection-end-line="1209" selection-end-column="46" />
-          <folding>
-            <marker date="1456948972454" expanded="true" signature="59296:59402" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version4/ace-master/assets/js/ourScripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.827586">
-          <caret line="490" column="30" selection-start-line="490" selection-start-column="30" selection-end-line="490" selection-end-column="30" />
-          <folding>
-            <marker date="1456953264685" expanded="true" signature="53368:54374" placeholder="..." />
-            <marker date="1456953264685" expanded="true" signature="53418:54363" placeholder="..." />
-            <marker date="1456953264685" expanded="true" signature="53470:54351" placeholder="..." />
-            <marker date="1456953264685" expanded="true" signature="53521:54031" placeholder="..." />
-            <marker date="1456953264685" expanded="true" signature="53615:53632" placeholder="..." />
-            <marker date="1456953264685" expanded="true" signature="53702:54018" placeholder="..." />
-            <marker date="1456953264685" expanded="true" signature="54064:54338" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="0.11724138">
+          <caret line="1129" column="42" selection-start-line="1116" selection-start-column="36" selection-end-line="1129" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -806,37 +712,144 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version4/ace-master/readForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version4/ace-master/assets/js/date.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version4/ace-master/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.7317073">
+          <caret line="1022" column="0" selection-start-line="991" selection-start-column="40" selection-end-line="1056" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version1/code/pullData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14655173">
+          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version4/ace-master/readEditForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/version4/ace-master/viewStudents.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.076923">
-          <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
           <folding>
             <marker date="1456870429631" expanded="true" signature="354:428" placeholder="Select First... ${$str}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version4/ace-master/readForm.php">
+    <entry file="file://$PROJECT_DIR$/version4/ace-master/dbManipulation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.423077">
-          <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="108" column="5" selection-start-line="101" selection-start-column="4" selection-end-line="108" selection-end-column="5" />
+          <folding>
+            <marker date="1457625675394" expanded="true" signature="598:626" placeholder="INSERT INTO ${$tableName}... " />
+            <marker date="1457625675394" expanded="true" signature="1410:1426" placeholder="INSERT INTO ${$tableName}... " />
+            <marker date="1457625675394" expanded="true" signature="2801:2905" placeholder="Select * Fro... ${$tableName}" />
+            <marker date="1457625675394" expanded="true" signature="3116:3230" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version4/ace-master/pullData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.076923">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="e#6#91#0#PHP" expanded="false" />
+            <marker date="1457714032810" expanded="true" signature="383:431" placeholder="Select * Fro... ${$tableName}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version4/ace-master/assets/css/modals.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5862069">
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version4/ace-master/dbManipulation.php">
+    <entry file="file://$PROJECT_DIR$/version4/ace-master/assets/css/ace.min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18965517">
-          <caret line="52" column="32" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.58047014">
+          <caret line="0" column="272466" selection-start-line="0" selection-start-column="272466" selection-end-line="0" selection-end-column="272466" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version4/ace-master/Secretary.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.038462">
+          <caret line="1310" column="45" selection-start-line="1310" selection-start-column="45" selection-end-line="1310" selection-end-column="45" />
           <folding>
-            <marker date="1456956008699" expanded="true" signature="598:626" placeholder="INSERT INTO ${$tableName}... " />
-            <marker date="1456956008699" expanded="true" signature="1479:1495" placeholder="INSERT INTO ${$tableName}... " />
-            <marker date="1456956008699" expanded="true" signature="2782:2886" placeholder="Select * Fro... ${$tableName}" />
-            <marker date="1456956008699" expanded="true" signature="3097:3211" placeholder="..." />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1457722339999" expanded="true" signature="69526:69632" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version4/ace-master/fillStudentForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.576923">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="20" />
+          <folding>
+            <marker date="1456945795821" expanded="true" signature="322:363" placeholder="Select * Fro... Student" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version4/ace-master/assets/js/deleteRecord.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.230769">
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+          <folding>
+            <element signature="e#6#90#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version4/ace-master/assets/js/ourScripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24610052">
+          <caret line="847" column="8" selection-start-line="847" selection-start-column="8" selection-end-line="847" selection-end-column="8" />
+          <folding>
+            <element signature="n#!!block;n#setAddButton#0" expanded="false" />
+            <element signature="n#!!block;n#setEditButton#0" expanded="false" />
+            <element signature="n#!!block;n#setViewButton#0" expanded="false" />
+            <element signature="n#!!block;n#forOnTableRows#0" expanded="false" />
+            <marker date="1457727337716" expanded="true" signature="56932:57938" placeholder="..." />
+            <marker date="1457727337716" expanded="true" signature="56982:57927" placeholder="..." />
+            <marker date="1457727337716" expanded="true" signature="57034:57915" placeholder="..." />
+            <marker date="1457727337716" expanded="true" signature="57085:57595" placeholder="..." />
+            <marker date="1457727337716" expanded="true" signature="57179:57196" placeholder="..." />
+            <marker date="1457727337716" expanded="true" signature="57266:57582" placeholder="..." />
+            <marker date="1457727337716" expanded="true" signature="57628:57902" placeholder="..." />
           </folding>
         </state>
       </provider>
