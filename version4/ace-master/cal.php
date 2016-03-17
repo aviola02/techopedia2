@@ -1118,8 +1118,8 @@
         var y = date.getFullYear();
 
         var storedEvents='[';
-        storedEvents+='{id: \'123\', title: \'Examination1\',start: new Date(\'2016-03-14T04:50\'),end: new Date(\'2016-03-13T05:50\'),className: \'label-important\',color: \'#d15b47\'},';
-        storedEvents+='{id: \'123\',title: \'Event1\',start: new Date(\'2016-03-13T08:50\'),end: new Date(\'2016-03-13T010:50\'),className: \'label-important\',color: \'#a0a0a0\'}';
+        storedEvents+='{id: \'123\', title: \'Examination1\',start: new Date(\"2016-03-14T04:50\"),end: new Date(\'2016-03-13T05:50\'),className: \'label-important\',color: \'#d15b47\'},';
+        storedEvents+='{id: \'123\',location: \'somewhere\',title: \'Event1\',start: new Date(\'2016-03-13T08:50\'),end: new Date(\'2016-03-13T010:50\'),className: \'label-important\',color: \'#a0a0a0\'}';
         storedEvents+=']';
 
         var calendar = $('#calendar').fullCalendar({
@@ -1215,7 +1215,7 @@
                               <label>Change event ID &nbsp;</label>\
                               <input class="middle" autocomplete="off" type="text" value="' + calEvent.id + '" />\
 					          <label>Change event Start Time &nbsp;</label>\
-                              <input class="middle" autocomplete="off" type="text" value="' + calEvent.start + '" />\
+                              <input class="middle" autocomplete="off" type="text" value="' + calEvent.location + '" />\
                               <label>Change event End Time &nbsp;</label>\
                               <input class="middle" autocomplete="off" type="text" value="' + calEvent.end + '" />\
 					 <button type="submit" class="btn btn-sm btn-success"><i class="ace-icon fa fa-check"></i> Save</button>\
