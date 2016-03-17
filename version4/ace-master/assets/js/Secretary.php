@@ -51,7 +51,7 @@
     <![endif]-->
 </head>
 
-<body onload='setTitle("label", "formName"); setTitle("label","editFormName"); setTitle("staffLabel","staffFormName"); setTitle("staffLabel","staffEditFormName")' class="no-skin">
+<body onload="setTitle()" class="no-skin">
 <div id="navbar" class="navbar navbar-default">
     <script type="text/javascript">
         try{ace.settings.check('navbar' , 'fixed')}catch(e){}
@@ -156,7 +156,7 @@
 
         <ul class="nav nav-list">
             <li class="">
-                <a id = "showStudents" onclick=showStudents("Student")>
+                <a onclick=showStudents("Student")>
                     <i class="menu-icon glyphicon glyphicon-user"></i>
                     <span class="menu-text"> Students </span>
                 </a>
@@ -307,18 +307,18 @@
                         <table id="grid-table"></table>
 
                         <div id="grid-pager"></div>
-                        <script type="text/javascript">
-                            //var $path_base = ".";//in Ace demo this will be used for editurl parameter
-                        </script>
+
                         <hr>
                         <table id="staff-table"></table>
 
                         <div id="staff-pager"></div>
-                        <script type="text/javascript">
-                            //var $path_base = ".";//in Ace demo this will be used for editurl parameter
-                        </script>
+<!--                        <script type="text/javascript">-->
+<!--                            var $path_base = ".";//in Ace demo this will be used for editurl parameter-->
+<!--                        </script>-->
                         <hr>
 
+
+                        <hr>
 
 
                         <div class="row">
@@ -392,9 +392,9 @@
 <!---->
 <!---->
 <!---->
-<!--                        <!-- PAGE CONTENT ENDS -->
-<!--                    </div><!-- /.col -->
-<!--                </div><!-- /.row -->
+<!--                        <!-- PAGE CONTENT ENDS -->-->
+<!--                    </div><!-- /.col -->-->
+<!--                </div><!-- /.row -->-->
             </div><!-- /.page-content -->
         </div>
     </div><!-- /.main-content -->
@@ -431,7 +431,7 @@
 </div><!-- /.main-container -->
 
 <!-- The ADD Modal -->
-<div id="myModal" class="modal">
+<div  id="myModal" class="modal">
 
     <!-- Modal content -->
     <div class="modal-content">
@@ -444,13 +444,13 @@
                 <!-- PAGE CONTENT BEGINS -->
                 <hr>
                 <iframe name="dammy" onchange="addSubmitButton()" style="display: none"></iframe>
-                <form id="addForm" method="post" target="dammy" class="form-horizontal" role="form">
+                <form action="readForm.php" method="post" on onsubmit="return addSubmitButton()" target="dammy" class="form-horizontal" role="form">
 
                     <div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Candidate ID: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" id="formName" name="formName"  class="col-xs-10 col-sm-5" />
+                            <input style="display: none" type="text" id="formName" name="formName"  class="col-xs-10 col-sm-5" />
                             <input type="text" name="field0" placeholder="Put Candidate ID..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
@@ -515,9 +515,9 @@
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Date of Birth: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" name="field8" id="field8" class="col-xs-10 col-sm-5" value="2000-01-01" />
+                            <input type="text" style="display: none" name="field8" id="field8" class="col-xs-10 col-sm-5" />
 
-                            <select onchange='getDate("Day","Month","Year","field8")' class="chosen-select form-control" id="Day" data-placeholder="Choose a Day...">
+                            <select onchange="getDate()" class="chosen-select form-control" id="Day" data-placeholder="Choose a Day...">
                                 <option value="01">1</option>
                                 <option value="02">2</option>
                                 <option value="03">3</option>
@@ -551,7 +551,7 @@
                                 <option value="31">31</option>
                             </select>
                             <br>
-                            <select onchange='getDate("Day","Month","Year","field8")' class="chosen-select form-control" id="Month" data-placeholder="Choose a Day...">
+                            <select onchange="getDate()" class="chosen-select form-control" id="Month" data-placeholder="Choose a Day...">
                                 <option value="01">January</option>
                                 <option value="02">February</option>
                                 <option value="03">March</option>
@@ -566,7 +566,7 @@
                                 <option value="12">December</option>
                             </select>
                             <br>
-                            <input onchange='getDate("Day","Month","Year","field8")' type="text" id="Year" value="2000" class="col-xs-10 col-sm-5" />
+                            <input onchange="getDate()" type="text" id="Year" value="2000" class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -716,7 +716,7 @@
 
                     <div class="clearfix form-actions">
                         <div class="col-md-offset-3 col-md-9">
-                            <button class="btn btn-info" type="submit" onclick="addSubmitButton()">
+                            <button class="btn btn-info" type="submit">
                                 <i class="ace-icon fa fa-check bigger-110"></i>
                                 Submit
                             </button>
@@ -751,14 +751,14 @@
             <div class="col-xs-12">
                 <!-- PAGE CONTENT BEGINS -->
                 <hr>
-                <iframe name="dammy_edit" onchange="editSubmitButton()" style="display: none"></iframe>
-                <form id="editForm" method="post"   target="dammy_edit" class="form-horizontal" role="form">
+                <iframe name="dammy_edit" onchange="addSubmitButton()" style="display: none"></iframe>
+                <form id="editForm" action="readEditForm.php" method="post" onsubmit="return editSubmitButton()"  target="dammy_edit" class="form-horizontal" role="form">
 
                     <div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Candidate ID: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" id="editFormName" name="editFormName"  class="col-xs-10 col-sm-5" />
+                            <input style="display: none" type="text" id="editFormName" name="editFormName"  class="col-xs-10 col-sm-5" />
                             <input type="text" id="edit_field0" name="edit_field0" placeholder="Put Candidate ID..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
@@ -1024,7 +1024,7 @@
 
                     <div class="clearfix form-actions">
                         <div class="col-md-offset-3 col-md-9">
-                            <button class="btn btn-info" type="submit" onclick="editSubmitButton()">
+                            <button class="btn btn-info" type="submit">
                                 <i class="ace-icon fa fa-check bigger-110"></i>
                                 Submit
                             </button>
@@ -1270,494 +1270,9 @@
 
     </div>
 
-    <div  id="addStaffModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-
-            <span class="close">×</span>
-
-            <h4 id = "staffLabel" class="blue bigger">Add a Staff</h4>
-            <div   class="row">
-                <div class="col-xs-12">
-                    <!-- PAGE CONTENT BEGINS -->
-                    <hr>
-                    <iframe name="dammy2" ></iframe>
-                    <form id="addStaffForm" method="post" target="dammy2" class="form-horizontal" role="form">
-
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Username: </label>
-
-                            <div class="col-sm-9">
-                                <input  type="text" id="staffFormName" name="formName"  class="col-xs-10 col-sm-5" />
-                                <input type="text" name="field0" placeholder="Put Username..." class="col-xs-10 col-sm-5" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Staff Password: </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" name="field1" placeholder="Put Staff Password..." class="col-xs-10 col-sm-5" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> First Name: </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" name="field2" placeholder="Put Staff First Name..." class="col-xs-10 col-sm-5" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Last Name: </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" name="field3" placeholder="Put Staff Last Name..." class="col-xs-10 col-sm-5" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Date of Birth: </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" name="field4" id="addStaff_field4" value="2000-01-01" class="col-xs-10 col-sm-5" />
-
-                                <select onchange='getDate("StaffDay","StaffMonth","StaffYear","addStaff_field4")' class="chosen-select form-control" id="StaffDay" data-placeholder="Choose a Day...">
-                                    <option value="01">1</option>
-                                    <option value="02">2</option>
-                                    <option value="03">3</option>
-                                    <option value="04">4</option>
-                                    <option value="05">5</option>
-                                    <option value="06">6</option>
-                                    <option value="07">7</option>
-                                    <option value="08">8</option>
-                                    <option value="09">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
-                                    <option value="16">16</option>
-                                    <option value="17">17</option>
-                                    <option value="18">18</option>
-                                    <option value="19">19</option>
-                                    <option value="20">20</option>
-                                    <option value="21">21</option>
-                                    <option value="22">22</option>
-                                    <option value="23">23</option>
-                                    <option value="24">24</option>
-                                    <option value="25">25</option>
-                                    <option value="26">26</option>
-                                    <option value="27">27</option>
-                                    <option value="28">28</option>
-                                    <option value="29">29</option>
-                                    <option value="30">30</option>
-                                    <option value="31">31</option>
-                                </select>
-                                <br>
-                                <select onchange='getDate("StaffDay","StaffMonth","StaffYear","addStaff_field4")' class="chosen-select form-control" id="StaffMonth" data-placeholder="Choose a Day...">
-                                    <option value="01">January</option>
-                                    <option value="02">February</option>
-                                    <option value="03">March</option>
-                                    <option value="04">April</option>
-                                    <option value="05">May</option>
-                                    <option value="06">June</option>
-                                    <option value="07">July</option>
-                                    <option value="08">August</option>
-                                    <option value="09">September</option>
-                                    <option value="10">October</option>
-                                    <option value="11">November</option>
-                                    <option value="12">December</option>
-                                </select>
-                                <br>
-                                <input onchange='getDate("StaffDay","StaffMonth","StaffYear","addStaff_field4")' type="text" id="StaffYear" value="2000" class="col-xs-10 col-sm-5" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Mobile Phone: </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" name="field5" placeholder="Put Mobile Phone..." class="col-xs-10 col-sm-5" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Employee Academic Details: </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" name="field6" placeholder="Put Employee Academic Details..." class="col-xs-10 col-sm-5" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Employee Picture: </label>
-
-                            <div class="col-sm-9">
-                                <input type="file" name="field7" placeholder="Add Employee Picture..." class="col-xs-10 col-sm-5" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Date of Joining: </label>
-
-                            <div class="col-sm-9">
-                                <input type="text"name="field8" id="addStaff_field8" value="2000-01-01" class="col-xs-10 col-sm-5" />
-
-                                <select onchange='getDate("StaffDay2","StaffMonth2","StaffYear2","addStaff_field8")' class="chosen-select form-control" id="StaffDay2" data-placeholder="Choose a Day...">
-                                    <option value="01">1</option>
-                                    <option value="02">2</option>
-                                    <option value="03">3</option>
-                                    <option value="04">4</option>
-                                    <option value="05">5</option>
-                                    <option value="06">6</option>
-                                    <option value="07">7</option>
-                                    <option value="08">8</option>
-                                    <option value="09">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
-                                    <option value="16">16</option>
-                                    <option value="17">17</option>
-                                    <option value="18">18</option>
-                                    <option value="19">19</option>
-                                    <option value="20">20</option>
-                                    <option value="21">21</option>
-                                    <option value="22">22</option>
-                                    <option value="23">23</option>
-                                    <option value="24">24</option>
-                                    <option value="25">25</option>
-                                    <option value="26">26</option>
-                                    <option value="27">27</option>
-                                    <option value="28">28</option>
-                                    <option value="29">29</option>
-                                    <option value="30">30</option>
-                                    <option value="31">31</option>
-                                </select>
-                                <br>
-                                <select onchange='getDate("StaffDay2","StaffMonth2","StaffYear2","addStaff_field8")' class="chosen-select form-control" id="StaffMonth2" data-placeholder="Choose a Day...">
-                                    <option value="01">January</option>
-                                    <option value="02">February</option>
-                                    <option value="03">March</option>
-                                    <option value="04">April</option>
-                                    <option value="05">May</option>
-                                    <option value="06">June</option>
-                                    <option value="07">July</option>
-                                    <option value="08">August</option>
-                                    <option value="09">September</option>
-                                    <option value="10">October</option>
-                                    <option value="11">November</option>
-                                    <option value="12">December</option>
-                                </select>
-                                <br>
-                                <input onchange='getDate("StaffDay2","StaffMonth2","StaffYear2","addStaff_field8")' type="text" id="StaffYear2" value="2000" class="col-xs-10 col-sm-5" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Experience: </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" name="field9" placeholder="Put Experience..." class="col-xs-10 col-sm-5" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Employee Category: </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" name="field10" placeholder="Put Employee Category..." class="col-xs-10 col-sm-5" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Email: </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" name="field11" placeholder="Put Email..." class="col-xs-10 col-sm-5" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Date of Birth: </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" name="field12" id="addStaff_field12" value="admin" class="col-xs-10 col-sm-5" />
-
-                                <select onchange="getDate()" class="chosen-select form-control" id="Type" data-placeholder="Choose a Day...">
-                                    <option value="01">Admin</option>
-                                    <option value="02">Secretary</option>
-                                    <option value="03">Teacher</option>
-                                </select>
-
-                            </div>
-                        </div>
-
-                        <div class="clearfix form-actions">
-                            <div class="col-md-offset-3 col-md-9">
-                                <button class="btn btn-info" type="submit" onclick="addStaffSubmitButton()">
-                                    <i class="ace-icon fa fa-check bigger-110"></i>
-                                    Submit
-                                </button>
-
-                                &nbsp; &nbsp; &nbsp;
-                                <button class="btn" type="reset">
-                                    <i class="ace-icon fa fa-undo bigger-110"></i>
-                                    Reset
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                    <!-- PAGE CONTENT ENDS -->
-
-                </div><!-- /.col -->
-            </div><!-- /.row -->
 
 
-        </div>
-
-    </div>
-
-    <div  id="editStaffModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-
-            <span class="close">×</span>
-
-            <h4 id = "staffLabel" class="blue bigger">Add a Staff</h4>
-            <div   class="row">
-                <div class="col-xs-12">
-                    <!-- PAGE CONTENT BEGINS -->
-                    <hr>
-                    <iframe name="dammy2" ></iframe>
-                    <form id="editStaffForm" method="post" target="dammy2" class="form-horizontal" role="form">
-
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Username: </label>
-
-                            <div class="col-sm-9">
-                                <input  type="text" id="staffEditFormName" name="editFormName"  class="col-xs-10 col-sm-5" />
-                                <input type="text" name="edit_field0" id="edit_stafffield0" placeholder="Put Username..." class="col-xs-10 col-sm-5" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Staff Password: </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" name="edit_field1" id="edit_stafffield1" placeholder="Put Staff Password..." class="col-xs-10 col-sm-5" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> First Name: </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" name="edit_field2" id="edit_stafffield2" placeholder="Put Staff First Name..." class="col-xs-10 col-sm-5" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Last Name: </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" name="edit_field3" id="edit_stafffield3" placeholder="Put Staff Last Name..." class="col-xs-10 col-sm-5" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Date of Birth: </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" name="edit_field4" id="edit_stafffield4" id="addEditStaff_field4" value="2000-01-01" class="col-xs-10 col-sm-5" />
-
-                                <select onchange='getDate("editStaffDay","editStaffMonth","editStaffYear","addEditStaff_field4")' class="chosen-select form-control" id="editStaffDay" data-placeholder="Choose a Day...">
-                                    <option value="01">1</option>
-                                    <option value="02">2</option>
-                                    <option value="03">3</option>
-                                    <option value="04">4</option>
-                                    <option value="05">5</option>
-                                    <option value="06">6</option>
-                                    <option value="07">7</option>
-                                    <option value="08">8</option>
-                                    <option value="09">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
-                                    <option value="16">16</option>
-                                    <option value="17">17</option>
-                                    <option value="18">18</option>
-                                    <option value="19">19</option>
-                                    <option value="20">20</option>
-                                    <option value="21">21</option>
-                                    <option value="22">22</option>
-                                    <option value="23">23</option>
-                                    <option value="24">24</option>
-                                    <option value="25">25</option>
-                                    <option value="26">26</option>
-                                    <option value="27">27</option>
-                                    <option value="28">28</option>
-                                    <option value="29">29</option>
-                                    <option value="30">30</option>
-                                    <option value="31">31</option>
-                                </select>
-                                <br>
-                                <select onchange='getDate("editStaffDay","editStaffMonth","editStaffYear","addEditStaff_field4")' class="chosen-select form-control" id="editStaffMonth" data-placeholder="Choose a Day...">
-                                    <option value="01">January</option>
-                                    <option value="02">February</option>
-                                    <option value="03">March</option>
-                                    <option value="04">April</option>
-                                    <option value="05">May</option>
-                                    <option value="06">June</option>
-                                    <option value="07">July</option>
-                                    <option value="08">August</option>
-                                    <option value="09">September</option>
-                                    <option value="10">October</option>
-                                    <option value="11">November</option>
-                                    <option value="12">December</option>
-                                </select>
-                                <br>
-                                <input onchange='getDate("editStaffDay","editStaffMonth","editStaffYear","addEditStaff_field4")' type="text" id="editStaffYear" value="2000" class="col-xs-10 col-sm-5" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Mobile Phone: </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" name="edit_field5" id="edit_stafffield5" placeholder="Put Mobile Phone..." class="col-xs-10 col-sm-5" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Employee Academic Details: </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" name="edit_field6" id="edit_stafffield6" placeholder="Put Employee Academic Details..." class="col-xs-10 col-sm-5" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Date of Joining: </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" name="edit_field7" id="edit_stafffield7" id="addEditStaff_field8" value="2000-01-01" class="col-xs-10 col-sm-5" />
-
-                                <select onchange='getDate("editStaffDay2","editStaffMonth2","editStaffYear2","addEditStaff_field7")' class="chosen-select form-control" id="editStaffDay2" data-placeholder="Choose a Day...">
-                                    <option value="01">1</option>
-                                    <option value="02">2</option>
-                                    <option value="03">3</option>
-                                    <option value="04">4</option>
-                                    <option value="05">5</option>
-                                    <option value="06">6</option>
-                                    <option value="07">7</option>
-                                    <option value="08">8</option>
-                                    <option value="09">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
-                                    <option value="16">16</option>
-                                    <option value="17">17</option>
-                                    <option value="18">18</option>
-                                    <option value="19">19</option>
-                                    <option value="20">20</option>
-                                    <option value="21">21</option>
-                                    <option value="22">22</option>
-                                    <option value="23">23</option>
-                                    <option value="24">24</option>
-                                    <option value="25">25</option>
-                                    <option value="26">26</option>
-                                    <option value="27">27</option>
-                                    <option value="28">28</option>
-                                    <option value="29">29</option>
-                                    <option value="30">30</option>
-                                    <option value="31">31</option>
-                                </select>
-                                <br>
-                                <select onchange='getDate("editStaffDay2","editStaffMonth2","editStaffYear2","addEditStaff_field7")' class="chosen-select form-control" id="editStaffMonth2" data-placeholder="Choose a Day...">
-                                    <option value="01">January</option>
-                                    <option value="02">February</option>
-                                    <option value="03">March</option>
-                                    <option value="04">April</option>
-                                    <option value="05">May</option>
-                                    <option value="06">June</option>
-                                    <option value="07">July</option>
-                                    <option value="08">August</option>
-                                    <option value="09">September</option>
-                                    <option value="10">October</option>
-                                    <option value="11">November</option>
-                                    <option value="12">December</option>
-                                </select>
-                                <br>
-                                <input onchange='getDate("editStaffDay2","editStaffMonth2","editStaffYear2","addEditStaff_field7")' type="text" id="editStaffYear2" value="2000" class="col-xs-10 col-sm-5" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Experience: </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" name="edit_field8" id="edit_stafffield8" placeholder="Put Experience..." class="col-xs-10 col-sm-5" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Employee Category: </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" name="edit_field9" id="edit_stafffield9" placeholder="Put Employee Category..." class="col-xs-10 col-sm-5" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Email: </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" name="edit_field10" id="edit_stafffield10" placeholder="Put Email..." class="col-xs-10 col-sm-5" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Date of Birth: </label>
-
-                            <div class="col-sm-9">
-                                <input type="text" name="edit_field11" id="edit_stafffield11" value="admin" class="col-xs-10 col-sm-5" />
-
-                                <select class="chosen-select form-control" id="editType" data-placeholder="Choose a Day...">
-                                    <option value="01">Admin</option>
-                                    <option value="02">Secretary</option>
-                                    <option value="03">Teacher</option>
-                                </select>
-
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Employee Picture: </label>
-
-                                <div class="col-sm-9">
-                                    <input type="file" name="edit_field12" id="edit_stafffield12" placeholder="Add Employee Picture..." class="col-xs-10 col-sm-5" />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="clearfix form-actions">
-                            <div class="col-md-offset-3 col-md-9">
-                                <button class="btn btn-info" type="submit" onclick="editStaffSubmitButton()">
-                                    <i class="ace-icon fa fa-check bigger-110"></i>
-                                    Submit
-                                </button>
-
-                                &nbsp; &nbsp; &nbsp;
-                                <button class="btn" type="reset">
-                                    <i class="ace-icon fa fa-undo bigger-110"></i>
-                                    Reset
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                    <!-- PAGE CONTENT ENDS -->
-
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-
-
-        </div>
-
-    </div>
-
-
-
-    <!-- basic scripts -->
+<!-- basic scripts -->
 
 <!--[if !IE]> -->
 <script src="assets/js/jquery.2.1.1.min.js"></script>

@@ -55,6 +55,7 @@ echo '</ul>
         <ul class="submenu">';
 
 
+
 $sql = "Select * From Class Where "."`TeacherUsername` = '".$username."' And `Year` != '".date("Y")."'";
 $result = mysql_query($sql);
 while($row = mysql_fetch_array($result)){
@@ -69,9 +70,24 @@ while($row = mysql_fetch_array($result)){
     /*<li><a href="form-general.html"><i class="icon-angle-right"></i> General</a></li>*/
 }
 
-
 echo '</ul>
-      </li>';
+    </li>
+            <li class="">
+                <a href="#" onclick = createTimetable()>
+                    <i class="menu-icon fa fa-calendar"></i>
+
+							<span class="menu-text">
+								Timetable
+
+								<span class="badge badge-transparent tooltip-error" title="2 Important Events">
+									<i class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>
+								</span>
+							</span>
+                </a>
+
+                <b class="arrow"></b>';
+
+echo '</li>';
 
 
 mysql_close($dbh);

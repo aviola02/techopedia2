@@ -1,6 +1,3 @@
-<html>
-<body>
-
 <?php
 /**
  * Created by PhpStorm.
@@ -8,13 +5,8 @@
  * Date: 2/15/2016
  * Time: 12:25 AM
  */
-
-function getData($tableName){
-
-    $count=0;
-//    $table;
-//$tableName = "Class";
-
+    $tableName = $_REQUEST["q2"];
+    $id= $_REQUEST["q"];
 
     $dbh= mysql_connect('phpmyadmin.in.cs.ucy.ac.cy','technopedia2','WbJPQrRav5')
     or die("Couldn't connect to database.");
@@ -23,26 +15,13 @@ function getData($tableName){
     or die("Couldn't select database.");
 
 
-    $sql = "Select * From ".$tableName;
-
+    $sql = "Select * From ".$tableName." WHERE IdentityNo = ".$id;
     $result = mysql_query($sql);
-
-    while ($row = mysql_fetch_array($result)) {
-        $table[$count]=$row;
-        $count++;
+    $r = array();
+    while ($row = mysql_fetch_assoc($result)){
+        $r[]=$row;
     }
+    echo json_encode($r);
+
 
     mysql_close($dbh);
-
-    include "dbManipulation.php";
-
-    $results=view($table, $tableName);
-
-    return $results;
-
-}
-
-?>
-
-</body>
-</html>

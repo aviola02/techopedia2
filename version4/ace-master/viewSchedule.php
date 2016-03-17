@@ -36,7 +36,7 @@ $result = mysql_query($sql);
 
 $str2 = '[';
 while ($row = mysql_fetch_array($result)){
-    $str2 .= '{pCode:'."\"".$row['ProgramCode']."\",";
+    $str2 .= '{id:'."\"".$row['ProgramCode']."\",";
     $str2 .= 'topic:'."\"".$row['Topic']."\",";
     $str2 .= 'exercises:'."\"".$row['Exercises']."\",";
     $str2 .= 'notes:'."\"".$row['Notes']."\"},";

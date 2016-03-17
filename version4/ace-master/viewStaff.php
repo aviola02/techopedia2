@@ -9,7 +9,7 @@ or die("Couldn't connect to database.");
 $db = mysql_select_db("technopedia2", $dbh)
 or die("Couldn't select database.");
 
-$sql = "Select FirstName, LastName, MobilePhone, Email From " .$str;
+$sql = "Select Username, FirstName, LastName, MobilePhone, Email From " .$str;
 
 $result = mysql_query($sql);
 
@@ -19,6 +19,7 @@ while ($row = mysql_fetch_array($result)){
 
     $str2 .= '{fName:'."\"".$row['FirstName']."\",";
     $str2 .= 'lName:'."\"".$row['LastName']."\",";
+    $str2 .= 'id:'."\"".$row['Username']."\",";
     $str2 .= 'Phone:'."\"".$row['MobilePhone']."\",";
     $str2 .= 'email:'."\"".$row['Email']."\"},";
 
