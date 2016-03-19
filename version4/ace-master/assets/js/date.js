@@ -50,6 +50,7 @@ function setDate(){
     document.getElementById("editYear").value = year;
 }
 
+<<<<<<< HEAD
 function setTitle(label,dest) {
     var el = document.getElementById(label);
     var text = el.innerHTML;
@@ -57,4 +58,13 @@ function setTitle(label,dest) {
     sptext= text.split(" ");
     document.getElementById(dest).value = sptext[2];
     //document.getElementById("editFormName").value = sptext[2];
+=======
+function setTitle() {
+    var el = document.getElementById("label");
+    var text = el.innerHTML;
+    var sptext;
+    sptext= text.split(" ");
+    document.getElementById("formName").value = sptext[2];
+    document.getElementById("editFormName").value = sptext[2];
+>>>>>>> 16ac76dc582df28e5c4358223e3a7e3f07968021
 }
