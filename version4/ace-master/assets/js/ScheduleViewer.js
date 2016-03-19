@@ -1,46 +1,55 @@
-/**
- * Created by hamdy on 3/11/16.
- */
-
-
-function ajaxCall(str,category,tableBody){
-
-
-    var xmlhttp = null;
-    if (window.XMLHttpRequest) {
-        xmlhttp = new XMLHttpRequest();
-    }
-    else{
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange = function(){
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-
-            return xmlhttp.responseText;
-
-            //return kati;
-
-        }
-    }
-
-    if (category=="schedule"){
-        xmlhttp.open("GET", "viewSchedule.php?q="+str, false);
-    } else if (category=="students"){
-        xmlhttp.open("GET", "viewStudents.php?q="+str, false);
-    } else if (category=="staff"){
-        xmlhttp.open("GET", "viewStaff.php?q="+str, false);
-    }
-
-    xmlhttp.send();
-    return xmlhttp.onreadystatechange();
-    //table.fnDestroy();
-}
+///**
+// * Created by hamdy on 3/11/16.
+// */
+//
+//
+//function ajaxCall(str,category,tableBody){
+//
+//
+//    var xmlhttp = null;
+//    if (window.XMLHttpRequest) {
+//        xmlhttp = new XMLHttpRequest();
+//    }
+//    else{
+//        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+//    }
+//    xmlhttp.onreadystatechange = function(){
+//        if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+//
+//            return xmlhttp.responseText;
+//
+//            //return kati;
+//
+//        }
+//    }
+//
+//    if (category=="schedule"){
+//        xmlhttp.open("GET", "viewSchedule.php?q="+str, false);
+//    } else if (category=="students"){
+//        xmlhttp.open("GET", "viewStudents.php?q="+str, false);
+//    } else if (category=="staff"){
+//        xmlhttp.open("GET", "viewStaff.php?q="+str, false);
+//    } else if (category=="attend"){
+//        alert("Hello");
+//        xmlhttp.open("GET", "viewStudPerCor.php?="+str, false);
+//    }
+//
+//    xmlhttp.send();
+//    return xmlhttp.onreadystatechange();
+//    //table.fnDestroy();
+//}
 
 
 function showSchedule(str){
 
-    var grid_data= eval(ajaxCall(str,"schedule","studentsTable"));
     $("#grid-table").jqGrid('GridUnload');
+    $("#subgridTable").jqGrid('GridUnload');
+    var grid_data= eval(ajaxCall(str,"schedule"));
+
+    var subgrid_data=eval(ajaxCall(str,"attend"));
+
+
+    //var subgrid_data = eval();
     jQuery(function($) {
 
         var grid_selector = "#grid-table";
@@ -83,19 +92,45 @@ function showSchedule(str){
         jQuery(grid_selector).jqGrid({
             //direction: "rtl",
 
+            //subgrid options
+            subGrid : true,
+            //subGridModel: [{ name : ['No','Item Name','Qty'], width : [55,200,80] }],
+            //datatype: "xml",
+            subGridOptions : {
+                plusicon : "ace-icon fa fa-plus center bigger-110 blue",
+                minusicon  : "ace-icon fa fa-minus center bigger-110 blue",
+                openicon : "ace-icon fa fa-chevron-right center orange"
+            },
+            //for this example we are using local data
+            subGridRowExpanded: function (subgridDivId, rowId) {
+                var subgridTableId = subgridDivId + "_t";
+                $("#" + subgridDivId).html("<table id='" + subgridTableId + "'></table>");
+                $("#" + subgridTableId).jqGrid({
+                    datatype: 'local',
+                    data: subgrid_data,
+                    colNames: ['CandidateID','FirstName','LastName', 'CheckBox'],
+                    colModel: [
+                        { name: 'CandidateID', width: 150 },
+                        { name: 'FirstName', width: 150 },
+                        { name: 'LastName', width: 150 },
+                        { name: 'CheckBox', width: 150 }
+                    ]
+                });
+            },
+
             data: grid_data,
             datatype: "local",
             height: 250,
             colNames:[' ', 'Program Code','Topic','Exercises', 'Notes'],
             colModel:[
-                {/*name:'myac',index:'', width:80, fixed:true, sortable:false, resize:false,
+                {name:'myac',index:'', width:80, fixed:true, sortable:false, resize:false,
                     formatter:'actions',
                     formatoptions:{
                         keys:true,
-                        //delbutton: false,//disable delete button
-                        delOptions:{recreateForm: true, beforeShowForm:beforeDeleteCallback},
-                        //editformbutton:true, editOptions:{recreateForm: true, beforeShowForm:beforeEditCallback}
-                    }*/
+                        delbutton: false,//disable delete button
+                        //delOptions:{recreateForm: false},
+                        //editformbutton:false, editOptions:{recreateForm: false}
+                    }
                 },
                 {name:'id',index:'pCode', width:150, editable: true, editoptions:{size:"20",maxlength:"30"}},
                 {name:'topic',index:'topic', width:150, editable: true, editoptions:{size:"20",maxlength:"30"}},
@@ -383,3 +418,17 @@ function showSchedule(str){
     });
 
 }
+
+
+//a.fn.fmatter.act=function(b,c){
+//    var d,e={
+//        keys:!1,
+//        editbutton:!0,
+//        delbutton:!0,
+//        //editformbutton:!1
+//    },
+//        //f=c.rowId,
+//        g="";
+//    //return void 0!==c.colModel.formatoptions&&(e=a.extend(e,c.colModel.formatoptions)),
+//    //    void 0===f||a.fmatter.isEmpty(f)?"":(e.editformbutton?(d="id='jEditButton_"))
+//}
