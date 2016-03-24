@@ -39,18 +39,17 @@ function getDateForEdit(){
 
 
 
-function setDate(){
-    var fullDateField = document.getElementById("edit_field8").value;
+function setDate(date,s,m,y){
+    var fullDateField = document.getElementById(date).value;
     var sptext= fullDateField.split("-");
     var year = sptext[0];
     var month = sptext[1];
     var day = sptext[2];
-    document.getElementById("editDay").value = day;
-    document.getElementById("editMonth").value = month;
-    document.getElementById("editYear").value = year;
+    document.getElementById(s).value = day;
+    document.getElementById(m).value = month;
+    document.getElementById(y).value = year;
 }
 
-<<<<<<< HEAD
 function setTitle(label,dest) {
     var el = document.getElementById(label);
     var text = el.innerHTML;
@@ -58,13 +57,24 @@ function setTitle(label,dest) {
     sptext= text.split(" ");
     document.getElementById(dest).value = sptext[2];
     //document.getElementById("editFormName").value = sptext[2];
-=======
-function setTitle() {
-    var el = document.getElementById("label");
-    var text = el.innerHTML;
-    var sptext;
-    sptext= text.split(" ");
-    document.getElementById("formName").value = sptext[2];
-    document.getElementById("editFormName").value = sptext[2];
->>>>>>> 16ac76dc582df28e5c4358223e3a7e3f07968021
+}
+
+function selectBoxToTextBox(combo,text){
+    var cb = document.getElementById(combo);
+    var cb_value = cb.options[cb.selectedIndex].text;
+
+    var dest = document.getElementById(text);
+    dest.value = cb_value;
+}
+
+function textBoxToSelectBox(text, combo){
+    var text_value = document.getElementById(text).value;
+    var cb = document.getElementById(combo);
+    if (text_value == "Admin")
+        cb.selectedIndex = "0";
+    else if (text_value == "Secretary")
+        cb.selectedIndex = "1";
+    else if (text_value == "Teacher")
+        cb.selectedIndex = "2";
+
 }

@@ -22,7 +22,7 @@ $result = mysql_query($sql);
 
 while ($row = mysql_fetch_array($result)){
 
-    $str2 .= '{id:'."'".$row['ModuleCode'].$row['ExamCode']."',";
+    $str2 .= '{id:'."'".$row['ModuleCode']." ".$row['ExamCode']."',";
     $str2 .= 'title:'."'".$row['ExamTitle']."',";
     $str2 .= 'start: new Date('."'".$row['ExamSessionDate']."T".$row['StartTime']."'),";
 //    $str2 .= 'end: new Date('."'".$row['Date']."T".$row['EndTime']."'),";

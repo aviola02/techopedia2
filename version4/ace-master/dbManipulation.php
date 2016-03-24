@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Created by PhpStorm.
@@ -42,6 +41,7 @@ function insert($table, $tableName){
     $columns=$columns.");";
 
 
+
     echo $columns;
     mysql_query($columns);
 
@@ -57,7 +57,6 @@ function edit($table, $tableName){
     $db = mysql_select_db("technopedia2", $dbh)
     or die("Couldn't select database.");
     $i=0;
-
     $columns = "UPDATE ".$tableName." SET ";
 
     $readColNames = "SHOW COLUMNS FROM ".$tableName;
@@ -75,47 +74,20 @@ function edit($table, $tableName){
     }
     elseif($tableName == "Staff")
         $columns.="Username = '".$table[0]."'";
+    elseif ($tableName == "Event")
+        $columns.="Number = ".$table[0];
+    elseif ($tableName == "Exam")
+        $columns.="ExamCode = ".$table[0];
+    elseif ($tableName == "Class")
+        $columns.="CourseName = '".$table[0]."' AND ClassNo = ".$table[1]." AND Year = ".$table[2];
+
     echo $columns;
     mysql_query($columns);
 
     mysql_close($dbh);
 
-
 }
 
-function edit($table, $tableName){
-
-    $dbh= mysql_connect('phpmyadmin.in.cs.ucy.ac.cy','technopedia2','WbJPQrRav5')
-    or die("Couldn't connect to database.");
-
-    $db = mysql_select_db("technopedia2", $dbh)
-    or die("Couldn't select database.");
-    $i=0;
-
-    $columns = "UPDATE ".$tableName." SET ";
-
-    $readColNames = "SHOW COLUMNS FROM ".$tableName;
-    $result = mysql_query($readColNames);
-    while($row = mysql_fetch_array($result)) {
-        $columns .= $row['Field'] . ' = "' . $table[$i].'", ';
-        $i++;
-    }
-
-    $columns = substr($columns,0,strlen($columns) - 2);
-
-    $columns=$columns." WHERE ";
-    if ($tableName == "Student"){
-        $columns.="CandidateID = ".$table[0];
-    }
-
-    echo $columns;
-
-    mysql_query($columns);
-
-    mysql_close($dbh);
-
-
-}
 
 /**
  * @param $table
@@ -184,10 +156,27 @@ function checkValidLogin($username, $password){
                     break;
                 }
                 case 'Secretary':{ //if user is secretary
+                    session_start();
+                    $_SESSION["username"] = $row['Username'];
+                    $_SESSION["Type"]=$row['Type'];
+                    $_SESSION["FirstName"]=$row['FirstName'];
+                    $_SESSION["LastName"]=$row['LastName'];
+                    $_SESSION["DateOfBirth"]=$row['DateOfBirth'];
+                    $_SESSION["MobilePhone"]=$row['MobilePhone'];
+                    $_SESSION["Email"]=$row['Email'];
                     Include "Secretary.php";
                     break;
                 }
                 case 'Teacher':{ //if user is teacher
+
+                    session_start();
+                    $_SESSION["username"] = $row['Username'];
+                    $_SESSION["Type"]=$row['Type'];
+                    $_SESSION["FirstName"]=$row['FirstName'];
+                    $_SESSION["LastName"]=$row['LastName'];
+                    $_SESSION["DateOfBirth"]=$row['DateOfBirth'];
+                    $_SESSION["MobilePhone"]=$row['MobilePhone'];
+                    $_SESSION["Email"]=$row['Email'];
                     Include "Teacher.php";
                     break;
                 }

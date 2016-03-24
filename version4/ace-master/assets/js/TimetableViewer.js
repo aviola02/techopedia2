@@ -34,6 +34,8 @@ function ajaxCall(str,category){
         xmlhttp.open("GET", "viewExams.php?q="+str, false);
     } else if (category=="attend"){
         xmlhttp.open("GET", "viewStudPerCor.php?q="+str, false);
+    } else if (category=="class"){
+        xmlhttp.open("GET", "viewClass.php?q="+str, false);
     }
 
     xmlhttp.send();
@@ -112,90 +114,52 @@ function createTimetable(){
             selectable: true,
             selectHelper: true,
             select: function(start, end, allDay) {
+                var answer = prompt("Type \"Event\" to addevent or \"Exam\" to add an exam.");
+                var x=start._d;
+                var fullDate= x.toLocaleString();
+                var sptext = fullDate.split(",");
+                var date = sptext[0];
+                var hour = sptext[1];
+                var sptext2=date.split("/");
+                var correctday = sptext2[2] + "-" +sptext2[0] + "-" + sptext2[1]; //Actual Event Date
 
-                //display a modal
-                var modal =
-                    '<div id="myModal" class="modal">\
-                <div class="modal-content">\
-                    <span class="close">×</span>\
-                <h4 id = "label" class="blue bigger">Add an Event</h4>\
-                <div   class="row">\
-                    <div class="col-xs-12">\
-                <hr>\
-                <iframe name="dammy" onchange="addSubmitButton()" style="display: none"></iframe>\
-                    <form id="addForm" method="post" target="dammy" class="form-horizontal" role="form">\
-                    <div class="form-group">\
-                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Event Number: </label>\
-                <div class="col-sm-9">\
-                    <input type="text" id="formName" name="formName"  class="col-xs-10 col-sm-5" />\
-                    <input type="text" name="field0" placeholder="Here goes the event Number" class="col-xs-10 col-sm-5" />\
+
+                var flag = false;
+                while (!flag) {
+                if (answer==null){
+                    return;
+                }
+                else if (answer == "Event") {
+                        //display a modal
+                        var modal =
+                            '<div id="addEventModal" class="modal">\
+                        <div class="modal-content">\
+                            <span class="close">×</span>\
+                        <h4 id = "label" class="blue bigger">Add an Event</h4>\
+                        <div   class="row">\
+                            <div class="col-xs-12">\
+                        <hr>\
+                        <iframe style="display: none" name="dammy"></iframe>\
+                            <form id="addForm" method="post" target="dammy" class="form-horizontal" role="form">\
+                            <div class="form-group">\
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Event Number: </label>\
+                        <div class="col-sm-9">\
+                            <input style="display: none" type="text" id="formName" name="formName" value="Event"  class="col-xs-10 col-sm-5" />\
+                            <input required type="text" name="field0" placeholder="Here goes the event Number" class="col-xs-10 col-sm-5" />\
+                            </div>\
+                            </div>\
+                            <div class="form-group">\
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Name of the Event: </label>\
+                        <div class="col-sm-9">\
+                            <input required type="text"  name="field1" placeholder="What is the name of the new Event..." class="col-xs-10 col-sm-5" />\
+                            </div>\
+                            </div>\
+                            <div style="display: none" class="form-group">\
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Date: </label>\
+                        <div class="col-sm-9">\
+                            <input type="text" name="field2" id="field2" class="col-xs-10 col-sm-5" value="' + correctday + '"/>\
                     </div>\
                     </div>\
-                    <div class="form-group">\
-                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Name of the Event: </label>\
-                <div class="col-sm-9">\
-                    <input required type="text"  name="field1" placeholder="What is the name of the new Event..." class="col-xs-10 col-sm-5" />\
-                    </div>\
-                    </div>\
-                    <div class="form-group">\
-                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Date: </label>\
-\
-                <div class="col-sm-9">\
-                    <input type="text" name="field2" id="field2" class="col-xs-10 col-sm-5" value="2000-01-01" />\
-\
-                    <select onchange=\'getDate("Day","Month","Year","field8")\' class="chosen-select form-control" id="Day" data-placeholder="Choose a Day...">\
-                    <option value="01">1</option>\
-                    <option value="02">2</option>\
-                    <option value="03">3</option>\
-                    <option value="04">4</option>\
-                    <option value="05">5</option>\
-                    <option value="06">6</option>\
-                    <option value="07">7</option>\
-                    <option value="08">8</option>\
-                    <option value="09">9</option>\
-                    <option value="10">10</option>\
-                    <option value="11">11</option>\
-                    <option value="12">12</option>\
-                    <option value="13">13</option>\
-                    <option value="14">14</option>\
-                    <option value="15">15</option>\
-                    <option value="16">16</option>\
-                    <option value="17">17</option>\
-                    <option value="18">18</option>\
-                    <option value="19">19</option>\
-                    <option value="20">20</option>\
-                    <option value="21">21</option>\
-                    <option value="22">22</option>\
-                    <option value="23">23</option>\
-                    <option value="24">24</option>\
-                    <option value="25">25</option>\
-                    <option value="26">26</option>\
-                    <option value="27">27</option>\
-                    <option value="28">28</option>\
-                    <option value="29">29</option>\
-                    <option value="30">30</option>\
-                    <option value="31">31</option>\
-                    </select>\
-                    <br>\
-                    <select onchange=\'getDate("Day","Month","Year","field8")\' class="chosen-select form-control" id="Month" data-placeholder="Choose a Day...">\
-                    <option value="01">January</option>\
-                    <option value="02">February</option>\
-                    <option value="03">March</option>\
-                    <option value="04">April</option>\
-                    <option value="05">May</option>\
-                    <option value="06">June</option>\
-                    <option value="07">July</option>\
-                    <option value="08">August</option>\
-                    <option value="09">September</option>\
-                    <option value="10">October</option>\
-                    <option value="11">November</option>\
-                    <option value="12">December</option>\
-                    </select>\
-                    <br>\
-                    <input onchange=\'getDate("Day","Month","Year","field8")\' type="text" id="Year" value="2000" class="col-xs-10 col-sm-5" />\
-                    </div>\
-                    </div>\
-                    \
                     <div class="form-group">\
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Start Time: </label>\
                 <div class="col-sm-9">\
@@ -224,7 +188,7 @@ function createTimetable(){
                         \
                     <div class="clearfix form-actions">\
                     <div class="col-md-offset-3 col-md-9">\
-                    <button class="btn btn-info" type="submit" onclick="addSubmitButton()">\
+                    <button class="btn btn-info" type="submit" onclick="addEventSubmitButton()">\
                     <i class="ace-icon fa fa-check bigger-110"></i>\
                     Submit\
                     </button>\
@@ -243,10 +207,95 @@ function createTimetable(){
                 </div><!-- /.row -->\
                 </div>\
                 </div>';
-
+                        flag = true;
+                    }
+                    else if (answer == "Exam") {
+                        var modal =
+                            '<div id="addEventModal" class="modal">\
+                        <div class="modal-content">\
+                            <span class="close">×</span>\
+                        <h4 id = "label" class="blue bigger">Add an Exam</h4>\
+                        <div   class="row">\
+                            <div class="col-xs-12">\
+                        <hr>\
+                        <iframe style = "display :none" name="dammy"></iframe>\
+                            <form id="addForm" method="post" target="dammy" class="form-horizontal" role="form">\
+                            <div class="form-group">\
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Exam Code: </label>\
+                        <div class="col-sm-9">\
+                            <input style="display: none" type="text" id="formName" name="formName" value="Exam"  class="col-xs-10 col-sm-5" />\
+                            <input required type="text" name="field0" placeholder="Here goes the exam code" class="col-xs-10 col-sm-5" />\
+                            </div>\
+                            </div>\
+                            <div class="form-group">\
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Exam Title: </label>\
+                        <div class="col-sm-9">\
+                            <input required type="text"  name="field1" placeholder="What is the title of the new Exam..." class="col-xs-10 col-sm-5" />\
+                            </div>\
+                            </div>\
+                            <div class="form-group">\
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Module Code: </label>\
+                        <div class="col-sm-9">\
+                            <input type="text" name="field2" id="field2" placeholder="What is the module code of the new Exam..." class="col-xs-10 col-sm-5" />\
+                    </div>\
+                    </div>\
+                    <div class="form-group">\
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Module Description: </label>\
+                <div class="col-sm-9">\
+                    <input required type="text" name="field3" placeholder="What is the module description of the new Exam..." class="col-xs-10 col-sm-5" />\
+                    </div>\
+                    </div>\
+                    <div style="display: none" class="form-group">\
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Exam Session Date: </label>\
+                <div  class="col-sm-9">\
+                    <input  required type="text" name="field4" value="' +correctday + '"class="col-xs-10 col-sm-5" />\
+                    </div>\
+                    </div>\
+                    <div class="form-group">\
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Start Time: </label>\
+                <div class="col-sm-9">\
+                    <input required type="text" name="field5" placeholder="e.g 11:00:00" class="col-xs-10 col-sm-5" />\
+                    </div>\
+                    </div>\
+                    <div class="form-group">\
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Test Center: </label>\
+\
+                <div class="col-sm-9">\
+                    <input required type="text" name="field6" placeholder="Here goes the exam test center" class="col-xs-10 col-sm-5" />\
+                    </div>\
+                    </div>\
+\                    <div class="clearfix form-actions">\
+                    <div class="col-md-offset-3 col-md-9">\
+                    <button class="btn btn-info" type="submit" onclick="addEventSubmitButton()">\
+                    <i class="ace-icon fa fa-check bigger-110"></i>\
+                    Submit\
+                    </button>\
+                    \
+                    &nbsp; &nbsp; &nbsp;\
+                    <button class="btn" type="reset">\
+                    <i class="ace-icon fa fa-undo bigger-110"></i>\
+                    Reset\
+                    </button>\
+                    </div>\
+                    </div>\
+                    </form>\
+                    <!-- PAGE CONTENT ENDS -->\
+                    \
+                </div><!-- /.col -->\
+                </div><!-- /.row -->\
+                </div>\
+                </div>';
+                        flag = true;
+                    }
+                    else {
+                        flag = false;
+                        alert("wrong choice");
+                        answer = prompt("Type \"Event\" to addevent or \"Exam\" to add an exam.");
+                    }
+                }
 
                 var modal = $(modal).appendTo('body');
-                modal.find('form').on('submit', function(ev){
+                modal.find('addForm').on('submit', function(ev){
                     ev.preventDefault();
 
                     calEvent.title = $(this).find("input[type=text]").val();
@@ -263,6 +312,8 @@ function createTimetable(){
                 modal.modal('show').on('hidden', function(){
                     modal.remove();
                 });
+
+
 
 
                 //console.log(calEvent.id);
@@ -294,29 +345,36 @@ function createTimetable(){
             }
             ,
             eventClick: function(calEvent, jsEvent, view) {
+                if (calEvent.color == "#d15b47") {
+                    var correctDay = calEvent.start._d.getUTCFullYear() + "-" + (calEvent.start._d.getMonth() + 1) + "-" + calEvent.start._d.getDate();
+                    var time = calEvent.start._d.toTimeString().split(" ");
+                    var startTime = time[0];
+                    var endTimeSp = calEvent.end._d.toTimeString().split(" ");
+                    var endTime = endTimeSp[0];
 
-                //display a modal
-                var modal =
-                    '<div  id="myEditModal" class="modal">\
-\
-                    <!-- Modal content -->\
-                <div class="modal-content">\
-\
-                    <span class="close">×</span>\
-\
-                <h4 id = "label" class="blue bigger">Edit the Event</h4>\
-                <div   class="row">\
-                    <div class="col-xs-12">\
-                <hr>\
-                <iframe name="dammy_edit" onchange="editSubmitButton()" style="display: none"></iframe>\
-                    <form id="editForm" method="post"   target="dammy_edit" class="form-horizontal" role="form">\
-                        \
-                    <div class="form-group">\
-                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Event Number: </label>\
-                        \
-                <div class="col-sm-9">\
-                    <input type="text" id="editFormName" name="editFormName"  class="col-xs-10 col-sm-5" />\
-                    <input type="text" id="edit_field0" name="edit_field0" placeholder="Event Number..." class="col-xs-10 col-sm-5" />\
+                    //display a modal
+
+                    var modal =
+                        '<div  id="myEditModal" class="modal">\
+    \
+                        <!-- Modal content -->\
+                    <div class="modal-content">\
+    \
+                        <span class="close">×</span>\
+    \
+                    <h4 id = "label" class="blue bigger">Edit the Event</h4>\
+                    <div   class="row">\
+                        <div class="col-xs-12">\
+                    <hr>\
+                    <iframe style="display: none" name="dammy_edit" ></iframe>\
+                        <form id="editForm" method="post"   target="dammy_edit" class="form-horizontal" role="form">\
+                            \
+                        <div class="form-group">\
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Event Number: </label>\
+                            \
+                    <div class="col-sm-9">\
+                        <input type="text" style="display: none" id="editFormName" name="editFormName" value="Event"  class="col-xs-10 col-sm-5" />\
+                        <input readonly type="text" id="edit_field0" name="edit_field0" value="' + calEvent.id + '" class="col-xs-10 col-sm-5" />\
                     </div>\
                     </div>\
 \
@@ -324,66 +382,15 @@ function createTimetable(){
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Name of the Event: </label>\
                         \
                 <div class="col-sm-9">\
-                    <input required type="text" id="edit_field1"  name="edit_field1" placeholder="Name of the Event..." class="col-xs-10 col-sm-5" />\
+                    <input required type="text" id="edit_field1"  name="edit_field1" value="' + calEvent.title + '" class="col-xs-10 col-sm-5" />\
                     </div>\
                     </div>\
 \
 \
-                <div class="form-group">\
+                <div style="display: none" class="form-group">\
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Date: </label>\
                     <div class="col-sm-9">\
-                    <input type="text" style="display: none" id="edit_field2" name="edit_field2" id="field8" class="col-xs-10 col-sm-5" />\
-\
-                    <select onchange="getDateForEdit()" class="chosen-select form-control" id="editDay" data-placeholder="Choose a Day...">\
-                    <option value="01">1</option>\
-                    <option value="02">2</option>\
-                    <option value="03">3</option>\
-                    <option value="04">4</option>\
-                    <option value="05">5</option>\
-                    <option value="06">6</option>\
-                    <option value="07">7</option>\
-                    <option value="08">8</option>\
-                    <option value="09">9</option>\
-                    <option value="10">10</option>\
-                    <option value="11">11</option>\
-                    <option value="12">12</option>\
-                    <option value="13">13</option>\
-                    <option value="14">14</option>\
-                    <option value="15">15</option>\
-                    <option value="16">16</option>\
-                    <option value="17">17</option>\
-                    <option value="18">18</option>\
-                    <option value="19">19</option>\
-                    <option value="20">20</option>\
-                    <option value="21">21</option>\
-                    <option value="22">22</option>\
-                    <option value="23">23</option>\
-                    <option value="24">24</option>\
-                    <option value="25">25</option>\
-                    <option value="26">26</option>\
-                    <option value="27">27</option>\
-                    <option value="28">28</option>\
-                    <option value="29">29</option>\
-                    <option value="30">30</option>\
-                    <option value="31">31</option>\
-                    </select>\
-                    <br>\
-                    <select onchange="getDateForEdit()" class="chosen-select form-control" id="editMonth" data-placeholder="Choose a Day...">\
-                    <option value="01">January</option>\
-                    <option value="02">February</option>\
-                    <option value="03">March</option>\
-                    <option value="04">April</option>\
-                    <option value="05">May</option>\
-                    <option value="06">June</option>\
-                    <option value="07">July</option>\
-                    <option value="08">August</option>\
-                    <option value="09">September</option>\
-                    <option value="10">October</option>\
-                    <option value="11">November</option>\
-                    <option value="12">December</option>\
-                    </select>\
-                    <br>\
-                    <input onchange="getDateForEdit()" type="text" id="editYear" value="2000" class="col-xs-10 col-sm-5" />\
+                    <input type="text" id="edit_field2" name="edit_field2" value="' + correctDay + '" class="col-xs-10 col-sm-5" />\
                     </div>\
                     </div>\
                     \
@@ -392,7 +399,7 @@ function createTimetable(){
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Start Time: </label>\
                         \
                 <div class="col-sm-9">\
-                    <input required type="text" id="edit_field3" id="edit_field3" name="edit_field3" placeholder="e.g. 18:00" class="col-xs-10 col-sm-5" />\
+                    <input required type="text" id="edit_field3" id="edit_field3" name="edit_field3" value="' + startTime + '" class="col-xs-10 col-sm-5" />\
                     </div>\
                     </div>\
                         \
@@ -400,7 +407,7 @@ function createTimetable(){
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> End Time: </label>\
 \
                 <div class="col-sm-9">\
-                    <input required type="text" id="edit_field4" name="edit_field4" placeholder="e.g. 18:00" class="col-xs-10 col-sm-5" />\
+                    <input required type="text" id="edit_field4" name="edit_field4" value="' + endTime + '" class="col-xs-10 col-sm-5" />\
                     </div>\
                     </div>\
 \
@@ -411,7 +418,7 @@ function createTimetable(){
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Location: </label>\
 \
                 <div class="col-sm-9">\
-                    <input required type="text" id="edit_field5" name="edit_field5" placeholder="Location..." class="col-xs-10 col-sm-5" />\
+                    <input required type="text" id="edit_field5" name="edit_field5" value="' + calEvent.location + '" class="col-xs-10 col-sm-5" />\
                     </div>\
                     </div>\
                     \
@@ -420,14 +427,14 @@ function createTimetable(){
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Description: </label>\
 \
                 <div class="col-sm-9">\
-                    <input required type="text" id="edit_field6" name="edit_field6" placeholder="Description..." class="col-xs-10 col-sm-5" />\
+                    <input required type="text" id="edit_field6" name="edit_field6" value="' + calEvent.description + '" class="col-xs-10 col-sm-5" />\
                     </div>\
                     </div>\
                         \
                         \
                     <div class="clearfix form-actions">\
                     <div class="col-md-offset-3 col-md-9">\
-                    <button class="btn btn-info" type="submit" onclick="editSubmitButton()">\
+                    <button class="btn btn-info" type="submit" onclick="editEventSubmitButton()">\
                     <i class="ace-icon fa fa-check bigger-110"></i>\
                     Submit\
                     </button>\
@@ -448,6 +455,117 @@ function createTimetable(){
 \
                 </div>\
                 </div>';
+                }
+                else{
+                    var correctDay = calEvent.start._d.getUTCFullYear() + "-" + (calEvent.start._d.getMonth() + 1) + "-" + calEvent.start._d.getDate();
+                    var time = calEvent.start._d.toTimeString().split(" ");
+                    var startTime = time[0];
+                    var examSp = calEvent.id.split(" ");
+                    var examCode = examSp[1];
+                    var moduleCode = examSp[0];
+
+                    var modal =
+                        '<div  id="myEditModal" class="modal">\
+    \
+                        <!-- Modal content -->\
+                    <div class="modal-content">\
+    \
+                        <span class="close">×</span>\
+    \
+                    <h4 id = "label" class="blue bigger">Edit the Event</h4>\
+                    <div   class="row">\
+                        <div class="col-xs-12">\
+                    <hr>\
+                    <iframe style="display: none" name="dammy_edit" ></iframe>\
+                        <form id="editForm" method="post"   target="dammy_edit" class="form-horizontal" role="form">\
+                            \
+                        <div class="form-group">\
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Exam Code: </label>\
+                            \
+                    <div class="col-sm-9">\
+                        <input type="text" style="display: none" id="editFormName" name="editFormName" value="Exam"  class="col-xs-10 col-sm-5" />\
+                        <input readonly type="text" id="edit_field0" name="edit_field0" value="' + examCode + '" class="col-xs-10 col-sm-5" />\
+                    </div>\
+                    </div>\
+\
+                    <div class="form-group">\
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Exam Title: </label>\
+                        \
+                <div class="col-sm-9">\
+                    <input required type="text" id="edit_field1"  name="edit_field1" value="' + calEvent.title + '" class="col-xs-10 col-sm-5" />\
+                    </div>\
+                    </div>\
+\
+\
+                <div class="form-group">\
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Module Code: </label>\
+                    <div class="col-sm-9">\
+                    <input type="text" id="edit_field2" name="edit_field2" value="' + moduleCode + '" class="col-xs-10 col-sm-5" />\
+                    </div>\
+                    </div>\
+                    \
+                        \
+                    <div class="form-group">\
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Module Description: </label>\
+                        \
+                <div class="col-sm-9">\
+                    <input type="text" id="edit_field3" id="edit_field3" name="edit_field3" value="' + calEvent.description + '" class="col-xs-10 col-sm-5" />\
+                    </div>\
+                    </div>\
+                        \
+                    <div style="display: none" class="form-group">\
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Exam Session Date: </label>\
+\
+                <div class="col-sm-9">\
+                    <input required type="text"  id="edit_field4" name="edit_field4" value="' + correctDay + '" class="col-xs-10 col-sm-5" />\
+                    </div>\
+                    </div>\
+\
+\
+                        \
+                        \
+                        <div class="form-group">\
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Start Time: </label>\
+\
+                <div class="col-sm-9">\
+                    <input required type="text" id="edit_field5" name="edit_field5" value="' + startTime + '" class="col-xs-10 col-sm-5" />\
+                    </div>\
+                    </div>\
+                    \
+                    \
+                    <div class="form-group">\
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Test Center Name: </label>\
+\
+                <div class="col-sm-9">\
+                    <input required type="text" id="edit_field6" name="edit_field6" value="' + calEvent.location + '" class="col-xs-10 col-sm-5" />\
+                    </div>\
+                    </div>\
+                    <div class="col-md-offset-3 col-md-9">\
+                    <button class="btn btn-info" type="submit" onclick="editEventSubmitButton()">\
+                    <i class="ace-icon fa fa-check bigger-110"></i>\
+                    Submit\
+                    </button>\
+                        \
+                    &nbsp; &nbsp; &nbsp;\
+                <button class="btn" type="reset">\
+                    <i class="ace-icon fa fa-undo bigger-110"></i>\
+                    Reset\
+                    </button>\
+                    </div>\
+                    </div>\
+                    </form>\
+                    <!-- PAGE CONTENT ENDS -->\
+                        \
+                </div><!-- /.col -->\
+                </div><!-- /.row -->\
+                        \
+\
+                </div>\
+                </div>';
+                }
+
+
+
 
                 var modal = $(modal).appendTo('body');
                 modal.find('form').on('submit', function(ev){
@@ -467,7 +585,6 @@ function createTimetable(){
                     modal.remove();
                 });
 
-
                 //console.log(calEvent.id);
                 //console.log(jsEvent);
                 //console.log(view);
@@ -482,4 +599,52 @@ function createTimetable(){
 
     })
 
+}
+
+function addEventSubmitButton(){
+
+    var elements = document.getElementById("addForm").elements;
+    var patt = new RegExp("[^ @]*@[^ @]*");
+    for (var i = 0, element; element = elements[i++];) {
+        if (element.type === "text" && element.required==true && element.value == "")
+            return;
+        else if(element.pattern=="[^ @]*@[^ @]*" && element.value != "" && patt.test(element.value)==false)
+            return;
+    }
+
+    document.forms["addForm"].action = 'readForm.php';
+    document.forms["addForm"].submit();
+    window.setTimeout(EventFun,2000);
+}
+
+function EventFun() {
+    var modal =  document.getElementById('addEventModal');
+    modal.style.visibility = "hidden";
+    modal.remove();
+    createTimetable();
+    document.documentElement.style.overflow = "auto";
+    document.body.style.marginRight='0px';
+}
+
+function editEventSubmitButton(){
+    var elements = document.getElementById("editForm").elements;
+    var patt = new RegExp("[^ @]*@[^ @]*");
+    for (var i = 0, element; element = elements[i++];) {
+        if (element.type === "text" && element.required==true && element.value == "")
+            return;
+        else if(element.pattern=="[^ @]*@[^ @]*" && element.value != "" && patt.test(element.value)==false)
+            return;
+    }
+
+    document.forms["editForm"].action = 'readEditForm.php';
+    document.forms["editForm"].submit();
+    window.setTimeout(EventFun2,2000);
+}
+function EventFun2() {
+    var modal =  document.getElementById('myEditModal');
+    modal.style.visibility = "hidden";
+    modal.remove();
+    createTimetable();
+    document.documentElement.style.overflow = "auto";
+    document.body.style.marginRight='0px';
 }

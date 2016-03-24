@@ -79,9 +79,7 @@ echo '</ul>
 							<span class="menu-text">
 								Timetable
 
-								<span class="badge badge-transparent tooltip-error" title="2 Important Events">
-									<i class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>
-								</span>
+								
 							</span>
                 </a>
 

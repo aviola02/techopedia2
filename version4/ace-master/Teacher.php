@@ -1,3 +1,11 @@
+<?php
+
+    if ($_SESSION["Type"]!="Teacher"){
+        header("Location: login2.html");
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +59,7 @@
     <![endif]-->
 </head>
 
-<body class="no-skin">
+<body id="body" class="no-skin">
 <div id="navbar" class="navbar navbar-default">
     <script type="text/javascript">
         try{ace.settings.check('navbar' , 'fixed')}catch(e){}
@@ -92,7 +100,7 @@
                     <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 
                         <li>
-                            <a href="#">
+                            <a href="#" onclick='setStaffEditButton("profile")'>
                                 <i class="ace-icon fa fa-user"></i>
                                 Profile
                             </a>
@@ -101,7 +109,7 @@
                         <li class="divider"></li>
 
                         <li>
-                            <a href="#">
+                            <a href="login2.html">
                                 <i class="ace-icon fa fa-power-off"></i>
                                 Logout
                             </a>
@@ -253,71 +261,247 @@
 
 
 <div id="profileModal" class="modal">
-
     <!-- Modal content -->
-    <div class="modal-content">
-        <div class="page-content">
-            <div class="ace-settings-container" id="ace-settings-container">
-                <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
-                    <i class="ace-icon fa fa-cog bigger-130"></i>
-                </div>
+        <div class="modal-content">
 
-                <div class="ace-settings-box clearfix" id="ace-settings-box">
-                    <div class="pull-left width-50">
+            <span class="close">×</span>
+            <h4 class="blue bigger"><label>Hello</label><span> </span><label id = "profileUsername"> <?php echo $_SESSION['username'];?></label><label id = "profileLabel">! Edit your Profile</label></h4>
+
+            <div   class="row">
+                <div class="col-xs-12">
+                    <!-- PAGE CONTENT BEGINS -->
+                    <hr>
+                    <iframe style="display: none" name="dammy2" ></iframe>
+                    <form id="editProfileForm" method="post" target="dammy2" class="form-horizontal" role="form">
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Username: </label>
+
+                            <div class="col-sm-9">
+                                <input style="display: none"  type="text" id="profileEditFormName" value="Staff" name="editFormName"  class="col-xs-10 col-sm-5" />
+                                <input required type="text" name="edit_field0" id="edit_stafffield0" placeholder="Put Username..." class="col-xs-10 col-sm-5" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Staff Password: </label>
+
+                            <div class="col-sm-9">
+                                <input readonly type="password" name="edit_field1" id="edit_stafffield1" placeholder="Put Staff Password..." class="col-xs-10 col-sm-5" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> First Name: </label>
+
+                            <div class="col-sm-9">
+                                <input readonly required type="text" name="edit_field2" id="edit_stafffield2" placeholder="Put Staff First Name..." class="col-xs-10 col-sm-5" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Last Name: </label>
+
+                            <div class="col-sm-9">
+                                <input readonly required type="text" name="edit_field3" id="edit_stafffield3" placeholder="Put Staff Last Name..." class="col-xs-10 col-sm-5" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Date of Birth: </label>
+
+                            <div class="col-sm-9">
+                                <input style="display: none" type="text" name="edit_field4" id="edit_stafffield4" value="2000-01-01" class="col-xs-10 col-sm-5" />
+
+                                <select readonly disabled onchange='getDate("editStaffDay","editStaffMonth","editStaffYear","edit_stafffield4")' class="chosen-select form-control" id="editStaffDay" data-placeholder="Choose a Day...">
+                                    <option value="01">1</option>
+                                    <option value="02">2</option>
+                                    <option value="03">3</option>
+                                    <option value="04">4</option>
+                                    <option value="05">5</option>
+                                    <option value="06">6</option>
+                                    <option value="07">7</option>
+                                    <option value="08">8</option>
+                                    <option value="09">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                </select>
+                                <br>
+                                <select readonly disabled onchange='getDate("editStaffDay","editStaffMonth","editStaffYear","edit_stafffield4")' class="chosen-select form-control" id="editStaffMonth" data-placeholder="Choose a Day...">
+                                    <option value="01">January</option>
+                                    <option value="02">February</option>
+                                    <option value="03">March</option>
+                                    <option value="04">April</option>
+                                    <option value="05">May</option>
+                                    <option value="06">June</option>
+                                    <option value="07">July</option>
+                                    <option value="08">August</option>
+                                    <option value="09">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                                <br>
+                                <input readonly onchange='getDate("editStaffDay","editStaffMonth","editStaffYear","edit_stafffield4")' type="text" id="editStaffYear" value="2000" class="col-xs-10 col-sm-5" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Mobile Phone: </label>
+
+                            <div class="col-sm-9">
+                                <input type="text" name="edit_field5" id="edit_stafffield5" placeholder="Put Mobile Phone..." class="col-xs-10 col-sm-5" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Employee Academic Details: </label>
+
+                            <div class="col-sm-9">
+                                <input type="text" name="edit_field6" id="edit_stafffield6" placeholder="Put Employee Academic Details..." class="col-xs-10 col-sm-5" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Date of Joining: </label>
+
+                            <div class="col-sm-9">
+                                <input style="display: none" type="text" name="edit_field7" id="edit_stafffield7" value="2000-01-01" class="col-xs-10 col-sm-5" />
+
+                                <select readonly disabled onchange='getDate("editStaffDay2","editStaffMonth2","editStaffYear2","edit_stafffield7")' class="chosen-select form-control" id="editStaffDay2" data-placeholder="Choose a Day...">
+                                    <option value="01">1</option>
+                                    <option value="02">2</option>
+                                    <option value="03">3</option>
+                                    <option value="04">4</option>
+                                    <option value="05">5</option>
+                                    <option value="06">6</option>
+                                    <option value="07">7</option>
+                                    <option value="08">8</option>
+                                    <option value="09">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                </select>
+                                <br>
+                                <select readonly disabled onchange='getDate("editStaffDay2","editStaffMonth2","editStaffYear2","edit_stafffield7")' class="chosen-select form-control" id="editStaffMonth2" data-placeholder="Choose a Day...">
+                                    <option value="01">January</option>
+                                    <option value="02">February</option>
+                                    <option value="03">March</option>
+                                    <option value="04">April</option>
+                                    <option value="05">May</option>
+                                    <option value="06">June</option>
+                                    <option value="07">July</option>
+                                    <option value="08">August</option>
+                                    <option value="09">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                                <br>
+                                <input readonly onchange='getDate("editStaffDay2","editStaffMonth2","editStaffYear2","edit_stafffield7")' type="text" id="editStaffYear2" value="2000" class="col-xs-10 col-sm-5" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Experience: </label>
+
+                            <div class="col-sm-9">
+                                <input type="text" name="edit_field8" id="edit_stafffield8" placeholder="Put Experience..." class="col-xs-10 col-sm-5" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Employee Category: </label>
+
+                            <div class="col-sm-9">
+                                <input readonly type="text" name="edit_field9" id="edit_stafffield9" placeholder="Put Employee Category..." class="col-xs-10 col-sm-5" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Email: </label>
+
+                            <div class="col-sm-9">
+                                <input pattern="[^ @]*@[^ @]*" type="text" name="edit_field10" id="edit_stafffield10" placeholder="Put Email..." class="col-xs-10 col-sm-5" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label readonly class="col-sm-3 control-label no-padding-right" for="form-field-1"> Type: </label>
+
+                            <div class="col-sm-9">
+                                <input style="display: none" type="text" name="edit_field11" id="edit_stafffield11" value="Admin" class="col-xs-10 col-sm-5" />
+
+                                <select readonly disabled onchange='selectBoxToTextBox("editType","edit_stafffield11")' class="chosen-select form-control" id="editType" data-placeholder="Choose a Day...">
+                                    <option value="01">Admin</option>
+                                    <option value="02">Secretary</option>
+                                    <option value="03">Teacher</option>
+                                </select>
+
+                            </div>
 
 
-                        <div class="ace-settings-item">
-                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar" />
-                            <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
                         </div>
 
-                        <div class="ace-settings-item">
-                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar" />
-                            <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Employee Picture: </label>
+
+                            <div class="col-sm-9">
+                                <input type="file" name="edit_field12" id="edit_stafffield12" placeholder="Add Employee Picture..." class="col-xs-10 col-sm-5" />
+                            </div>
                         </div>
 
-                        <div class="ace-settings-item">
-                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs" />
-                            <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
-                        </div>
+                        <div class="clearfix form-actions">
+                            <div class="col-md-offset-3 col-md-9">
+                                <button class="btn btn-info" type="submit" onclick="editStaffSubmitButton()">
+                                    <i class="ace-icon fa fa-check bigger-110"></i>
+                                    Submit
+                                </button>
 
-                        <div class="ace-settings-item">
-                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" />
-                            <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
+                                &nbsp; &nbsp; &nbsp;
+                                <button class="btn" type="reset">
+                                    <i class="ace-icon fa fa-undo bigger-110"></i>
+                                    Reset
+                                </button>
+                            </div>
                         </div>
+                    </form>
+                    <!-- PAGE CONTENT ENDS -->
 
-                        <div class="ace-settings-item">
-                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container" />
-                            <label class="lbl" for="ace-settings-add-container">
-                                Inside
-                                <b>.container</b>
-                            </label>
-                        </div>
-                    </div><!-- /.pull-left -->
-
-                    <div class="pull-left width-50">
-                        <div class="ace-settings-item">
-                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover" />
-                            <label class="lbl" for="ace-settings-hover"> Submenu on Hover</label>
-                        </div>
-
-                        <div class="ace-settings-item">
-                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact" />
-                            <label class="lbl" for="ace-settings-compact"> Compact Sidebar</label>
-                        </div>
-
-                        <div class="ace-settings-item">
-                            <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight" />
-                            <label class="lbl" for="ace-settings-highlight"> Alt. Active Item</label>
-                        </div>
-
-                        <span class="close">x</span>
-                    </div><!-- /.pull-left -->
-                </div><!-- /.ace-settings-box -->
-            </div><!-- /.ace-settings-container -->
+                </div><!-- /.col -->
+            </div><!-- /.row -->
         </div>
 
-    </div>
+</div>
+
     <!-- basic scripts -->
 
     <!--[if !IE]> -->
@@ -367,6 +551,9 @@
     <script src="assets/js/bootbox.min.js"></script>
 
     <script src="assets/js/TimetableViewer.js"></script>
+    <script src="assets/js/date.js"></script>
+
+    <script src="assets/js/StaffViewer.js"></script>
 
 </body>
 </html>

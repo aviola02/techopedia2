@@ -44,7 +44,10 @@ while ($row = mysql_fetch_array($result)){
     $str2 .= 'CheckBox:'."\"Hello\"},";
 }
 
-$str2 = substr($str2,0,-1);
+if (strlen($str2)!=1){
+    $str2 = substr($str2,0,-1);
+}
+
 $str2 .= ']';
 
 echo $str2;

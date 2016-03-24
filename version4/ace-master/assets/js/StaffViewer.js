@@ -354,9 +354,10 @@ function showStaff(str){
     });
 
     setStaffAddButton();
-    setStaffEditButton();
-    //setStaffViewButton();
-    //setStaffDeleteButton();
+    setStaffEditButton("staff");
+    setStaffViewButton();
+    setStaffDeleteButton();
+
 
 
 }
@@ -386,6 +387,15 @@ function setStaffAddButton(){
 
 
 function addStaffSubmitButton(){
+    var elements = document.getElementById("addStaffForm").elements;
+    var patt = new RegExp("[^ @]*@[^ @]*");
+    for (var i = 0, element; element = elements[i++];) {
+        if (element.type === "text" && element.required==true && element.value == " ")
+            return;
+        else if(element.pattern=="[^ @]*@[^ @]*" && element.value != "" && patt.test(element.value)==false)
+            return;
+    }
+
     document.forms["addStaffForm"].action = 'readForm.php';
     document.forms["addStaffForm"].submit();
     window.setTimeout(StaffFun,1000);
@@ -397,6 +407,15 @@ function StaffFun() {
 }
 
 function editStaffSubmitButton(){
+    var elements = document.getElementById("editStaffForm").elements;
+    var patt = new RegExp("[^ @]*@[^ @]*");
+    for (var i = 0, element; element = elements[i++];) {
+        if (element.type === "text" && element.required==true && element.value == "")
+            return;
+        else if(element.pattern=="[^ @]*@[^ @]*" && element.value != "" && patt.test(element.value)==false)
+            return;
+    }
+
     document.forms["editStaffForm"].action = 'readEditForm.php';
     document.forms["editStaffForm"].submit();
     window.setTimeout(StaffFun2,1000);
@@ -406,19 +425,35 @@ function StaffFun2() {
     showStaff("Staff");
 }
 
-function setStaffEditButton(){
+function setStaffEditButton(typeOfEdit){
 
-    var editModal = document.getElementById('editStaffModal');
-    var editSpan = document.getElementsByClassName("close")[4];
+    if (typeOfEdit=="staff"){
 
-    document.getElementById('edit_staff-table').onclick = function (){
-        document.getElementById("editmodstaff-table").style.display="none";
-        document.getElementById("cData").click();
+        var editModal = document.getElementById('editStaffModal');
+        var editSpan = document.getElementsByClassName("close")[4];
+
+
+
+        document.getElementById('edit_staff-table').onclick = function (){
+            document.getElementById("editmodstaff-table").style.display="none";
+            document.getElementById("cData").click();
+            editModal.style.display = "block";
+            var rowID = forOnStaffTableRows();
+            ajaxFillStaffForm(rowID);
+            document.getElementById("refresh_staff-table").click();
+        }
+
+    } else if (typeOfEdit=="profile") {
+
+        var editModal = document.getElementById('profileModal');
+        var editSpan = document.getElementsByClassName("close")[0];
+
         editModal.style.display = "block";
-        var rowID = forOnStaffTableRows();
-        ajaxFillStaffForm(rowID);
-        document.getElementById("refresh_staff-table").click();
+        var username = document.getElementById('profileUsername').textContent;
+        ajaxFillStaffForm(username);
+
     }
+
 
     editSpan.onclick = function() {
         editModal.style.display = "none";
@@ -433,17 +468,18 @@ function setStaffEditButton(){
 }
 
 function setStaffViewButton(){
+    var viewModal = document.getElementById('myStaffViewModal');
+    var editSpan = document.getElementsByClassName("close")[5];
 
-    var viewModal = document.getElementById('myViewModal');
-    var editSpan = document.getElementsByClassName("close")[2];
+    document.getElementById('view_staff-table').onclick = function (){
+        document.getElementById("viewmodstaff-table").style.display="none";
 
-    document.getElementById('view_grid-table').onclick = function (){
-        document.getElementById("viewmodgrid-table").style.display="none";
         document.getElementById("cData").click();
         viewModal.style.display = "block";
         var rowID = forOnStaffTableRows();
         ajaxViewStaff(rowID);
-        document.getElementById("refresh_grid-table").click();
+        document.getElementById("refresh_staff-table").click();
+
     }
 
     editSpan.onclick = function() {
@@ -458,11 +494,11 @@ function setStaffViewButton(){
 }
 
 function setStaffDeleteButton(){
-
-    document.getElementById('del_grid-table').onclick = function (){
-        document.getElementById("delmodgrid-table").style.display="none";
+    document.getElementById('del_staff-table').onclick = function (){
+        document.getElementById("delmodstaff-table").style.display="none";
         document.getElementById("eData").click();
-        var rowID = forOnTableRows();
+        var rowID = forOnStaffTableRows();
+
 
         var xmlhttp = null;
         if (window.XMLHttpRequest) {
@@ -471,11 +507,12 @@ function setStaffDeleteButton(){
         else{
             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
-        xmlhttp.open("GET", "deleteRecord.php?q="+rowID+"&q2=Student", false);
+        xmlhttp.open("GET", "deleteRecord.php?q="+rowID+"&q2=Staff", false);
         xmlhttp.send();
 
-        document.getElementById("refresh_grid-table").click();
-        showStudents("Student");
+        document.getElementById("refresh_staff-table").click();
+        showStaff("Staff");
+
     }
 
 }
@@ -507,6 +544,8 @@ function ajaxFillStaffForm(id){
         }
     }
 
+
+    id = String(id);
     xmlhttp.open("GET", "fillStaffForm.php?q="+id, false);
     xmlhttp.send();
 }
@@ -548,7 +587,7 @@ function handleStaffJSON(params,option){
                 document.getElementById(str).value = json[0][sub_key];
             }
             else if(option == "view") {
-                str = ("view_stafffield" + count);
+                str = ("viewStaff_field" + count);
                 document.getElementById(str).innerHTML = json[0][sub_key];
             }
             else
@@ -559,8 +598,12 @@ function handleStaffJSON(params,option){
         }
 
     }
-    if (option == "edit")
-        setDate();
+    if (option == "edit") {
+        setDate("edit_stafffield4", "editStaffDay", "editStaffMonth", "editStaffYear");
+        setDate("edit_stafffield7", "editStaffDay2", "editStaffMonth2", "editStaffYear2");
+        textBoxToSelectBox("edit_stafffield11","editType");
+    }
+
 
 }
 
