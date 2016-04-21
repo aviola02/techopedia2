@@ -162,7 +162,6 @@ function showStaff(str){
                     var form = $(e[0]);
                     form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />')
                     style_edit_form(form);
-                    showModal();
                 }
             },
             {
@@ -176,7 +175,6 @@ function showStaff(str){
                     form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar')
                         .wrapInner('<div class="widget-header" />')
                     //style_edit_form(form);
-                    showModal();
                 }
             },
             {
@@ -377,11 +375,6 @@ function setStaffAddButton(){
         modal.style.display = "none";
     }
 
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
 
 }
 
@@ -390,7 +383,7 @@ function addStaffSubmitButton(){
     var elements = document.getElementById("addStaffForm").elements;
     var patt = new RegExp("[^ @]*@[^ @]*");
     for (var i = 0, element; element = elements[i++];) {
-        if (element.type === "text" && element.required==true && element.value == " ")
+        if (element.type === "text" && element.required==true && element.value == "")
             return;
         else if(element.pattern=="[^ @]*@[^ @]*" && element.value != "" && patt.test(element.value)==false)
             return;
@@ -425,6 +418,25 @@ function StaffFun2() {
     showStaff("Staff");
 }
 
+function editStaffSubmitButton2(){
+    var elements = document.getElementById("editProfileForm").elements;
+    var patt = new RegExp("[^ @]*@[^ @]*");
+    for (var i = 0, element; element = elements[i++];) {
+        if (element.type === "text" && element.required==true && element.value == "")
+            return;
+        else if(element.pattern=="[^ @]*@[^ @]*" && element.value != "" && patt.test(element.value)==false)
+            return;
+    }
+
+    document.forms["editProfileForm"].action = 'readEditForm.php';
+    document.forms["editProfileForm"].submit();
+    window.setTimeout(StaffFun3,1000);
+}
+function StaffFun3() {
+    document.getElementById('profileModal').style.display = "none";
+    //showStaff("Staff");
+}
+
 function setStaffEditButton(typeOfEdit){
 
     if (typeOfEdit=="staff"){
@@ -449,8 +461,8 @@ function setStaffEditButton(typeOfEdit){
         var editSpan = document.getElementsByClassName("close")[0];
 
         editModal.style.display = "block";
-        var username = document.getElementById('profileUsername').textContent;
-        ajaxFillStaffForm(username);
+        var username = document.getElementById('profileUsername').innerText;
+        ajaxFillProfileForm(username);
 
     }
 
@@ -459,11 +471,6 @@ function setStaffEditButton(typeOfEdit){
         editModal.style.display = "none";
     }
 
-    window.onclick = function (event) {
-        if (event.target == editModal) {
-            editModal.style.display = "none";
-        }
-    }
 
 }
 
@@ -486,11 +493,7 @@ function setStaffViewButton(){
         viewModal.style.display = "none";
     }
 
-    window.onclick = function (event) {
-        if (event.target == viewModal) {
-            viewModal.style.display = "none";
-        }
-    }
+
 }
 
 function setStaffDeleteButton(){
@@ -513,6 +516,9 @@ function setStaffDeleteButton(){
         document.getElementById("refresh_staff-table").click();
         showStaff("Staff");
 
+        for (i=0;i<document.getElementsByClassName("tooltip fade top in").length;i++){
+            document.getElementsByClassName("tooltip fade top in")[i].style.display="none";
+        }
     }
 
 }
@@ -541,6 +547,26 @@ function ajaxFillStaffForm(id){
     xmlhttp.onreadystatechange = function(){
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
             handleStaffJSON(xmlhttp.responseText, "edit");
+        }
+    }
+
+
+    id = String(id);
+    xmlhttp.open("GET", "fillStaffForm.php?q="+id, false);
+    xmlhttp.send();
+}
+
+function ajaxFillProfileForm(id){
+    var xmlhttp = null;
+    if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+    }
+    else{
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function(){
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+            handleStaffJSON(xmlhttp.responseText, "editProfile");
         }
     }
 
@@ -590,6 +616,10 @@ function handleStaffJSON(params,option){
                 str = ("viewStaff_field" + count);
                 document.getElementById(str).innerHTML = json[0][sub_key];
             }
+            else if(option == "editProfile") {
+                str = ("edit_Profilefield" + count);
+                document.getElementById(str).value = json[0][sub_key];
+            }
             else
                 alert("Wrong option");
 
@@ -602,6 +632,11 @@ function handleStaffJSON(params,option){
         setDate("edit_stafffield4", "editStaffDay", "editStaffMonth", "editStaffYear");
         setDate("edit_stafffield7", "editStaffDay2", "editStaffMonth2", "editStaffYear2");
         textBoxToSelectBox("edit_stafffield11","editType");
+    }
+    if (option == "editProfile") {
+        setDate("edit_Profilefield4", "editProfileDay", "editProfileMonth", "editProfileYear");
+        setDate("edit_Profilefield7", "editProfileDay2", "editProfileMonth2", "editProfileYear2");
+        textBoxToSelectBox("edit_Profilefield11","editProfileType");
     }
 
 

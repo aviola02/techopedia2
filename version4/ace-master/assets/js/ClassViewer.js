@@ -161,7 +161,7 @@ function showClass(str){
                     form.data('styled', true);
                 },
                 onClick : function(e) {
-                    //alert(1);
+                    alert(1);
                 }
             },
             {
@@ -342,11 +342,6 @@ function setClassAddButton(){
         modal.style.display = "none";
     }
 
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
 
 }
 
@@ -405,11 +400,6 @@ function setClassEditButton(){
         editModal.style.display = "none";
     }
 
-    window.onclick = function (event) {
-        if (event.target == editModal) {
-            editModal.style.display = "none";
-        }
-    }
 
 }
 
@@ -431,11 +421,6 @@ function setClassViewButton(){
         viewModal.style.display = "none";
     }
 
-    window.onclick = function (event) {
-        if (event.target == viewModal) {
-            viewModal.style.display = "none";
-        }
-    }
 }
 
 function setClassDeleteButton(){
@@ -458,6 +443,9 @@ function setClassDeleteButton(){
 
         document.getElementById("refresh_class-table").click();
         showClass("Class");
+        for (i=0;i<document.getElementsByClassName("tooltip fade top in").length;i++){
+            document.getElementsByClassName("tooltip fade top in")[i].style.display="none";
+        }
     }
 
 }

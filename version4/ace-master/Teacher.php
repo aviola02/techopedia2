@@ -88,8 +88,7 @@
         <div class="navbar-buttons navbar-header pull-right" role="navigation">
             <ul class="nav ace-nav">
                 <li class="light-blue">
-                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="assets/avatars/avatar4.png" alt="Jason's Photo" />
+                    <a style="border-radius: 4px;" data-toggle="dropdown" href="#" class="dropdown-toggle">
 								<span class="user-info">
 									<small>Welcome</small>
 								</span>
@@ -176,13 +175,12 @@
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
 
-                        <table id="grid-table"></table>
+                        <table id="schedule-table"></table>
+                        <div id="schedule-pager"></div>
 
-                        <div id="grid-pager"></div>
-
-                        <script type="text/javascript">
-                            var $path_base = ".";//in Ace demo this will be used for editurl parameter
-                        </script>
+<!--                        <script type="text/javascript">-->
+<!--                            var $path_base = ".";//in Ace demo this will be used for editurl parameter-->
+<!--                        </script>-->
 
                         <!-- PAGE CONTENT ENDS -->
                     </div><!-- /.col -->
@@ -195,46 +193,16 @@
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
                         <div id="timetable" class="row">
-<!--                            <div class="col-sm-9">-->
-<!--                                <div class="space"></div>-->
-<!---->
-<!--                                <div id="calendar"></div>-->
-<!--                            </div>-->
-<!---->
-<!--                            <div class="col-sm-3">-->
-<!--                                <div class="widget-box transparent">-->
-<!--                                    <div class="widget-header">-->
-<!--                                        <h4>Draggable events</h4>-->
-<!--                                    </div>-->
-<!---->
-<!--                                    <div class="widget-body">-->
-<!--                                        <div class="widget-main no-padding">-->
-<!--                                            <div id="external-events">-->
-<!--                                                <div class="external-event label-grey" data-class="label-grey">-->
-<!--                                                    <i class="ace-icon fa fa-arrows"></i>-->
-<!--                                                    Examination-->
-<!--                                                </div>-->
-<!---->
-<!--                                                <div class="external-event label-danger" data-class="label-danger">-->
-<!--                                                    <i class="ace-icon fa fa-arrows"></i>-->
-<!--                                                    Event-->
-<!--                                                </div>-->
-<!---->
-<!--                                                <label>-->
-<!--                                                    <input type="checkbox" class="ace ace-checkbox" id="drop-remove" />-->
-<!--                                                    <span class="lbl"> Remove after drop</span>-->
-<!--                                                </label>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
+
                         </div>
 
                         <!-- PAGE CONTENT ENDS -->
                     </div><!-- /.col -->
                 </div><!-- /.row -->
 
+                <br>
+                <table id="attend-table"></table>
+                <div id="attend-pager"></div>
 
 
             </div><!-- /.page-content -->
@@ -279,37 +247,37 @@
 
                             <div class="col-sm-9">
                                 <input style="display: none"  type="text" id="profileEditFormName" value="Staff" name="editFormName"  class="col-xs-10 col-sm-5" />
-                                <input required type="text" name="edit_field0" id="edit_stafffield0" placeholder="Put Username..." class="col-xs-10 col-sm-5" />
+                                <input required type="text" name="edit_field0" id="edit_Profilefield0" placeholder="Put Username..." class="col-xs-10 col-sm-5" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Staff Password: </label>
 
                             <div class="col-sm-9">
-                                <input readonly type="password" name="edit_field1" id="edit_stafffield1" placeholder="Put Staff Password..." class="col-xs-10 col-sm-5" />
+                                <input readonly type="password" name="edit_field1" id="edit_Profilefield1" placeholder="Put Staff Password..." class="col-xs-10 col-sm-5" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> First Name: </label>
 
                             <div class="col-sm-9">
-                                <input readonly required type="text" name="edit_field2" id="edit_stafffield2" placeholder="Put Staff First Name..." class="col-xs-10 col-sm-5" />
+                                <input readonly required type="text" name="edit_field2" id="edit_Profilefield2" placeholder="Put Staff First Name..." class="col-xs-10 col-sm-5" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Last Name: </label>
 
                             <div class="col-sm-9">
-                                <input readonly required type="text" name="edit_field3" id="edit_stafffield3" placeholder="Put Staff Last Name..." class="col-xs-10 col-sm-5" />
+                                <input readonly required type="text" name="edit_field3" id="edit_Profilefield3" placeholder="Put Profile Last Name..." class="col-xs-10 col-sm-5" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Date of Birth: </label>
 
                             <div class="col-sm-9">
-                                <input style="display: none" type="text" name="edit_field4" id="edit_stafffield4" value="2000-01-01" class="col-xs-10 col-sm-5" />
+                                <input style="display: none" type="text" name="edit_field4" id="edit_Profilefield4" value="2000-01-01" class="col-xs-10 col-sm-5" />
 
-                                <select readonly disabled onchange='getDate("editStaffDay","editStaffMonth","editStaffYear","edit_stafffield4")' class="chosen-select form-control" id="editStaffDay" data-placeholder="Choose a Day...">
+                                <select readonly disabled onchange='getDate("editProfileDay","editProfileMonth","editProfileYear","edit_Profilefield4")' class="chosen-select form-control" id="editProfileDay" data-placeholder="Choose a Day...">
                                     <option value="01">1</option>
                                     <option value="02">2</option>
                                     <option value="03">3</option>
@@ -343,7 +311,7 @@
                                     <option value="31">31</option>
                                 </select>
                                 <br>
-                                <select readonly disabled onchange='getDate("editStaffDay","editStaffMonth","editStaffYear","edit_stafffield4")' class="chosen-select form-control" id="editStaffMonth" data-placeholder="Choose a Day...">
+                                <select readonly disabled onchange='getDate("editProfileDay","editProfileMonth","editProfileYear","edit_Profilefield4")' class="chosen-select form-control" id="editProfileMonth" data-placeholder="Choose a Day...">
                                     <option value="01">January</option>
                                     <option value="02">February</option>
                                     <option value="03">March</option>
@@ -358,30 +326,30 @@
                                     <option value="12">December</option>
                                 </select>
                                 <br>
-                                <input readonly onchange='getDate("editStaffDay","editStaffMonth","editStaffYear","edit_stafffield4")' type="text" id="editStaffYear" value="2000" class="col-xs-10 col-sm-5" />
+                                <input readonly onchange='getDate("editProfileDay","editProfileMonth","editProfileYear","edit_Profilefield4")' type="text" id="editProfileYear" value="2000" class="col-xs-10 col-sm-5" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Mobile Phone: </label>
 
                             <div class="col-sm-9">
-                                <input type="text" name="edit_field5" id="edit_stafffield5" placeholder="Put Mobile Phone..." class="col-xs-10 col-sm-5" />
+                                <input type="text" name="edit_field5" id="edit_Profilefield5" placeholder="Put Mobile Phone..." class="col-xs-10 col-sm-5" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Employee Academic Details: </label>
 
                             <div class="col-sm-9">
-                                <input type="text" name="edit_field6" id="edit_stafffield6" placeholder="Put Employee Academic Details..." class="col-xs-10 col-sm-5" />
+                                <input type="text" name="edit_field6" id="edit_Profilefield6" placeholder="Put Employee Academic Details..." class="col-xs-10 col-sm-5" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Date of Joining: </label>
 
                             <div class="col-sm-9">
-                                <input style="display: none" type="text" name="edit_field7" id="edit_stafffield7" value="2000-01-01" class="col-xs-10 col-sm-5" />
+                                <input style="display: none" type="text" name="edit_field7" id="edit_Profilefield7" value="2000-01-01" class="col-xs-10 col-sm-5" />
 
-                                <select readonly disabled onchange='getDate("editStaffDay2","editStaffMonth2","editStaffYear2","edit_stafffield7")' class="chosen-select form-control" id="editStaffDay2" data-placeholder="Choose a Day...">
+                                <select readonly disabled onchange='getDate("editProfileDay2","editProfileMonth2","editProfileYear2","edit_Profilefield7")' class="chosen-select form-control" id="editProfileDay2" data-placeholder="Choose a Day...">
                                     <option value="01">1</option>
                                     <option value="02">2</option>
                                     <option value="03">3</option>
@@ -415,7 +383,7 @@
                                     <option value="31">31</option>
                                 </select>
                                 <br>
-                                <select readonly disabled onchange='getDate("editStaffDay2","editStaffMonth2","editStaffYear2","edit_stafffield7")' class="chosen-select form-control" id="editStaffMonth2" data-placeholder="Choose a Day...">
+                                <select readonly disabled onchange='getDate("editProfileDay2","editProfileMonth2","editProfileYear2","edit_Profilefield7")' class="chosen-select form-control" id="editProfileMonth2" data-placeholder="Choose a Day...">
                                     <option value="01">January</option>
                                     <option value="02">February</option>
                                     <option value="03">March</option>
@@ -430,37 +398,37 @@
                                     <option value="12">December</option>
                                 </select>
                                 <br>
-                                <input readonly onchange='getDate("editStaffDay2","editStaffMonth2","editStaffYear2","edit_stafffield7")' type="text" id="editStaffYear2" value="2000" class="col-xs-10 col-sm-5" />
+                                <input readonly onchange='getDate("editProfileDay2","editProfileMonth2","editProfileYear2","edit_Profilefield7")' type="text" id="editProfileYear2" value="2000" class="col-xs-10 col-sm-5" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Experience: </label>
 
                             <div class="col-sm-9">
-                                <input type="text" name="edit_field8" id="edit_stafffield8" placeholder="Put Experience..." class="col-xs-10 col-sm-5" />
+                                <input type="text" name="edit_field8" id="edit_Profilefield8" placeholder="Put Experience..." class="col-xs-10 col-sm-5" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Employee Category: </label>
 
                             <div class="col-sm-9">
-                                <input readonly type="text" name="edit_field9" id="edit_stafffield9" placeholder="Put Employee Category..." class="col-xs-10 col-sm-5" />
+                                <input readonly type="text" name="edit_field9" id="edit_Profilefield9" placeholder="Put Employee Category..." class="col-xs-10 col-sm-5" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Email: </label>
 
                             <div class="col-sm-9">
-                                <input pattern="[^ @]*@[^ @]*" type="text" name="edit_field10" id="edit_stafffield10" placeholder="Put Email..." class="col-xs-10 col-sm-5" />
+                                <input pattern="[^ @]*@[^ @]*" type="text" name="edit_field10" id="edit_Profilefield10" placeholder="Put Email..." class="col-xs-10 col-sm-5" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label readonly class="col-sm-3 control-label no-padding-right" for="form-field-1"> Type: </label>
 
                             <div class="col-sm-9">
-                                <input style="display: none" type="text" name="edit_field11" id="edit_stafffield11" value="Admin" class="col-xs-10 col-sm-5" />
+                                <input style="display: none" type="text" name="edit_field11" id="edit_Profilefield11" value="Teacher" class="col-xs-10 col-sm-5" />
 
-                                <select readonly disabled onchange='selectBoxToTextBox("editType","edit_stafffield11")' class="chosen-select form-control" id="editType" data-placeholder="Choose a Day...">
+                                <select readonly disabled onchange='selectBoxToTextBox("editProfileType","edit_Profilefield11")' class="chosen-select form-control" id="editProfileType" data-placeholder="Choose a Day...">
                                     <option value="01">Admin</option>
                                     <option value="02">Secretary</option>
                                     <option value="03">Teacher</option>
@@ -475,22 +443,17 @@
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Employee Picture: </label>
 
                             <div class="col-sm-9">
-                                <input type="file" name="edit_field12" id="edit_stafffield12" placeholder="Add Employee Picture..." class="col-xs-10 col-sm-5" />
+                                <input type="file" name="edit_field12" id="edit_Profilefield12" placeholder="Add Employee Picture..." class="col-xs-10 col-sm-5" />
                             </div>
                         </div>
 
                         <div class="clearfix form-actions">
                             <div class="col-md-offset-3 col-md-9">
-                                <button class="btn btn-info" type="submit" onclick="editStaffSubmitButton()">
+                                <button class="btn btn-info" type="submit" onclick="editStaffSubmitButton2()">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
                                     Submit
                                 </button>
 
-                                &nbsp; &nbsp; &nbsp;
-                                <button class="btn" type="reset">
-                                    <i class="ace-icon fa fa-undo bigger-110"></i>
-                                    Reset
-                                </button>
                             </div>
                         </div>
                     </form>
@@ -501,6 +464,409 @@
         </div>
 
 </div>
+
+<div  id="addScheduleModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+
+        <span class="close">×</span>
+
+        <h4 id = "staffLabel" class="blue bigger">Add a Schedule</h4>
+        <div   class="row">
+            <div class="col-xs-12">
+                <!-- PAGE CONTENT BEGINS -->
+                <hr>
+                <iframe style="display: none" name="dammy3" ></iframe>
+                <form id="addScheduleForm" method="post" target="dammy3" class="form-horizontal" role="form">
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Course Name: </label>
+
+                        <div class="col-sm-9">
+                            <input  type="text" style="display: none" id="scheduleFormName" name="formName" value="Tschedule"  class="col-xs-10 col-sm-5" />
+                            <input readonly type="text" name="field0" id="addSchedule_field0"  class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Class No: </label>
+
+                        <div class="col-sm-9">
+                            <input readonly type="text" name="field1" id="addSchedule_field1" class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Year: </label>
+
+                        <div class="col-sm-9">
+                            <input readonly type="text" name="field2" id="addSchedule_field2" class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Program Code: </label>
+
+                        <div class="col-sm-9">
+                            <input required type="text" name="field3" placeholder="Put The Program Code..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Topic: </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" name="field4" placeholder="Put The Topic..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Exercises: </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" name="field5" placeholder="Put Exercises..." class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Notes: </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" name="field6" placeholder="Put Notes..." class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Date: </label>
+
+                        <div class="col-sm-9">
+                            <input style="display: none" type="text" name="field7" id="addSchedule_field7" value="2000-01-01" class="col-xs-10 col-sm-5" />
+                            <select onchange='getDate("ScheduleDay","ScheduleMonth","ScheduleYear","addSchedule_field7")' class="chosen-select form-control" id="ScheduleDay" data-placeholder="Choose a Day...">
+                                <option value="01">1</option>
+                                <option value="02">2</option>
+                                <option value="03">3</option>
+                                <option value="04">4</option>
+                                <option value="05">5</option>
+                                <option value="06">6</option>
+                                <option value="07">7</option>
+                                <option value="08">8</option>
+                                <option value="09">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                            <br>
+                            <select onchange='getDate("ScheduleDay","ScheduleMonth","ScheduleYear","addSchedule_field7")' class="chosen-select form-control" id="ScheduleMonth" data-placeholder="Choose a Day...">
+                                <option value="01">January</option>
+                                <option value="02">February</option>
+                                <option value="03">March</option>
+                                <option value="04">April</option>
+                                <option value="05">May</option>
+                                <option value="06">June</option>
+                                <option value="07">July</option>
+                                <option value="08">August</option>
+                                <option value="09">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                            <br>
+                            <input onchange='getDate("ScheduleDay","ScheduleMonth","ScheduleYear","addSchedule_field7")' type="text" id="ScheduleYear" value="2000" class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Document/Picture: </label>
+
+                        <div class="col-sm-9">
+                            <input type="file" name="field8" placeholder="Add Document/Picture..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="clearfix form-actions">
+                        <div class="col-md-offset-3 col-md-9">
+                            <button class="btn btn-info" type="submit" onclick="addScheduleSubmitButton()">
+                                <i class="ace-icon fa fa-check bigger-110"></i>
+                                Submit
+                            </button>
+
+                            &nbsp; &nbsp; &nbsp;
+                            <button class="btn" type="reset">
+                                <i class="ace-icon fa fa-undo bigger-110"></i>
+                                Reset
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <!-- PAGE CONTENT ENDS -->
+
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+
+
+    </div>
+
+</div>
+
+<div  id="editScheduleModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+
+        <span class="close">×</span>
+
+        <h4 id = "staffLabel" class="blue bigger">Edit the Schedule</h4>
+        <div   class="row">
+            <div class="col-xs-12">
+                <!-- PAGE CONTENT BEGINS -->
+                <hr>
+                <iframe style="display: none" name="dammy4" ></iframe>
+                <form id="editScheduleForm" method="post" target="dammy4" class="form-horizontal" role="form">
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Course Name: </label>
+
+                        <div class="col-sm-9">
+                            <input  type="text" style="display: none" id="scheduleFormName" name="editFormName" value="Tschedule"  class="col-xs-10 col-sm-5" />
+                            <input readonly type="text" name="edit_field0" id="editSchedule_field0"  class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Class No: </label>
+
+                        <div class="col-sm-9">
+                            <input readonly type="text" name="edit_field1" id="editSchedule_field1" class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Year: </label>
+
+                        <div class="col-sm-9">
+                            <input readonly type="text" name="edit_field2" id="editSchedule_field2" class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Program Code: </label>
+
+                        <div class="col-sm-9">
+                            <input readonly type="text" name="edit_field3" id="editSchedule_field3" placeholder="Put The Program Code..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Topic: </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" name="edit_field4" id="editSchedule_field4" placeholder="Put The Topic..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Exercises: </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" name="edit_field5" id="editSchedule_field5" placeholder="Put Exercises..." class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Notes: </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" name="edit_field6" id="editSchedule_field6" placeholder="Put Notes..." class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Date: </label>
+
+                        <div class="col-sm-9">
+                            <input style="display: none" type="text" name="edit_field7" id="editSchedule_field7" value="2000-01-01" class="col-xs-10 col-sm-5" />
+                            <select onchange='getDate("editScheduleDay","editScheduleMonth","editScheduleYear","editSchedule_field7")' class="chosen-select form-control" id="editScheduleDay" data-placeholder="Choose a Day...">
+                                <option value="01">1</option>
+                                <option value="02">2</option>
+                                <option value="03">3</option>
+                                <option value="04">4</option>
+                                <option value="05">5</option>
+                                <option value="06">6</option>
+                                <option value="07">7</option>
+                                <option value="08">8</option>
+                                <option value="09">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                            <br>
+                            <select onchange='getDate("editScheduleDay","editScheduleMonth","editScheduleYear","editSchedule_field7")' class="chosen-select form-control" id="editScheduleMonth" data-placeholder="Choose a Day...">
+                                <option value="01">January</option>
+                                <option value="02">February</option>
+                                <option value="03">March</option>
+                                <option value="04">April</option>
+                                <option value="05">May</option>
+                                <option value="06">June</option>
+                                <option value="07">July</option>
+                                <option value="08">August</option>
+                                <option value="09">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                            <br>
+                            <input onchange='getDate("editScheduleDay","editScheduleMonth","editScheduleYear","editSchedule_field7")' type="text" id="editScheduleYear" value="2000" class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Document/Picture: </label>
+
+                        <div class="col-sm-9">
+                            <input type="file" name="edit_field8" id="editSchedule_field8" placeholder="Add Document/Picture..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="clearfix form-actions">
+                        <div class="col-md-offset-3 col-md-9">
+                            <button class="btn btn-info" type="submit" onclick="editScheduleSubmitButton()">
+                                <i class="ace-icon fa fa-check bigger-110"></i>
+                                Submit
+                            </button>
+
+                        </div>
+                    </div>
+                </form>
+                <!-- PAGE CONTENT ENDS -->
+
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+
+
+    </div>
+
+</div>
+
+<div  id="viewScheduleModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+
+        <span class="close">×</span>
+
+        <h4 id = "label" class="blue bigger">View Class</h4>
+        <div   class="row">
+            <div class="col-xs-12">
+                <!-- PAGE CONTENT BEGINS -->
+                <div style="width: 100%" class="col-xs-12 col-sm-9">
+
+
+                    <div class="space-12"></div>
+
+                    <div id="studentView" class="profile-user-info profile-user-info-striped">
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Course Name</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="viewSchedule_field0"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Class No</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="viewSchedule_field1"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Year</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="viewSchedule_field2"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Program Code</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="viewSchedule_field3"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Topic</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="viewSchedule_field4"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Exercises</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="viewSchedule_field5"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Notes</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="viewSchedule_field6"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Date</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="viewSchedule_field7"></span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> Document/Picture</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="viewSchedule_field8"></span>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="space-20"></div>
+                    <div class="space-6"></div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /.col -->
+</div><!-- /.row -->
+
 
     <!-- basic scripts -->
 
@@ -554,6 +920,21 @@
     <script src="assets/js/date.js"></script>
 
     <script src="assets/js/StaffViewer.js"></script>
+
+    <script src="assets/js/AttendancesViewer.js"></script>
+
+    <script type="text/javascript">
+        var editProfileModal = document.getElementById('profileModal');
+        var addScheduleModal = document.getElementById('addScheduleModal');
+        var editScheduleModal = document.getElementById('editScheduleModal');
+        var viewScheduleModal = document.getElementById('viewScheduleModal');
+
+        window.onclick = function (event) {
+            if (event.target == editProfileModal || event.target == addScheduleModal || event.target == editScheduleModal || event.target == viewScheduleModal) {
+                $('#profileModal,#addScheduleModal,#editScheduleModal, #viewScheduleModal').css('display', 'none');
+            }
+        }
+        </script>
 
 </body>
 </html>

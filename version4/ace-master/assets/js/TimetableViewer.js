@@ -36,6 +36,8 @@ function ajaxCall(str,category){
         xmlhttp.open("GET", "viewStudPerCor.php?q="+str, false);
     } else if (category=="class"){
         xmlhttp.open("GET", "viewClass.php?q="+str, false);
+    } else if (category=="attendances"){
+        xmlhttp.open("GET", "viewAttendances.php?q="+str, false);
     }
 
     xmlhttp.send();
@@ -114,6 +116,9 @@ function createTimetable(){
             selectable: true,
             selectHelper: true,
             select: function(start, end, allDay) {
+                if(document.getElementById("addEventModal")) {
+                    document.getElementById("addEventModal").remove();
+                }
                 var answer = prompt("Type \"Event\" to addevent or \"Exam\" to add an exam.");
                 var x=start._d;
                 var fullDate= x.toLocaleString();
@@ -134,13 +139,12 @@ function createTimetable(){
                         var modal =
                             '<div id="addEventModal" class="modal">\
                         <div class="modal-content">\
-                            <span class="close">×</span>\
                         <h4 id = "label" class="blue bigger">Add an Event</h4>\
                         <div   class="row">\
                             <div class="col-xs-12">\
                         <hr>\
                         <iframe style="display: none" name="dammy"></iframe>\
-                            <form id="addForm" method="post" target="dammy" class="form-horizontal" role="form">\
+                            <form id="addEventExamForm" method="post" target="dammy" class="form-horizontal" role="form">\
                             <div class="form-group">\
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Event Number: </label>\
                         <div class="col-sm-9">\
@@ -198,6 +202,7 @@ function createTimetable(){
                     <i class="ace-icon fa fa-undo bigger-110"></i>\
                     Reset\
                     </button>\
+                    &nbsp; &nbsp; &nbsp;\
                     </div>\
                     </div>\
                     </form>\
@@ -213,13 +218,12 @@ function createTimetable(){
                         var modal =
                             '<div id="addEventModal" class="modal">\
                         <div class="modal-content">\
-                            <span class="close">×</span>\
                         <h4 id = "label" class="blue bigger">Add an Exam</h4>\
                         <div   class="row">\
                             <div class="col-xs-12">\
                         <hr>\
                         <iframe style = "display :none" name="dammy"></iframe>\
-                            <form id="addForm" method="post" target="dammy" class="form-horizontal" role="form">\
+                            <form id="addEventExamForm" method="post" target="dammy" class="form-horizontal" role="form">\
                             <div class="form-group">\
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Exam Code: </label>\
                         <div class="col-sm-9">\
@@ -295,7 +299,7 @@ function createTimetable(){
                 }
 
                 var modal = $(modal).appendTo('body');
-                modal.find('addForm').on('submit', function(ev){
+                modal.find('addEventExamForm').on('submit', function(ev){
                     ev.preventDefault();
 
                     calEvent.title = $(this).find("input[type=text]").val();
@@ -312,6 +316,7 @@ function createTimetable(){
                 modal.modal('show').on('hidden', function(){
                     modal.remove();
                 });
+
 
 
 
@@ -345,6 +350,9 @@ function createTimetable(){
             }
             ,
             eventClick: function(calEvent, jsEvent, view) {
+                if(document.getElementById("myEventExamEditModal")) {
+                    document.getElementById("myEventExamEditModal").remove();
+                }
                 if (calEvent.color == "#d15b47") {
                     var correctDay = calEvent.start._d.getUTCFullYear() + "-" + (calEvent.start._d.getMonth() + 1) + "-" + calEvent.start._d.getDate();
                     var time = calEvent.start._d.toTimeString().split(" ");
@@ -355,26 +363,25 @@ function createTimetable(){
                     //display a modal
 
                     var modal =
-                        '<div  id="myEditModal" class="modal">\
+                        '<div  id="myEventExamEditModal" class="modal">\
     \
                         <!-- Modal content -->\
                     <div class="modal-content">\
     \
-                        <span class="close">×</span>\
     \
                     <h4 id = "label" class="blue bigger">Edit the Event</h4>\
                     <div   class="row">\
                         <div class="col-xs-12">\
                     <hr>\
                     <iframe style="display: none" name="dammy_edit" ></iframe>\
-                        <form id="editForm" method="post"   target="dammy_edit" class="form-horizontal" role="form">\
+                        <form id="editEventExamForm" method="post"   target="dammy_edit" class="form-horizontal" role="form">\
                             \
                         <div class="form-group">\
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Event Number: </label>\
                             \
                     <div class="col-sm-9">\
-                        <input type="text" style="display: none" id="editFormName" name="editFormName" value="Event"  class="col-xs-10 col-sm-5" />\
-                        <input readonly type="text" id="edit_field0" name="edit_field0" value="' + calEvent.id + '" class="col-xs-10 col-sm-5" />\
+                        <input style="display: none" type="text" id="editEventExamFormName" name="editFormName" value="Event"  class="col-xs-10 col-sm-5" />\
+                        <input readonly type="text" id="editEventExam_field0" name="edit_field0" value="' + calEvent.id + '" class="col-xs-10 col-sm-5" />\
                     </div>\
                     </div>\
 \
@@ -382,7 +389,7 @@ function createTimetable(){
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Name of the Event: </label>\
                         \
                 <div class="col-sm-9">\
-                    <input required type="text" id="edit_field1"  name="edit_field1" value="' + calEvent.title + '" class="col-xs-10 col-sm-5" />\
+                    <input required type="text" id="editEventExam_field1"  name="edit_field1" value="' + calEvent.title + '" class="col-xs-10 col-sm-5" />\
                     </div>\
                     </div>\
 \
@@ -390,7 +397,7 @@ function createTimetable(){
                 <div style="display: none" class="form-group">\
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Date: </label>\
                     <div class="col-sm-9">\
-                    <input type="text" id="edit_field2" name="edit_field2" value="' + correctDay + '" class="col-xs-10 col-sm-5" />\
+                    <input type="text" id="editEventExam_field2" name="edit_field2" value="' + correctDay + '" class="col-xs-10 col-sm-5" />\
                     </div>\
                     </div>\
                     \
@@ -399,7 +406,7 @@ function createTimetable(){
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Start Time: </label>\
                         \
                 <div class="col-sm-9">\
-                    <input required type="text" id="edit_field3" id="edit_field3" name="edit_field3" value="' + startTime + '" class="col-xs-10 col-sm-5" />\
+                    <input required type="text" id="editEventExam_field3" id="edit_field3" name="edit_field3" value="' + startTime + '" class="col-xs-10 col-sm-5" />\
                     </div>\
                     </div>\
                         \
@@ -407,7 +414,7 @@ function createTimetable(){
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> End Time: </label>\
 \
                 <div class="col-sm-9">\
-                    <input required type="text" id="edit_field4" name="edit_field4" value="' + endTime + '" class="col-xs-10 col-sm-5" />\
+                    <input required type="text" id="editEventExam_field4" name="edit_field4" value="' + endTime + '" class="col-xs-10 col-sm-5" />\
                     </div>\
                     </div>\
 \
@@ -418,7 +425,7 @@ function createTimetable(){
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Location: </label>\
 \
                 <div class="col-sm-9">\
-                    <input required type="text" id="edit_field5" name="edit_field5" value="' + calEvent.location + '" class="col-xs-10 col-sm-5" />\
+                    <input required type="text" id="editEventExam_field5" name="edit_field5" value="' + calEvent.location + '" class="col-xs-10 col-sm-5" />\
                     </div>\
                     </div>\
                     \
@@ -427,7 +434,7 @@ function createTimetable(){
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Description: </label>\
 \
                 <div class="col-sm-9">\
-                    <input required type="text" id="edit_field6" name="edit_field6" value="' + calEvent.description + '" class="col-xs-10 col-sm-5" />\
+                    <input required type="text" id="editEventExam_field6" name="edit_field6" value="' + calEvent.description + '" class="col-xs-10 col-sm-5" />\
                     </div>\
                     </div>\
                         \
@@ -438,12 +445,13 @@ function createTimetable(){
                     <i class="ace-icon fa fa-check bigger-110"></i>\
                     Submit\
                     </button>\
-                        \
-                    &nbsp; &nbsp; &nbsp;\
-                <button class="btn" type="reset">\
-                    <i class="ace-icon fa fa-undo bigger-110"></i>\
-                    Reset\
-                    </button>\
+                \
+                &nbsp; &nbsp; &nbsp;\
+                <button class="btn btn-danger" onclick="deleteEventSubmitButton()">\
+                    <i class="ace-icon fa fa-trash-o bigger-110"></i>\
+                    Delete\
+                </button>\
+                \
                     </div>\
                     </div>\
                     </form>\
@@ -465,26 +473,25 @@ function createTimetable(){
                     var moduleCode = examSp[0];
 
                     var modal =
-                        '<div  id="myEditModal" class="modal">\
+                        '<div  id="myEventExamEditModal" class="modal">\
     \
                         <!-- Modal content -->\
                     <div class="modal-content">\
     \
-                        <span class="close">×</span>\
     \
                     <h4 id = "label" class="blue bigger">Edit the Event</h4>\
                     <div   class="row">\
                         <div class="col-xs-12">\
                     <hr>\
                     <iframe style="display: none" name="dammy_edit" ></iframe>\
-                        <form id="editForm" method="post"   target="dammy_edit" class="form-horizontal" role="form">\
+                        <form id="editEventExamForm" method="post"   target="dammy_edit" class="form-horizontal" role="form">\
                             \
                         <div class="form-group">\
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Exam Code: </label>\
                             \
                     <div class="col-sm-9">\
-                        <input type="text" style="display: none" id="editFormName" name="editFormName" value="Exam"  class="col-xs-10 col-sm-5" />\
-                        <input readonly type="text" id="edit_field0" name="edit_field0" value="' + examCode + '" class="col-xs-10 col-sm-5" />\
+                        <input style="display: none" type="text"  id="editEventExamFormName" name="editFormName" value="Exam"  class="col-xs-10 col-sm-5" />\
+                        <input readonly type="text" id="editEventExam_field0" name="edit_field0" value="' + examCode + '" class="col-xs-10 col-sm-5" />\
                     </div>\
                     </div>\
 \
@@ -492,7 +499,7 @@ function createTimetable(){
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Exam Title: </label>\
                         \
                 <div class="col-sm-9">\
-                    <input required type="text" id="edit_field1"  name="edit_field1" value="' + calEvent.title + '" class="col-xs-10 col-sm-5" />\
+                    <input required type="text" id="editEventExam_field1"  name="edit_field1" value="' + calEvent.title + '" class="col-xs-10 col-sm-5" />\
                     </div>\
                     </div>\
 \
@@ -500,7 +507,7 @@ function createTimetable(){
                 <div class="form-group">\
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Module Code: </label>\
                     <div class="col-sm-9">\
-                    <input type="text" id="edit_field2" name="edit_field2" value="' + moduleCode + '" class="col-xs-10 col-sm-5" />\
+                    <input type="text" id="editEventExam_field2" name="edit_field2" value="' + moduleCode + '" class="col-xs-10 col-sm-5" />\
                     </div>\
                     </div>\
                     \
@@ -509,7 +516,7 @@ function createTimetable(){
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Module Description: </label>\
                         \
                 <div class="col-sm-9">\
-                    <input type="text" id="edit_field3" id="edit_field3" name="edit_field3" value="' + calEvent.description + '" class="col-xs-10 col-sm-5" />\
+                    <input type="text" id="editEventExam_field3" id="edit_field3" name="edit_field3" value="' + calEvent.description + '" class="col-xs-10 col-sm-5" />\
                     </div>\
                     </div>\
                         \
@@ -517,7 +524,7 @@ function createTimetable(){
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Exam Session Date: </label>\
 \
                 <div class="col-sm-9">\
-                    <input required type="text"  id="edit_field4" name="edit_field4" value="' + correctDay + '" class="col-xs-10 col-sm-5" />\
+                    <input required type="text"  id="editEventExam_field4" name="edit_field4" value="' + correctDay + '" class="col-xs-10 col-sm-5" />\
                     </div>\
                     </div>\
 \
@@ -528,7 +535,7 @@ function createTimetable(){
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Start Time: </label>\
 \
                 <div class="col-sm-9">\
-                    <input required type="text" id="edit_field5" name="edit_field5" value="' + startTime + '" class="col-xs-10 col-sm-5" />\
+                    <input required type="text" id="editEventExam_field5" name="edit_field5" value="' + startTime + '" class="col-xs-10 col-sm-5" />\
                     </div>\
                     </div>\
                     \
@@ -537,7 +544,7 @@ function createTimetable(){
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Test Center Name: </label>\
 \
                 <div class="col-sm-9">\
-                    <input required type="text" id="edit_field6" name="edit_field6" value="' + calEvent.location + '" class="col-xs-10 col-sm-5" />\
+                    <input required type="text" id="editEventExam_field6" name="edit_field6" value="' + calEvent.location + '" class="col-xs-10 col-sm-5" />\
                     </div>\
                     </div>\
                     <div class="col-md-offset-3 col-md-9">\
@@ -545,12 +552,11 @@ function createTimetable(){
                     <i class="ace-icon fa fa-check bigger-110"></i>\
                     Submit\
                     </button>\
-                        \
                     &nbsp; &nbsp; &nbsp;\
-                <button class="btn" type="reset">\
-                    <i class="ace-icon fa fa-undo bigger-110"></i>\
-                    Reset\
-                    </button>\
+                <button class="btn btn-danger" onclick="deleteEventSubmitButton()">\
+                    <i class="ace-icon fa fa-trash-o bigger-110"></i>\
+                    Delete\
+                </button>\
                     </div>\
                     </div>\
                     </form>\
@@ -603,7 +609,7 @@ function createTimetable(){
 
 function addEventSubmitButton(){
 
-    var elements = document.getElementById("addForm").elements;
+    var elements = document.getElementById("addEventExamForm").elements;
     var patt = new RegExp("[^ @]*@[^ @]*");
     for (var i = 0, element; element = elements[i++];) {
         if (element.type === "text" && element.required==true && element.value == "")
@@ -612,8 +618,8 @@ function addEventSubmitButton(){
             return;
     }
 
-    document.forms["addForm"].action = 'readForm.php';
-    document.forms["addForm"].submit();
+    document.forms["addEventExamForm"].action = 'readForm.php';
+    document.forms["addEventExamForm"].submit();
     window.setTimeout(EventFun,2000);
 }
 
@@ -627,7 +633,7 @@ function EventFun() {
 }
 
 function editEventSubmitButton(){
-    var elements = document.getElementById("editForm").elements;
+    var elements = document.getElementById("editEventExamForm").elements;
     var patt = new RegExp("[^ @]*@[^ @]*");
     for (var i = 0, element; element = elements[i++];) {
         if (element.type === "text" && element.required==true && element.value == "")
@@ -636,15 +642,33 @@ function editEventSubmitButton(){
             return;
     }
 
-    document.forms["editForm"].action = 'readEditForm.php';
-    document.forms["editForm"].submit();
+    document.forms["editEventExamForm"].action = 'readEditForm.php';
+    document.forms["editEventExamForm"].submit();
     window.setTimeout(EventFun2,2000);
 }
 function EventFun2() {
-    var modal =  document.getElementById('myEditModal');
+    var modal =  document.getElementById('myEventExamEditModal');
     modal.style.visibility = "hidden";
     modal.remove();
     createTimetable();
     document.documentElement.style.overflow = "auto";
     document.body.style.marginRight='0px';
+}
+
+function deleteEventSubmitButton(){
+    var ID = document.getElementById("editEventExam_field0").value;
+    var type = document.getElementById("editEventExamFormName").value;
+
+    var xmlhttp = null;
+    if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+    }
+    else{
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.open("GET", "deleteRecord.php?q="+ID+"&q2="+type, false);
+    xmlhttp.send();
+
+    createTimetable();
 }

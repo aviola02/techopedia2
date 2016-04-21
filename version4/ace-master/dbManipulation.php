@@ -5,21 +5,22 @@
  * Date: 2/14/16
  * Time: 4:25 PM
  */
+include "dbAccess.php";
 $username;
 $GLOBALS['$username'];
 
-$dbh= mysql_connect('phpmyadmin.in.cs.ucy.ac.cy','technopedia2','WbJPQrRav5')
+$dbh= mysql_connect($GLOBALS["link"],$GLOBALS["DB"],$GLOBALS["DBpass"])
 or die("Couldn't connect to database.");
 
-$db = mysql_select_db("technopedia2", $dbh)
+$db = mysql_select_db($GLOBALS["DBName"], $dbh)
 or die("Couldn't select database.");
 
 function insert($table, $tableName){
 
-    $dbh= mysql_connect('phpmyadmin.in.cs.ucy.ac.cy','technopedia2','WbJPQrRav5')
+    $dbh= mysql_connect($GLOBALS["link"],$GLOBALS["DB"],$GLOBALS["DBpass"])
     or die("Couldn't connect to database.");
 
-    $db = mysql_select_db("technopedia2", $dbh)
+    $db = mysql_select_db($GLOBALS["DBName"], $dbh)
     or die("Couldn't select database.");
 
 
@@ -43,6 +44,8 @@ function insert($table, $tableName){
 
 
     echo $columns;
+
+    mysql_set_charset('utf8');
     mysql_query($columns);
 
     mysql_close($dbh);
@@ -51,10 +54,10 @@ function insert($table, $tableName){
 
 function edit($table, $tableName){
 
-    $dbh= mysql_connect('phpmyadmin.in.cs.ucy.ac.cy','technopedia2','WbJPQrRav5')
+    $dbh= mysql_connect($GLOBALS["link"],$GLOBALS["DB"],$GLOBALS["DBpass"])
     or die("Couldn't connect to database.");
 
-    $db = mysql_select_db("technopedia2", $dbh)
+    $db = mysql_select_db($GLOBALS["DBName"], $dbh)
     or die("Couldn't select database.");
     $i=0;
     $columns = "UPDATE ".$tableName." SET ";
@@ -80,8 +83,11 @@ function edit($table, $tableName){
         $columns.="ExamCode = ".$table[0];
     elseif ($tableName == "Class")
         $columns.="CourseName = '".$table[0]."' AND ClassNo = ".$table[1]." AND Year = ".$table[2];
+    elseif ($tableName == "Tschedule")
+        $columns.="CourseName = '".$table[0]."' AND ClassNo = ".$table[1]." AND Year = ".$table[2]." AND ProgramCode = ".$table[3];
 
     echo $columns;
+    mysql_set_charset('utf8');
     mysql_query($columns);
 
     mysql_close($dbh);
@@ -98,12 +104,12 @@ function view($table, $tableName){
     $count = 0;
 
 
-    $dbh= mysql_connect('phpmyadmin.in.cs.ucy.ac.cy','technopedia2','WbJPQrRav5')
+    $dbh= mysql_connect($GLOBALS["link"],$GLOBALS["DB"],$GLOBALS["DBpass"])
     or die("Couldn't connect to database.");
 
-    $db = mysql_select_db("technopedia2", $dbh)
+    $db = mysql_select_db($GLOBALS["DBName"], $dbh)
     or die("Couldn't select database.");
-
+    mysql_set_charset('utf8');
     $readColNames = "SHOW COLUMNS FROM ".$tableName;
     $result = mysql_query($readColNames);
 
@@ -150,33 +156,27 @@ function checkValidLogin($username, $password){
             $username = $row['Username'];
             $type = $row['Type'];
 
+            session_start();
+            $_SESSION["username"] =$row['Username'];
+            $_SESSION["Type"]=$row['Type'];
+            $_SESSION["FirstName"]=$row['FirstName'];
+            $_SESSION["LastName"]=$row['LastName'];
+            $_SESSION["DateOfBirth"]=$row['DateOfBirth'];
+            $_SESSION["MobilePhone"]=$row['MobilePhone'];
+            $_SESSION["Email"]=$row['Email'];
+
             switch($type){
                 case 'Admin':{ //if user is admin
-                    /**/
+                    Include "Administrator.php";
                     break;
                 }
                 case 'Secretary':{ //if user is secretary
-                    session_start();
-                    $_SESSION["username"] = $row['Username'];
-                    $_SESSION["Type"]=$row['Type'];
-                    $_SESSION["FirstName"]=$row['FirstName'];
-                    $_SESSION["LastName"]=$row['LastName'];
-                    $_SESSION["DateOfBirth"]=$row['DateOfBirth'];
-                    $_SESSION["MobilePhone"]=$row['MobilePhone'];
-                    $_SESSION["Email"]=$row['Email'];
+
                     Include "Secretary.php";
                     break;
                 }
                 case 'Teacher':{ //if user is teacher
 
-                    session_start();
-                    $_SESSION["username"] = $row['Username'];
-                    $_SESSION["Type"]=$row['Type'];
-                    $_SESSION["FirstName"]=$row['FirstName'];
-                    $_SESSION["LastName"]=$row['LastName'];
-                    $_SESSION["DateOfBirth"]=$row['DateOfBirth'];
-                    $_SESSION["MobilePhone"]=$row['MobilePhone'];
-                    $_SESSION["Email"]=$row['Email'];
                     Include "Teacher.php";
                     break;
                 }
