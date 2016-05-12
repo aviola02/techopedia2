@@ -4,6 +4,11 @@
  * User: Andreas
  * Date: 4/2/2016
  * Time: 4:39 PM
+ *
+ * This file implements the dynamic deletion of attendances. Its main
+ * purpose is to make possible the deletion with out submit, only by checking
+ * and un-checking checkboxes.
+ *
  */
 include "dbAccess.php";
 $str = $_REQUEST["q"];
@@ -25,16 +30,10 @@ else
 
 $pcode = $_REQUEST["q2"];
 
-$dbh= mysql_connect($GLOBALS["link"],$GLOBALS["DB"],$GLOBALS["DBpass"])
-or die("Couldn't connect to database.");
-
-$db = mysql_select_db($GLOBALS["DBName"], $dbh)
-or die("Couldn't select database.");
-
 
 $sql = "DELETE FROM Attendances  WHERE CourseName = '".$className."' AND ClassNo = '".$classNo."' AND Year = '".$year."' AND ProgramCode = '".$pcode."'";
-mysql_query($sql);
+mysqli_query($GLOBALS["dbh"],$sql);
 
 
 
-mysql_close($sql);
+mysqli_close($GLOBALS["dbh"]);

@@ -1,5 +1,11 @@
 /**
  * Created by hamdy on 3/11/16.
+ *
+ * This file gets the data and creates the proper data structures that
+ * are needed in order to show them in a grid table. It is also
+ * responsible to create a pager to control the grid table.
+ *
+ *
  */
 
 
@@ -17,9 +23,6 @@ function ajaxCall(str,category,tableBody){
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
 
             return xmlhttp.responseText;
-
-            //return kati;
-
         }
     }
 
@@ -33,7 +36,6 @@ function ajaxCall(str,category,tableBody){
 
     xmlhttp.send();
     return xmlhttp.onreadystatechange();
-    //table.fnDestroy();
 }
 
 
@@ -61,31 +63,13 @@ function showSchedule(str){
             }
         })
 
-        //if your grid is inside another element, for example a tab pane, you should use its parent's width:
-        /**
-         $(window).on('resize.jqGrid', function () {
-					var parent_width = $(grid_selector).closest('.tab-pane').width();
-					$(grid_selector).jqGrid( 'setGridWidth', parent_width );
-				})
-         //and also set width when tab pane becomes visible
-         $('#myTab a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-				  if($(e.target).attr('href') == '#mygrid') {
-					var parent_width = $(grid_selector).closest('.tab-pane').width();
-					$(grid_selector).jqGrid( 'setGridWidth', parent_width );
-				  }
-				})
-         */
-
-
-
+        //if your grid is inside another element, for example a tab pane, you should use its parent's width
 
 
         jQuery(grid_selector).jqGrid({
-            //direction: "rtl",
 
             //subgrid options
             subGrid : false,
-            //subGridModel: [{ name : ['No','Item Name','Qty'], width : [55,200,80] }],
             //datatype: "xml",
             subGridOptions : {
                 plusicon : "ace-icon fa fa-plus center bigger-110 blue",
@@ -119,10 +103,9 @@ function showSchedule(str){
                     formatter:'actions',
                     formatoptions:{
                         keys:true,
-                        //delbutton: false,//disable delete button
+                        //disable delete button
 
                         delOptions:{recreateForm: true, beforeShowForm:beforeDeleteCallback},
-                        //editformbutton:true, editOptions:{recreateForm: true, beforeShowForm:beforeEditCallback}
                     }
                 },
                 {name:'pCode',index:'pCode', width:150, editable: true, editoptions:{size:"20",maxlength:"30"}},
@@ -139,7 +122,6 @@ function showSchedule(str){
             //toppager: true,
 
             multiselect: true,
-            //multikey: "ctrlKey",
             multiboxonly: true,
 
             loadComplete : function() {
@@ -156,29 +138,8 @@ function showSchedule(str){
             editurl: "/dummy.html",//nothing is saved
             caption: "jqGrid with inline editing"
 
-            //,autowidth: true,
-
-
-            /**
-             ,
-             grouping:true,
-             groupingView : {
-						 groupField : ['name'],
-						 groupDataSorted : true,
-						 plusicon : 'fa fa-chevron-down bigger-110',
-						 minusicon : 'fa fa-chevron-up bigger-110'
-					},
-             caption: "Grouping"
-             */
-
         });
         $(window).triggerHandler('resize.jqGrid');//trigger window resize to make the grid get the correct size
-
-
-
-        //enable search/filter toolbar
-        //jQuery(grid_selector).jqGrid('filterToolbar',{defaultSearch:true,stringResult:true})
-        //jQuery(grid_selector).filterToolbar({});
 
 
         //switch element when editing inline
@@ -215,9 +176,6 @@ function showSchedule(str){
                 viewicon : 'ace-icon fa fa-search-plus grey',
             },
             {
-                //edit record form
-                //closeAfterEdit: true,
-                //width: 700,
                 recreateForm: true,
                 beforeShowForm : function(e) {
                     var form = $(e[0]);
@@ -227,7 +185,6 @@ function showSchedule(str){
             },
             {
                 //new record form
-                //width: 700,
                 closeAfterAdd: true,
                 recreateForm: true,
                 viewPagerButtons: false,
@@ -251,7 +208,6 @@ function showSchedule(str){
                     form.data('styled', true);
                 },
                 onClick : function(e) {
-                    //alert(1);
                 }
             },
             {
@@ -267,10 +223,7 @@ function showSchedule(str){
                 }
                 ,
                 multipleSearch: true,
-                /**
-                 multipleGroup:true,
-                 showQuery: true
-                 */
+
             },
             {
                 //view record form
@@ -290,7 +243,6 @@ function showSchedule(str){
 
             form.find('input[name=stock]').addClass('ace ace-switch ace-switch-5').after('<span class="lbl"></span>');
             //don't wrap inside a label element, the checkbox value won't be submitted (POST'ed)
-            //.addClass('ace ace-switch ace-switch-5').wrap('<label class="inline" />').after('<span class="lbl"></span>');
 
 
             //update buttons classes
@@ -343,41 +295,18 @@ function showSchedule(str){
         }
 
 
-
         //it causes some flicker when reloading or navigating grid
         //it may be possible to have some custom formatter to do this as the grid is being created to prevent this
         //or go back to default browser checkbox styles for the grid
         function styleCheckbox(table) {
-            /**
-             $(table).find('input:checkbox').addClass('ace')
-             .wrap('<label />')
-             .after('<span class="lbl align-top" />')
 
-
-             $('.ui-jqgrid-labels th[id*="_cb"]:first-child')
-             .find('input.cbox[type=checkbox]').addClass('ace')
-             .wrap('<label />').after('<span class="lbl align-top" />');
-             */
         }
 
 
         //unlike navButtons icons, action icons in rows seem to be hard-coded
         //you can change them like this in here if you want
         function updateActionIcons(table) {
-            /**
-             var replacement =
-             {
-                 'ui-ace-icon fa fa-pencil' : 'ace-icon fa fa-pencil blue',
-                 'ui-ace-icon fa fa-trash-o' : 'ace-icon fa fa-trash-o red',
-                 'ui-icon-disk' : 'ace-icon fa fa-check green',
-                 'ui-icon-cancel' : 'ace-icon fa fa-times red'
-             };
-             $(table).find('.ui-pg-div span.ui-icon').each(function(){
-						var icon = $(this);
-						var $class = $.trim(icon.attr('class').replace('ui-icon', ''));
-						if($class in replacement) icon.attr('class', 'ui-icon '+replacement[$class]);
-					})
-             */
+
         }
 
         //replace icons with FontAwesome icons like above
@@ -401,8 +330,6 @@ function showSchedule(str){
             $('.navtable .ui-pg-button').tooltip({container:'body'});
             $(table).find('.ui-pg-div').tooltip({container:'body'});
         }
-
-        //var selr = jQuery(grid_selector).jqGrid('getGridParam','selrow');
 
         $(document).one('ajaxloadstart.page', function(e) {
             $(grid_selector).jqGrid('GridUnload');

@@ -4,19 +4,18 @@
  * User: hamdy
  * Date: 3/25/16
  * Time: 10:35 PM
+ *
+ * This file is responsible to push into the data base multiple
+ * Classes. Specifically the classes added here are the classes that are
+ * going to be matched with student that are going to attend them.
+ *
  */
 include "dbAccess.php";
 
-$dbh= mysql_connect($GLOBALS["link"],$GLOBALS["DB"],$GLOBALS["DBpass"])
-or die("Couldn't connect to database.");
-
-$db = mysql_select_db($GLOBALS["DBName"], $dbh)
-or die("Couldn't select database.");
 
 $columns = "INSERT INTO ClassStudent (CourseName, ClassNo, Year, CandidateID) VALUES (";
 
 $str = $_GET['class'];
-//$str='EPL371-1-2016, EPL342-2-2016, EPL361-3-2015, EPL361-4-2015,+685512-Giorgos-Andreou,99999-Nicos-Andreou,Kapoios-Kapoiou-1234567,';
 $array=explode('!',$str);
 
 $classes=explode(',',$array[0]);
@@ -34,10 +33,9 @@ for ($i=0;$i<sizeof($classes)-1;$i++){
         $query.=trim($classInsertion[2]," ").',';
         $query.=trim($studentsInsertion[0]," ").')';
         echo $query;
-        mysql_query($query);
+        mysqli_query($GLOBALS["dbh"],$query);
         $query=$columns;
-//        echo $classes[$i].'---------'.$students[$j];
     }
 }
 
-mysql_close($dbh);
+mysqli_close($GLOBALS["dbh"]);

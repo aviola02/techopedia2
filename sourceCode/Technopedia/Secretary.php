@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * Created by PhpStorm.
+ * User: hamdy
+ * Date: 3/22/16
+ * Time: 9:52 PM
+ *
+ * Check about valid Session to view this page.
+ *
+ */
+
 if ($_SESSION["Type"]!="Secretary"){
     header("Location: login2.html");
 }
@@ -111,6 +121,14 @@ if ($_SESSION["Type"]!="Secretary"){
                         </li>
 
                         <li class="divider"></li>
+                        <li>
+                            <a href="#" onclick='setStaffEditButton("password")'>
+                                <i class="ace-icon fa fa-user"></i>
+                                Change Password
+                            </a>
+                        </li>
+
+                        <li class="divider"></li>
 
                         <li>
                             <a href="login2.html">
@@ -132,9 +150,6 @@ if ($_SESSION["Type"]!="Secretary"){
     </script>
 
     <div id="sidebar" class="sidebar                  responsive">
-<!--        <script type="text/javascript">-->
-<!--            try{ace.settings.check('sidebar' , 'fixed')}catch(e){}-->
-<!--        </script>-->
 
 
         <ul class="nav nav-list">
@@ -212,25 +227,26 @@ if ($_SESSION["Type"]!="Secretary"){
         </ul><!-- /.nav-list -->
 
         <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
-            <i class="fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+            <i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
         </div>
 
-<!--        <script type="text/javascript">-->
-<!--            try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}-->
-<!--        </script>-->
+        <script type="text/javascript">
+            try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+        </script>
+
     </div>
 
     <div class="main-content">
         <div class="main-content-inner">
             <div class="breadcrumbs" id="breadcrumbs">
-<!--                <script type="text/javascript">-->
-<!--                    try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}-->
-<!--                </script>-->
 
                 <ul class="breadcrumb">
                     <li>
                         <i class="fa fa-home home-icon"></i>
-                        <a>Home</a>
+                        <a>Technopedia</a>
+                    </li>
+                    <li>
+                        <a>Secretary</a>
                     </li>
                 </ul><!-- /.breadcrumb -->
 
@@ -303,16 +319,11 @@ if ($_SESSION["Type"]!="Secretary"){
                                                  * Date: 2/28/16
                                                  * Time: 7:29 PM
                                                  */
-
-                                                $dbh= mysql_connect($GLOBALS["link"],$GLOBALS["DB"],$GLOBALS["DBpass"])
-                                                or die("Couldn't connect to database.");
-
-                                                $db = mysql_select_db($GLOBALS["DBName"], $dbh)
-                                                or die("Couldn't select database.");
+                                                include "dbAccess.php";
 
                                                 $sql = "Select CourseName, ClassNo, Year From Class";
-                                                $result = mysql_query($sql);
-                                                while($row = mysql_fetch_array($result)){
+                                                $result = mysqli_query($GLOBALS["dbh"],$sql);
+                                                while($row = mysqli_fetch_array($result)){
                                                     $str = $row['CourseName'].'-'.$row['ClassNo'].'-'.$row['Year'];
                                                     $str2 = "\"".$str."\"";
                                                     $str2 = htmlspecialchars($str2, ENT_QUOTES);
@@ -320,7 +331,7 @@ if ($_SESSION["Type"]!="Secretary"){
 
                                                 }
 
-                                                mysql_close($dbh);
+                                                mysqli_close($GLOBALS["dbh"]);
 
                                                 ?>
                                             </select>
@@ -340,20 +351,11 @@ if ($_SESSION["Type"]!="Secretary"){
                                                  * Date: 2/28/16
                                                  * Time: 7:29 PM
                                                  */
-
-                                                //include 'pullData2.php';
-
-                                                //$data = getData("Class");
-
-                                                $dbh= mysql_connect($GLOBALS["link"],$GLOBALS["DB"],$GLOBALS["DBpass"])
-                                                or die("Couldn't connect to database.");
-
-                                                $db = mysql_select_db($GLOBALS["DBName"], $dbh)
-                                                or die("Couldn't select database.");
+                                                include "dbAccess.php";
 
                                                 $sql = "Select CandidateID, FirstNameEnglish, LastNameEnglish From Student";
-                                                $result = mysql_query($sql);
-                                                while($row = mysql_fetch_array($result)){
+                                                $result = mysqli_query($GLOBALS["dbh"],$sql);
+                                                while($row = mysqli_fetch_array($result)){
                                                     $str = $row['CandidateID'];
                                                     $str2 = "\"".$str."\"";
                                                     $str2 = htmlspecialchars($str2, ENT_QUOTES);
@@ -361,7 +363,7 @@ if ($_SESSION["Type"]!="Secretary"){
 
                                                 }
 
-                                                mysql_close($dbh);
+                                                mysqli_close($GLOBALS["dbh"]);
 
                                                 ?>
                                             </select>
@@ -460,7 +462,7 @@ if ($_SESSION["Type"]!="Secretary"){
             <div class="col-xs-12">
                 <!-- PAGE CONTENT BEGINS -->
                 <hr>
-                <iframe name="dammy" onchange="addSubmitButton()" style="display: none"></iframe>
+                <iframe name="dammy" onchange="addSubmitButton()" ></iframe>
                 <form id="addForm" method="post" target="dammy" class="form-horizontal" role="form">
 
                     <div class="form-group">
@@ -727,7 +729,7 @@ if ($_SESSION["Type"]!="Secretary"){
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Document: </label>
 
                         <div class="col-sm-9">
-                            <input type="file" name="field26" placeholder="Add a Document..." class="col-xs-10 col-sm-5" />
+                            <input type="file" name="field26" id="field26" placeholder="Add a Document..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -736,12 +738,6 @@ if ($_SESSION["Type"]!="Secretary"){
                             <button class="btn btn-info" type="submit" onclick="addSubmitButton()">
                                 <i class="ace-icon fa fa-check bigger-110"></i>
                                 Submit
-                            </button>
-
-                            &nbsp; &nbsp; &nbsp;
-                            <button class="btn" type="reset">
-                                <i class="ace-icon fa fa-undo bigger-110"></i>
-                                Reset
                             </button>
                         </div>
                     </div>
@@ -1044,12 +1040,6 @@ if ($_SESSION["Type"]!="Secretary"){
                             <button class="btn btn-info" type="submit" onclick="editSubmitButton()">
                                 <i class="ace-icon fa fa-check bigger-110"></i>
                                 Submit
-                            </button>
-
-                            &nbsp; &nbsp; &nbsp;
-                            <button class="btn" type="reset">
-                                <i class="ace-icon fa fa-undo bigger-110"></i>
-                                Reset
                             </button>
                         </div>
                     </div>
@@ -1487,7 +1477,7 @@ if ($_SESSION["Type"]!="Secretary"){
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Type: </label>
 
                             <div class="col-sm-9">
-                                <input type="text" style="display: none" name="field11" id="addStaff_field11" value="Admin" class="col-xs-10 col-sm-5" />
+                                <input type="text" style="display: none" name="field11" id="addStaff_field11" value="Secretary" class="col-xs-10 col-sm-5" />
 
                                 <select onchange='selectBoxToTextBox("Type","addStaff_field11")' class="chosen-select form-control" id="Type" data-placeholder="Choose a Day...">
                                     <option value="02">Secretary</option>
@@ -1502,7 +1492,7 @@ if ($_SESSION["Type"]!="Secretary"){
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Employee Picture: </label>
 
                             <div class="col-sm-9">
-                                <input type="file" name="field12" placeholder="Add Employee Picture..." class="col-xs-10 col-sm-5" />
+                                <input type="file" name="field12" id="field12" placeholder="Add Employee Picture..." class="col-xs-10 col-sm-5" />
                             </div>
                         </div>
 
@@ -1511,12 +1501,6 @@ if ($_SESSION["Type"]!="Secretary"){
                                 <button class="btn btn-info" type="submit" onclick="addStaffSubmitButton()">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
                                     Submit
-                                </button>
-
-                                &nbsp; &nbsp; &nbsp;
-                                <button class="btn" type="reset">
-                                    <i class="ace-icon fa fa-undo bigger-110"></i>
-                                    Reset
                                 </button>
                             </div>
                         </div>
@@ -1777,7 +1761,7 @@ if ($_SESSION["Type"]!="Secretary"){
 
             <span class="close">×</span>
 
-            <h4 id = "label" class="blue bigger">View Student</h4>
+            <h4 id = "label" class="blue bigger">View Staff</h4>
             <div   class="row">
                 <div class="col-xs-12">
                     <!-- PAGE CONTENT BEGINS -->
@@ -1976,6 +1960,18 @@ if ($_SESSION["Type"]!="Secretary"){
                             <input pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" type="text" name="field7" placeholder="In this form 15:55:00" class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Current/Old Class: </label>
+                        <div class="col-sm-9">
+                            <input style="display: none" type="text" name="field8" id="add_Classfield8" value="1" class="col-xs-10 col-sm-5" />
+
+                            <select onchange="classSelectBoxToTextBox('addClassType','add_Classfield8')" class="chosen-select form-control" id="addClassType" data-placeholder="Choose a Day...">
+                                <option value="1">Current Class</option>
+                                <option value="0">Old Class</option>
+                            </select>
+
+                        </div>
+                    </div>
 
 
                     <div class="clearfix form-actions">
@@ -2078,6 +2074,18 @@ if ($_SESSION["Type"]!="Secretary"){
                             <input pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" required type="text" name="edit_field7" id = "edit_Classfield7" placeholder="In this form 15:55:00" class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label readonly class="col-sm-3 control-label no-padding-right" for="form-field-1"> Current/Old Class: </label>
+                        <div class="col-sm-9">
+                            <input style="display: none" type="text" name="edit_field8" id="edit_Classfield8" value="1" class="col-xs-10 col-sm-5" />
+
+                            <select onchange="classSelectBoxToTextBox('editClassType','edit_Classfield8')" class="chosen-select form-control" id="editClassType" data-placeholder="Choose a Day...">
+                                <option value="1">Current Class</option>
+                                <option value="0">Old Class</option>
+                            </select>
+
+                        </div>
+                    </div>
 
 
                     <div class="clearfix form-actions">
@@ -2087,11 +2095,7 @@ if ($_SESSION["Type"]!="Secretary"){
                                 Submit
                             </button>
 
-                            &nbsp; &nbsp; &nbsp;
-                            <button class="btn" type="reset">
-                                <i class="ace-icon fa fa-undo bigger-110"></i>
-                                Reset
-                            </button>
+                            &nbsp;
                         </div>
                     </div>
                 </form>
@@ -2215,7 +2219,7 @@ if ($_SESSION["Type"]!="Secretary"){
                             <input readonly type="text" name="edit_field0" id="edit_Profilefield0" placeholder="Put Username..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div style="display: none" class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Staff Password: </label>
 
                         <div class="col-sm-9">
@@ -2418,12 +2422,6 @@ if ($_SESSION["Type"]!="Secretary"){
                                 <i class="ace-icon fa fa-check bigger-110"></i>
                                 Submit
                             </button>
-
-                            &nbsp; &nbsp; &nbsp;
-                            <button class="btn" type="reset">
-                                <i class="ace-icon fa fa-undo bigger-110"></i>
-                                Reset
-                            </button>
                         </div>
                     </div>
                 </form>
@@ -2435,6 +2433,56 @@ if ($_SESSION["Type"]!="Secretary"){
 
 </div>
 
+
+</div>
+
+<div id="passwordModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+
+        <h4 class="blue bigger"><label>Hello</label><span> </span><label id = "passwordUsername"> <?php echo $_SESSION['username'];?></label><label id = "profileLabel">! Change your Password</label></h4>
+
+        <div   class="row">
+            <div class="col-xs-12">
+                <!-- PAGE CONTENT BEGINS -->
+                <hr>
+                <iframe style="display: none" name="dammy22" ></iframe>
+                <form id="passwordForm" method="post" action="changePassword.php" target="dammy22" class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Username: </label>
+                        <div class="col-sm-9">
+                            <input readonly type="text" name="userName"  id="userName" placeholder="Put Current Password..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Password: </label>
+                        <div class="col-sm-9">
+                            <input type="password" name="edit_PasswordField0"  id="edit_PasswordField0" placeholder="Put Current Password..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> New Password: </label>
+
+                        <div class="col-sm-9">
+                            <input type="password" name="edit_PasswordField1" id="edit_PasswordField1" placeholder="Put New Password..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="clearfix form-actions">
+                        <div class="col-md-offset-3 col-md-9">
+                            <button class="btn btn-info" type="submit">
+                                <i class="ace-icon fa fa-check bigger-110"></i>
+                                Submit
+                            </button>
+
+                        </div>
+                    </div>
+                </form>
+                <!-- PAGE CONTENT ENDS -->
+
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div>
 
 </div>
 
@@ -2518,12 +2566,14 @@ if ($_SESSION["Type"]!="Secretary"){
     var addClassModal = document.getElementById('addClass');
     var editClassModal = document.getElementById('editClass');
     var viewClassModal = document.getElementById('myClassViewModal');
+    var passwordModal = document.getElementById('passwordModal');
 
     window.onclick = function (event) {
         if (event.target == editProfileModal|| event.target == addStudentModal || event.target == editStudentModal || event.target == viewStudentModal
             || event.target == addStaffModal || event.target == editStaffModal || event.target == viewStaffModal
-            || event.target == addClassModal || event.target == editClassModal || event.target == viewClassModal) {
-            $('#profileModal,#myModal, #myEditModal,#myViewModal, #addStaffModal,#editStaffModal,#myStaffViewModal, #addClass,#editClass,#myClassViewModal').css('display', 'none');
+            || event.target == addClassModal || event.target == editClassModal || event.target == viewClassModal
+            || event.target == passwordModal) {
+            $('#profileModal,#myModal, #myEditModal,#myViewModal, #addStaffModal,#editStaffModal,#myStaffViewModal, #addClass,#editClass,#myClassViewModal,#passwordModal').css('display', 'none');
         }
     }
 </script>

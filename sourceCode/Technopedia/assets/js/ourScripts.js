@@ -1,4 +1,15 @@
-
+/**
+ * Created by PhpStorm.
+ * User: hamdy
+ * Date: 3/22/16
+ * Time: 9:52 PM
+ *
+ * In this file is implemented an asynchronus connection to the back end
+ * to retrieve the appropriate data using ajax technique and fits them
+ * to the proper forms in order to view them as a grid. It is mainly about
+ * viewing the grid table that show the students.
+ *
+ */
 function ajaxCall(str,category,tableBody){
 
 
@@ -13,9 +24,6 @@ function ajaxCall(str,category,tableBody){
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
 
             return xmlhttp.responseText;
-
-            //return kati;
-
         }
     }
 
@@ -29,7 +37,6 @@ function ajaxCall(str,category,tableBody){
 
     xmlhttp.send();
     return xmlhttp.onreadystatechange();
-    //table.fnDestroy();
 }
 
 
@@ -80,7 +87,6 @@ function showStudents(str){
             //toppager: true,
 
             multiselect: false,
-            //multikey: "ctrlKey",
             multiboxonly: false,
 
             loadComplete : function() {
@@ -97,29 +103,9 @@ function showStudents(str){
             editurl: "/dummy.html",//nothing is saved
             caption: "Students"
 
-            //,autowidth: true,
-
-
-            /**
-             ,
-             grouping:true,
-             groupingView : {
-						 groupField : ['name'],
-						 groupDataSorted : true,
-						 plusicon : 'fa fa-chevron-down bigger-110',
-						 minusicon : 'fa fa-chevron-up bigger-110'
-					},
-             caption: "Grouping"
-             */
 
         });
         $(window).triggerHandler('resize.jqGrid');//trigger window resize to make the grid get the correct size
-
-
-
-        //enable search/filter toolbar
-        //jQuery(grid_selector).jqGrid('filterToolbar',{defaultSearch:true,stringResult:true})
-        //jQuery(grid_selector).filterToolbar({});
 
 
         //switch element when editing inline
@@ -157,8 +143,6 @@ function showStudents(str){
             },
             {
                 //edit record form
-                //closeAfterEdit: true,
-                //width: 700,
                 recreateForm: true,
                 beforeShowForm : function(e) {
                     var form = $(e[0]);
@@ -168,7 +152,6 @@ function showStudents(str){
             },
             {
                 //new record form
-                //width: 700,
                 closeAfterAdd: true,
                 recreateForm: true,
                 viewPagerButtons: false,
@@ -192,7 +175,6 @@ function showStudents(str){
                     form.data('styled', true);
                 },
                 onClick : function(e) {
-                    //alert(1);
                 }
             },
             {
@@ -208,10 +190,7 @@ function showStudents(str){
                 }
                 ,
                 multipleSearch: true,
-                /**
-                 multipleGroup:true,
-                 showQuery: true
-                 */
+
             },
             {
                 //view record form
@@ -231,7 +210,6 @@ function showStudents(str){
 
             form.find('input[name=stock]').addClass('ace ace-switch ace-switch-5').after('<span class="lbl"></span>');
             //don't wrap inside a label element, the checkbox value won't be submitted (POST'ed)
-            //.addClass('ace ace-switch ace-switch-5').wrap('<label class="inline" />').after('<span class="lbl"></span>');
 
 
             //update buttons classes
@@ -289,36 +267,14 @@ function showStudents(str){
         //it may be possible to have some custom formatter to do this as the grid is being created to prevent this
         //or go back to default browser checkbox styles for the grid
         function styleCheckbox(table) {
-            /**
-             $(table).find('input:checkbox').addClass('ace')
-             .wrap('<label />')
-             .after('<span class="lbl align-top" />')
 
-
-             $('.ui-jqgrid-labels th[id*="_cb"]:first-child')
-             .find('input.cbox[type=checkbox]').addClass('ace')
-             .wrap('<label />').after('<span class="lbl align-top" />');
-             */
         }
 
 
         //unlike navButtons icons, action icons in rows seem to be hard-coded
         //you can change them like this in here if you want
         function updateActionIcons(table) {
-            /**
-             var replacement =
-             {
-                 'ui-ace-icon fa fa-pencil' : 'ace-icon fa fa-pencil blue',
-                 'ui-ace-icon fa fa-trash-o' : 'ace-icon fa fa-trash-o red',
-                 'ui-icon-disk' : 'ace-icon fa fa-check green',
-                 'ui-icon-cancel' : 'ace-icon fa fa-times red'
-             };
-             $(table).find('.ui-pg-div span.ui-icon').each(function(){
-						var icon = $(this);
-						var $class = $.trim(icon.attr('class').replace('ui-icon', ''));
-						if($class in replacement) icon.attr('class', 'ui-icon '+replacement[$class]);
-					})
-             */
+            
         }
 
         //replace icons with FontAwesome icons like above
@@ -343,7 +299,6 @@ function showStudents(str){
             $(table).find('.ui-pg-div').tooltip({container:'body'});
         }
 
-        //var selr = jQuery(grid_selector).jqGrid('getGridParam','selrow');
 
         $(document).one('ajaxloadstart.page', function(e) {
             $(grid_selector).jqGrid('GridUnload');
@@ -386,6 +341,7 @@ function addSubmitButton(){
             return;
     }
     document.forms["addForm"].action = 'readForm.php';
+    document.forms["addForm"].enctype='multipart/form-data';
     document.forms["addForm"].submit();
     window.setTimeout(Fun2,1000);
 }
@@ -400,6 +356,7 @@ function editSubmitButton(){
             return;
     }
     document.forms["editForm"].action = 'readEditForm.php';
+    document.forms["editForm"].enctype='multipart/form-data';
     document.forms["editForm"].submit();
     window.setTimeout(Fun,1000);
 }
@@ -545,7 +502,8 @@ function handleJSON(params,option){
             var sub_val = val.j;
             if (option == "edit") {
                 str = ("edit_field" + count);
-                document.getElementById(str).value = json[0][sub_key];
+                if(document.getElementById(str).getAttribute("Type") != "file")
+                    document.getElementById(str).value = json[0][sub_key];
             }
         else if(option == "view") {
                 str = ("view_field" + count);
@@ -561,6 +519,17 @@ function handleJSON(params,option){
     }
     if (option == "edit")
         setDate("edit_field8","editDay","editMonth","editYear");
+    if (option == "view"){
+        var path = window.location.pathname;
+        var arr = path.split("/");
+        path="";
+        for(var i=0;i<arr.length-1;i++){
+            path+=arr[i];
+            path+="/";
+        }
+        path+="StudentDocuments";
+        document.getElementById(str).innerHTML = '<a href="' + path + "/" + json[0][sub_key]+'" download>Download Picture</a>';
+    }
 
 }
 

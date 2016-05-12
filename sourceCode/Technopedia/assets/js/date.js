@@ -1,5 +1,10 @@
 /**
  * Created by Andreas on 3/1/2016.
+ *
+ * This file is responsible to handle manage correct display of
+ * dates and other fields. It is also responsible to set some
+ * combo boxes according to dynamic data from the data base.
+ *
  */
 function getDate(d,m,y,dest){
     //take the selected day
@@ -77,4 +82,23 @@ function textBoxToSelectBox(text, combo){
     else if (text_value == "Teacher")
         cb.selectedIndex = "2";
 
+}
+function classSelectBoxToTextBox(combo,text){
+    var cb = document.getElementById(combo);
+    var cb_value = cb.options[cb.selectedIndex].text;
+
+    var dest = document.getElementById(text);
+    if (cb_value=="Current Class")
+        dest.value = "1";
+    else
+        dest.value = "0";
+}
+
+function CurrentOldClass(text, combo){
+    var text_value = document.getElementById(text).value;
+    var cb = document.getElementById(combo);
+    if (text_value == "1")
+        cb.selectedIndex = "0";
+    else if (text_value == "0")
+        cb.selectedIndex = "1";
 }

@@ -1,10 +1,16 @@
 /**
  * Created by hamdy on 3/11/16.
+ *
+ *
+ * This file is responsible to set the view of the data related to the
+ * staff. It is also the class that arranges all the appearance for the
+ * data related with the Staff.
+ *
+ *
  */
 
 function showStaff(str){
 
-    //ajaxCall(str,"staff","staffTable");
 
     var staff_data= eval(ajaxCall(str,"staff","staffTable"));
     $("#staff-table").jqGrid('GridUnload');
@@ -27,20 +33,6 @@ function showStaff(str){
             }
         })
 
-        //if your grid is inside another element, for example a tab pane, you should use its parent's width:
-        /**
-         $(window).on('resize.jqGrid', function () {
-					var parent_width = $(grid_selector2).closest('.tab-pane').width();
-					$(grid_selector2).jqGrid( 'setGridWidth', parent_width );
-				})
-         //and also set width when tab pane becomes visible
-         $('#myTab a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-				  if($(e.target).attr('href') == '#mygrid') {
-					var parent_width = $(grid_selector2).closest('.tab-pane').width();
-					$(grid_selector2).jqGrid( 'setGridWidth', parent_width );
-				  }
-				})
-         */
 
 
 
@@ -53,16 +45,7 @@ function showStaff(str){
             height: 250,
             colNames:['First Name','Last Name','User Name','Mobile Phone Number', 'E-mail'],
             colModel:[
-                //{name:'myac',index:'', width:80, fixed:true, sortable:false, resize:false,
-                //    formatter:'actions',
-                //    formatoptions:{
-                //        keys:true,
-                //        //delbutton: false,//disable delete button
-                //
-                //        delOptions:{recreateForm: true, beforeShowForm:beforeDeleteCallback},
-                //        //editformbutton:true, editOptions:{recreateForm: true, beforeShowForm:beforeEditCallback}
-                //    }
-                //},
+
                 {name:'fName',index:'fName', width:150, editable: true, editoptions:{size:"20",maxlength:"30"}},
                 {name:'lName',index:'lName', width:150, editable: true, editoptions:{size:"20",maxlength:"30"}},
                 {name:'id',index:'id', width:150, editable: true, editoptions:{size:"20",maxlength:"30"}},
@@ -78,7 +61,6 @@ function showStaff(str){
             //toppager: true,
 
             multiselect: false,
-            //multikey: "ctrlKey",
             multiboxonly: false,
 
             loadComplete : function() {
@@ -95,30 +77,8 @@ function showStaff(str){
             editurl: "/dummy.html",//nothing is saved
             caption: "Staff"
 
-            //,autowidth: true,
-
-
-            /**
-             ,
-             grouping:true,
-             groupingView : {
-						 groupField : ['name'],
-						 groupDataSorted : true,
-						 plusicon : 'fa fa-chevron-down bigger-110',
-						 minusicon : 'fa fa-chevron-up bigger-110'
-					},
-             caption: "Grouping"
-             */
-
         });
         $(window).triggerHandler('resize.jqGrid');//trigger window resize to make the grid get the correct size
-
-
-
-        //enable search/filter toolbar
-        //jQuery(grid_selector2).jqGrid('filterToolbar',{defaultSearch:true,stringResult:true})
-        //jQuery(grid_selector2).filterToolbar({});
-
 
         //switch element when editing inline
         function aceSwitch( cellvalue, options, cell ) {
@@ -155,8 +115,6 @@ function showStaff(str){
             },
             {
                 //edit record form
-                //closeAfterEdit: true,
-                //width: 700,
                 recreateForm: true,
                 beforeShowForm : function(e) {
                     var form = $(e[0]);
@@ -166,7 +124,6 @@ function showStaff(str){
             },
             {
                 //new record form
-                //width: 700,
                 closeAfterAdd: true,
                 recreateForm: true,
                 viewPagerButtons: false,
@@ -174,7 +131,6 @@ function showStaff(str){
                     var form = $(e[0]);
                     form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar')
                         .wrapInner('<div class="widget-header" />')
-                    //style_edit_form(form);
                 }
             },
             {
@@ -191,7 +147,6 @@ function showStaff(str){
                 },
                 onClick :
                     function(e) {
-                        //    alert(1);
                     }
             },
             {
@@ -207,10 +162,7 @@ function showStaff(str){
                 }
                 ,
                 multipleSearch: true,
-                /**
-                 multipleGroup:true,
-                 showQuery: true
-                 */
+
             },
             {
                 //view record form
@@ -230,7 +182,6 @@ function showStaff(str){
 
             form.find('input[name=stock]').addClass('ace ace-switch ace-switch-5').after('<span class="lbl"></span>');
             //don't wrap inside a label element, the checkbox value won't be submitted (POST'ed)
-            //.addClass('ace ace-switch ace-switch-5').wrap('<label class="inline" />').after('<span class="lbl"></span>');
 
 
             //update buttons classes
@@ -275,13 +226,6 @@ function showStaff(str){
 
             form.data('styled', true);
         }
-
-        //function beforeEditCallback(e) {
-        //    var form = $(e[0]);
-        //    form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />')
-        //    //style_edit_form(form);
-        //    showModal();
-        //}
 
 
 
@@ -343,8 +287,6 @@ function showStaff(str){
             $(table).find('.ui-pg-div').tooltip({container:'body'});
         }
 
-        //var selr = jQuery(grid_selector2).jqGrid('getGridParam','selrow');
-
         $(document).one('ajaxloadstart.page', function(e) {
             $(grid_selector2).jqGrid('GridUnload');
             $('.ui-jqdialog').remove();
@@ -390,6 +332,7 @@ function addStaffSubmitButton(){
     }
 
     document.forms["addStaffForm"].action = 'readForm.php';
+    document.forms["addStaffForm"].enctype='multipart/form-data';
     document.forms["addStaffForm"].submit();
     window.setTimeout(StaffFun,1000);
 }
@@ -410,6 +353,7 @@ function editStaffSubmitButton(){
     }
 
     document.forms["editStaffForm"].action = 'readEditForm.php';
+    document.forms["editStaffForm"].enctype='multipart/form-data';
     document.forms["editStaffForm"].submit();
     window.setTimeout(StaffFun2,1000);
 }
@@ -433,12 +377,12 @@ function editStaffSubmitButton2(){
     }
 
     document.forms["editProfileForm"].action = 'readEditForm.php';
+    document.forms["editProfileForm"].enctype='multipart/form-data';
     document.forms["editProfileForm"].submit();
     window.setTimeout(StaffFun3,1000);
 }
 function StaffFun3() {
     document.getElementById('profileModal').style.display = "none";
-    //showStaff("Staff");
 }
 
 function setStaffEditButton(typeOfEdit){
@@ -462,7 +406,6 @@ function setStaffEditButton(typeOfEdit){
     } else if (typeOfEdit=="profile") {
 
         var editModal = document.getElementById('profileModal');
-        var editSpan = document.getElementsByClassName("close")[0];
 
         editModal.style.display = "block";
         var username = document.getElementById('profileUsername').innerText;
@@ -478,7 +421,17 @@ function setStaffEditButton(typeOfEdit){
             }
         }
 
+    }else if (typeOfEdit=="password") {
+
+        var editModal = document.getElementById('passwordModal');
+        editModal.style.display = "block";
+        var username = document.getElementById('passwordUsername').innerText;
+        document.getElementById("userName").value = username;
+
+
+
     }
+
 
 
     editSpan.onclick = function() {
@@ -625,7 +578,8 @@ function handleStaffJSON(params,option){
             var sub_val = val.j;
             if (option == "edit") {
                 str = ("edit_stafffield" + count);
-                document.getElementById(str).value = json[0][sub_key];
+                if(document.getElementById(str).getAttribute("Type") != "file")
+                    document.getElementById(str).value = json[0][sub_key];
             }
             else if(option == "view") {
                 str = ("viewStaff_field" + count);
@@ -633,7 +587,7 @@ function handleStaffJSON(params,option){
             }
             else if(option == "editProfile") {
                 str = ("edit_Profilefield" + count);
-                document.getElementById(str).value = json[0][sub_key];
+                    document.getElementById(str).value = json[0][sub_key];
             }
             else
                 alert("Wrong option");
@@ -653,7 +607,19 @@ function handleStaffJSON(params,option){
         setDate("edit_Profilefield7", "editProfileDay2", "editProfileMonth2", "editProfileYear2");
         textBoxToSelectBox("edit_Profilefield11","editProfileType");
     }
+    if (option == "view"){
+        var path = window.location.pathname;
+        var arr = path.split("/");
+        path="";
+        for(var i=0;i<arr.length-1;i++){
+            path+=arr[i];
+            path+="/";
+        }
+        path+="StaffPictures";
+        document.getElementById(str).innerHTML = '<a href="' + path + "/" + json[0][sub_key]+'" download>Download Picture</a>';
+    }
 
 
 }
+
 

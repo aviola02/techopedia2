@@ -4,13 +4,13 @@
  * User: hamdy
  * Date: 4/1/16
  * Time: 9:03 PM
+ *
+ * Implementation about removing(deleting) a participation of
+ * a particular student in a specific class.
+ *
  */
 include "dbAccess.php";
-$dbh= mysql_connect($GLOBALS["link"],$GLOBALS["DB"],$GLOBALS["DBpass"])
-or die("Couldn't connect to database.");
 
-$db = mysql_select_db($GLOBALS["DBName"], $dbh)
-or die("Couldn't select database.");
 
 $query = 'DELETE FROM ClassStudent WHERE CourseName=';
 $courseName='\''.$_POST['field0'].'\' AND ClassNo=';
@@ -21,12 +21,12 @@ $query.=$courseName.$classNo.$year.$candidate;
 
 echo $query;
 
-mysql_query($query);
+mysqli_query($GLOBALS["dbh"],$query);
 
 $query = 'DELETE FROM Attendances WHERE CourseName=';
 $query.=$courseName.$classNo.$year.$candidate;
 
-mysql_query($query);
+mysqli_query($GLOBALS["dbh"],$query);
 
-mysql_close($dbh);
+mysqli_close($GLOBALS["dbh"]);
 

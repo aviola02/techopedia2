@@ -1,4 +1,12 @@
-
+/**
+ * Created by hamdy on 3/17/16.
+ *
+ * This file gets the data and creates the proper data structures that
+ * are needed in order to show them in a grid table. It is also
+ * responsible to create a pager to control the grid table.
+ *
+ *
+ */
 
 function showClass(str){
 
@@ -49,7 +57,6 @@ function showClass(str){
             //toppager: true,
 
             multiselect: false,
-            //multikey: "ctrlKey",
             multiboxonly: false,
 
             loadComplete : function() {
@@ -66,20 +73,6 @@ function showClass(str){
             editurl: "/dummy.html",//nothing is saved
             caption: "Classes"
 
-            //,autowidth: true,
-
-
-            /**
-             ,
-             grouping:true,
-             groupingView : {
-						 groupField : ['name'],
-						 groupDataSorted : true,
-						 plusicon : 'fa fa-chevron-down bigger-110',
-						 minusicon : 'fa fa-chevron-up bigger-110'
-					},
-             caption: "Grouping"
-             */
 
         });
         $(window).triggerHandler('resize.jqGrid');//trigger window resize to make the grid get the correct size
@@ -87,8 +80,6 @@ function showClass(str){
 
 
         //enable search/filter toolbar
-        //jQuery(grid_selector).jqGrid('filterToolbar',{defaultSearch:true,stringResult:true})
-        //jQuery(grid_selector).filterToolbar({});
 
 
         //switch element when editing inline
@@ -125,9 +116,6 @@ function showClass(str){
                 viewicon : 'ace-icon fa fa-search-plus grey',
             },
             {
-                //edit record form
-                //closeAfterEdit: true,
-                //width: 700,
                 recreateForm: true,
                 beforeShowForm : function(e) {
                     var form = $(e[0]);
@@ -137,7 +125,6 @@ function showClass(str){
             },
             {
                 //new record form
-                //width: 700,
                 closeAfterAdd: true,
                 recreateForm: true,
                 viewPagerButtons: false,
@@ -200,7 +187,6 @@ function showClass(str){
 
             form.find('input[name=stock]').addClass('ace ace-switch ace-switch-5').after('<span class="lbl"></span>');
             //don't wrap inside a label element, the checkbox value won't be submitted (POST'ed)
-            //.addClass('ace ace-switch ace-switch-5').wrap('<label class="inline" />').after('<span class="lbl"></span>');
 
 
             //update buttons classes
@@ -249,47 +235,22 @@ function showClass(str){
         function beforeEditCallback(e) {
             var form = $(e[0]);
             form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />')
-            //style_edit_form(form);
         }
-
 
 
         //it causes some flicker when reloading or navigating grid
         //it may be possible to have some custom formatter to do this as the grid is being created to prevent this
         //or go back to default browser checkbox styles for the grid
         function styleCheckbox(table) {
-            /**
-             $(table).find('input:checkbox').addClass('ace')
-             .wrap('<label />')
-             .after('<span class="lbl align-top" />')
 
-
-             $('.ui-jqgrid-labels th[id*="_cb"]:first-child')
-             .find('input.cbox[type=checkbox]').addClass('ace')
-             .wrap('<label />').after('<span class="lbl align-top" />');
-             */
         }
 
 
         //unlike navButtons icons, action icons in rows seem to be hard-coded
         //you can change them like this in here if you want
         function updateActionIcons(table) {
-            /**
-             var replacement =
-             {
-                 'ui-ace-icon fa fa-pencil' : 'ace-icon fa fa-pencil blue',
-                 'ui-ace-icon fa fa-trash-o' : 'ace-icon fa fa-trash-o red',
-                 'ui-icon-disk' : 'ace-icon fa fa-check green',
-                 'ui-icon-cancel' : 'ace-icon fa fa-times red'
-             };
-             $(table).find('.ui-pg-div span.ui-icon').each(function(){
-						var icon = $(this);
-						var $class = $.trim(icon.attr('class').replace('ui-icon', ''));
-						if($class in replacement) icon.attr('class', 'ui-icon '+replacement[$class]);
-					})
-             */
-        }
 
+        }
         //replace icons with FontAwesome icons like above
         function updatePagerIcons(table) {
             var replacement =
@@ -311,8 +272,6 @@ function showClass(str){
             $('.navtable .ui-pg-button').tooltip({container:'body'});
             $(table).find('.ui-pg-div').tooltip({container:'body'});
         }
-
-        //var selr = jQuery(grid_selector).jqGrid('getGridParam','selrow');
 
         $(document).one('ajaxloadstart.page', function(e) {
             $(grid_selector).jqGrid('GridUnload');
@@ -528,6 +487,9 @@ function handleClassJSON(params,option){
 
         }
 
+    }
+    if(option == "edit"){
+        CurrentOldClass("edit_Classfield8", "editClassType");
     }
 
 

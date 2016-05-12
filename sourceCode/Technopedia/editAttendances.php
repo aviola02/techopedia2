@@ -4,6 +4,11 @@
  * User: Andreas
  * Date: 4/7/2016
  * Time: 5:02 PM
+ *
+ * This file implements the dynamic edit of attendances. Its main
+ * purpose is to make possible the edit with out submit, only by checking
+ * and un-checking checkboxes.
+ *
  */
 
 include "dbAccess.php";
@@ -28,11 +33,8 @@ if(count($x)== 2)
 else
     $year = $x[2]; //for classes from previous years
 
-$dbh= mysql_connect($GLOBALS["link"],$GLOBALS["DB"],$GLOBALS["DBpass"])
-or die("Couldn't connect to database.");
-
-$db = mysql_select_db($GLOBALS["DBName"], $dbh)
-or die("Couldn't select database.");
 
 $sql = "UPDATE Attendances SET Attendance = '".$attendance."' WHERE CourseName = '".$className."' AND ClassNo = '".$classNo."' AND Year = '".$year."' AND ProgramCode = '".$pcode."' AND CandidateID = '".$candidateID."'";
-mysql_query($sql);
+mysqli_query($GLOBALS["dbh"],$sql);
+
+mysqli_close($GLOBALS["dbh"]);

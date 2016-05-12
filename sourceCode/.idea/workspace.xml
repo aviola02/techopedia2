@@ -21,13 +21,71 @@
     <favorites_list name="test" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="StaffViewer.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Technopedia/assets/js/StaffViewer.js">
+    <leaf>
+      <file leaf-file-name="ourScripts.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Technopedia/assets/js/ourScripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.35">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="3.9310346">
+              <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TimetableViewer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Technopedia/assets/js/TimetableViewer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="332" column="0" selection-start-line="332" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="viewStudents.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Technopedia/viewStudents.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.730769">
+              <caret line="30" column="33" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="33" />
+              <folding>
+                <marker date="1462985710537" expanded="true" signature="521:607" placeholder="Select Candi... ${$str}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="viewAttendances.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Technopedia/viewAttendances.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-18.384615">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+              <folding>
+                <marker date="1462985776319" expanded="true" signature="278:748" placeholder="Select First... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="viewClass.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Technopedia/viewClass.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.14310345">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1462956639996" expanded="true" signature="293:307" placeholder="Select * Fro... ${$str}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="viewSchedule.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Technopedia/viewSchedule.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.807693">
+              <caret line="43" column="17" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="17" />
+              <folding>
+                <marker date="1462956642142" expanded="true" signature="612:710" placeholder="Select * Fro... Tschedule" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -37,11 +95,29 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Technopedia/Administrator.php" />
         <option value="$PROJECT_DIR$/Technopedia/login2.html" />
-        <option value="$PROJECT_DIR$/Technopedia/Teacher.php" />
-        <option value="$PROJECT_DIR$/Technopedia/Secretary.php" />
+        <option value="$PROJECT_DIR$/Technopedia/changePassword.php" />
+        <option value="$PROJECT_DIR$/Technopedia/dbAccess.php" />
         <option value="$PROJECT_DIR$/Technopedia/dbManipulation.php" />
+        <option value="$PROJECT_DIR$/../Technopedia/ClassNav.php" />
+        <option value="$PROJECT_DIR$/Technopedia/readForm.php" />
+        <option value="$PROJECT_DIR$/Technopedia/ClassNav.php" />
+        <option value="$PROJECT_DIR$/Technopedia/assets/js/ScheduleViewer.js" />
+        <option value="$PROJECT_DIR$/Technopedia/editAttendances.php" />
+        <option value="$PROJECT_DIR$/Technopedia/Administrator.php" />
+        <option value="$PROJECT_DIR$/Technopedia/Secretary.php" />
+        <option value="$PROJECT_DIR$/Technopedia/Teacher.php" />
+        <option value="$PROJECT_DIR$/Technopedia/assets/js/date.js" />
+        <option value="$PROJECT_DIR$/Technopedia/assets/js/AttendancesViewer.js" />
+        <option value="$PROJECT_DIR$/Technopedia/assets/js/ClassViewer.js" />
+        <option value="$PROJECT_DIR$/Technopedia/assets/js/CoursesSchedule.js" />
+        <option value="$PROJECT_DIR$/Technopedia/assets/js/ourScripts.js" />
+        <option value="$PROJECT_DIR$/Technopedia/assets/js/StaffViewer.js" />
+        <option value="$PROJECT_DIR$/Technopedia/assets/js/StudentInClassViewer.js" />
+        <option value="$PROJECT_DIR$/Technopedia/assets/js/TimetableViewer.js" />
+        <option value="$PROJECT_DIR$/Technopedia/assets/js/grid.locale-en.js" />
+        <option value="$PROJECT_DIR$/Technopedia/viewStudents.php" />
+        <option value="$PROJECT_DIR$/Technopedia/viewAttendances.php" />
       </list>
     </option>
   </component>
@@ -55,10 +131,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="-772" />
-    <option name="width" value="1301" />
-    <option name="height" value="772" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -85,6 +161,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -100,7 +177,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
+              <option name="myItemId" value="sourceCode" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -114,7 +191,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
+              <option name="myItemId" value="sourceCode" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -136,7 +213,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
+              <option name="myItemId" value="sourceCode" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -150,13 +227,38 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../test" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <envs />
+      <method />
+    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
@@ -172,10 +274,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-772" width="1301" height="772" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24980783" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24743778" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -206,75 +308,12 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Technopedia/dbManipulation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="45" />
-          <folding>
-            <marker date="1461055553549" expanded="true" signature="623:651" placeholder="INSERT INTO ${$tableName}... " />
-            <marker date="1461055553549" expanded="true" signature="3454:3558" placeholder="Select * Fro... ${$tableName}" />
-            <marker date="1461055553549" expanded="true" signature="3769:3883" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Technopedia/Teacher.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="51" selection-start-line="41" selection-start-column="51" selection-end-line="41" selection-end-column="51" />
-          <folding>
-            <marker date="1461014268221" expanded="true" signature="44410:44524" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Technopedia/dbAccess.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Technopedia/assets/css/ace-ie.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="3749" selection-start-line="0" selection-start-column="3745" selection-end-line="0" selection-end-column="3749" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Technopedia/assets/css/ace-rtl.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="24" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Technopedia/assets/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29294756">
-          <caret line="0" column="934" selection-start-line="0" selection-start-column="931" selection-end-line="0" selection-end-column="934" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Technopedia/assets/css/bootstrap-datetimepicker.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12371134">
-          <caret line="4" column="1403" selection-start-line="4" selection-start-column="1401" selection-end-line="4" selection-end-column="1403" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Technopedia/assets/css/bootstrap-duallistbox.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Technopedia/assets/css/bootstrap-editable.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.032549728">
@@ -422,36 +461,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Technopedia/Administrator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3448277">
-          <caret line="48" column="57" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Technopedia/login2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.5269169">
           <caret line="58" column="38" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Technopedia/Secretary.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-65.21533">
-          <caret line="233" column="25" selection-start-line="233" selection-start-column="25" selection-end-line="233" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Technopedia/dbManipulation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.0">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="45" />
-          <folding>
-            <marker date="1461055553549" expanded="true" signature="623:651" placeholder="INSERT INTO ${$tableName}... " />
-            <marker date="1461055553549" expanded="true" signature="3454:3558" placeholder="Select * Fro... ${$tableName}" />
-            <marker date="1461055553549" expanded="true" signature="3769:3883" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -462,69 +475,297 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Technopedia/viewStudents.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.08809135">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1461011935149" expanded="true" signature="391:477" placeholder="Select Candi... ${$str}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Technopedia/viewStaff.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Technopedia/changePassword.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Technopedia/dbAccess.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.076923">
+          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
           <folding>
-            <marker date="1461011934917" expanded="true" signature="263:325" placeholder="Select Usern... ${$str}" />
+            <element signature="e#6#542#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Technopedia/viewSchedule.php">
+    <entry file="file://$PROJECT_DIR$/../Technopedia/Administrator.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5562806">
+        <state vertical-scroll-proportion="-0.61551726">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Technopedia/ClassNav.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35172415">
+          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
           <folding>
-            <marker date="1461011935149" expanded="true" signature="659:757" placeholder="Select * Fro... Tschedule" />
+            <marker date="1462973451348" expanded="true" signature="374:657" placeholder="..." />
+            <marker date="1462973451348" expanded="true" signature="419:597" placeholder="..." />
+            <marker date="1462973451348" expanded="true" signature="707:755" placeholder="Select * Fro... Class" />
+            <marker date="1462973451348" expanded="true" signature="777:865" placeholder="Select * Fro... Class" />
+            <marker date="1462973451348" expanded="true" signature="1107:1283" placeholder="..." />
+            <marker date="1462973451348" expanded="true" signature="1337:1624" placeholder="..." />
+            <marker date="1462973451348" expanded="true" signature="1382:1564" placeholder="..." />
+            <marker date="1462973451348" expanded="true" signature="1675:1723" placeholder="Select * Fro... Class" />
+            <marker date="1462973451348" expanded="true" signature="1745:1836" placeholder="Select * Fro... Class" />
+            <marker date="1462973451348" expanded="true" signature="2095:2271" placeholder="..." />
+            <marker date="1462973451348" expanded="true" signature="2325:2579" placeholder="..." />
+            <marker date="1462973451348" expanded="true" signature="2382:2540" placeholder="..." />
+            <marker date="1462973451348" expanded="true" signature="2476:2519" placeholder="..." />
+            <marker date="1462973451348" expanded="true" signature="2607:2879" placeholder="..." />
+            <marker date="1462973451348" expanded="true" signature="2677:2835" placeholder="..." />
+            <marker date="1462973451348" expanded="true" signature="2777:2814" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Technopedia/readForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.461538">
+          <caret line="99" column="16" selection-start-line="99" selection-start-column="16" selection-end-line="99" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Technopedia/dbManipulation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.3272727">
+          <caret line="34" column="8" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="8" />
+          <folding>
+            <marker date="1462961628025" expanded="true" signature="713:741" placeholder="INSERT INTO ${$tableName}... " />
+            <marker date="1462961628025" expanded="true" signature="3709:3818" placeholder="Select * Fro... ${$tableName}" />
+            <marker date="1462961628025" expanded="true" signature="4048:4162" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Technopedia/fillScheduleForm.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.1451876">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="-15.038462">
+          <caret line="23" column="27" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="27" />
           <folding>
-            <marker date="1461011935121" expanded="true" signature="568:729" placeholder="Select * Fro... Tschedule" />
+            <marker date="1462956640527" expanded="true" signature="557:718" placeholder="Select * Fro... Tschedule" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Technopedia/dbAccess.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11745514">
-          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Technopedia/Teacher.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.029363785">
-          <caret line="41" column="51" selection-start-line="41" selection-start-column="51" selection-end-line="41" selection-end-column="51" />
+        <state vertical-scroll-proportion="-67.36364">
+          <caret line="218" column="0" selection-start-line="218" selection-start-column="0" selection-end-line="218" selection-end-column="0" />
           <folding>
-            <marker date="1461014268221" expanded="true" signature="44410:44524" placeholder="..." />
+            <element signature="e#7#927#0#PHP" expanded="true" />
+            <marker date="1462982548763" expanded="true" signature="48186:48300" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Technopedia/assets/js/date.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14026402">
+          <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Technopedia/assets/js/AttendancesViewer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.1881187">
+          <caret line="267" column="8" selection-start-line="267" selection-start-column="8" selection-end-line="267" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Technopedia/assets/js/ClassViewer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.90099">
+          <caret line="274" column="8" selection-start-line="274" selection-start-column="8" selection-end-line="274" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Technopedia/assets/js/CoursesSchedule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="332" column="8" selection-start-line="332" selection-start-column="8" selection-end-line="332" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Technopedia/assets/js/StaffViewer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.35">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.4108911">
+          <caret line="245" column="9" selection-start-line="245" selection-start-column="9" selection-end-line="245" selection-end-column="9" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Technopedia/assets/js/StudentInClassViewer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.1419141">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Technopedia/assets/js/grid.locale-en.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.2821782">
+          <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Technopedia/fillClassForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2637931">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <marker date="1462956639731" expanded="true" signature="430:559" placeholder="Select * Fro... Class" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Technopedia/editAttendances.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9896552">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="e#6#266#0#PHP" expanded="true" />
+            <marker date="1462979881457" expanded="true" signature="726:935" placeholder="UPDATE Atten... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Technopedia/assets/js/ScheduleViewer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.731023">
+          <caret line="655" column="38" selection-start-line="655" selection-start-column="38" selection-end-line="655" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Technopedia/Secretary.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24682395">
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+          <folding>
+            <marker date="1462981573121" expanded="true" signature="11361:11404" placeholder="Select Cours... " />
+            <marker date="1462981573121" expanded="true" signature="13275:13341" placeholder="Select Candi... Student" />
+            <marker date="1462981573121" expanded="true" signature="127936:128042" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Technopedia/Administrator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.027586207">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="e#6#140#0#PHP" expanded="true" />
+            <marker date="1462981449109" expanded="true" signature="11815:11858" placeholder="Select Cours... " />
+            <marker date="1462981449109" expanded="true" signature="13729:13795" placeholder="Select Candi... Student" />
+            <marker date="1462981449109" expanded="true" signature="154545:154651" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Technopedia/ClassNav.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3482759">
+          <caret line="46" column="66" selection-start-line="46" selection-start-column="66" selection-end-line="46" selection-end-column="66" />
+          <folding>
+            <marker date="1462978507707" expanded="true" signature="401:449" placeholder="Select * Fro... Class" />
+            <marker date="1462978507707" expanded="true" signature="471:559" placeholder="Select * Fro... Class" />
+            <marker date="1462978507707" expanded="true" signature="664:932" placeholder="..." />
+            <marker date="1462978507707" expanded="true" signature="694:872" placeholder="..." />
+            <marker date="1462978507707" expanded="true" signature="967:1250" placeholder="..." />
+            <marker date="1462978507707" expanded="true" signature="1012:1190" placeholder="..." />
+            <marker date="1462978507707" expanded="true" signature="1466:1642" placeholder="..." />
+            <marker date="1462978507707" expanded="true" signature="1696:1744" placeholder="Select * Fro... Class" />
+            <marker date="1462978507707" expanded="true" signature="1766:1857" placeholder="Select * Fro... Class" />
+            <marker date="1462978507707" expanded="true" signature="1856:1857" placeholder="Select * Fro... Class" />
+            <marker date="1462978507707" expanded="true" signature="1991:2263" placeholder="..." />
+            <marker date="1462978507707" expanded="true" signature="2021:2203" placeholder="..." />
+            <marker date="1462978507707" expanded="true" signature="2326:2613" placeholder="..." />
+            <marker date="1462978507707" expanded="true" signature="2371:2553" placeholder="..." />
+            <marker date="1462978507707" expanded="true" signature="2829:3005" placeholder="..." />
+            <marker date="1462978507707" expanded="true" signature="3059:3313" placeholder="..." />
+            <marker date="1462978507707" expanded="true" signature="3116:3274" placeholder="..." />
+            <marker date="1462978507707" expanded="true" signature="3210:3253" placeholder="..." />
+            <marker date="1462978507707" expanded="true" signature="3341:3613" placeholder="..." />
+            <marker date="1462978507707" expanded="true" signature="3411:3569" placeholder="..." />
+            <marker date="1462978507707" expanded="true" signature="3511:3548" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Technopedia/assets/js/ourScripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.9310346">
+          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Technopedia/assets/js/TimetableViewer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="332" column="0" selection-start-line="332" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Technopedia/viewSchedule.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.807693">
+          <caret line="43" column="17" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="17" />
+          <folding>
+            <marker date="1462956642142" expanded="true" signature="612:710" placeholder="Select * Fro... Tschedule" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Technopedia/viewStudents.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.730769">
+          <caret line="30" column="33" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="33" />
+          <folding>
+            <marker date="1462985710537" expanded="true" signature="521:607" placeholder="Select Candi... ${$str}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Technopedia/viewAttendances.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.384615">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding>
+            <marker date="1462985776319" expanded="true" signature="278:748" placeholder="Select First... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Technopedia/viewClass.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.14310345">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1462956639996" expanded="true" signature="293:307" placeholder="Select * Fro... ${$str}" />
+          </folding>
         </state>
       </provider>
     </entry>

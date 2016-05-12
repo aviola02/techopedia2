@@ -4,6 +4,10 @@
  * User: Andreas
  * Date: 2/23/2016
  * Time: 8:12 PM
+ *
+ * This file is responsible to retrieve data from the data base about
+ * a schedule and return them in the appropriate format in order to be used.
+ *
  */
 
 include "dbAccess.php";
@@ -24,19 +28,13 @@ if(count($x)== 2)
 else
     $year = $x[2]; //for classes from previous years
 
-$dbh= mysql_connect($GLOBALS["link"],$GLOBALS["DB"],$GLOBALS["DBpass"])
-or die("Couldn't connect to database.");
-
-$db = mysql_select_db($GLOBALS["DBName"], $dbh)
-or die("Couldn't select database.");
-
 $sql = "Select * From Tschedule Where CourseName = '".$className."' And ClassNo = ".$classNo." And Year = ".$year;
 
-$result = mysql_query($sql);
+$result = mysqli_query($GLOBALS["dbh"],$sql);
 
 
 $str2 = '[';
-while ($row = mysql_fetch_array($result)){
+while ($row = mysqli_fetch_array($result)){
     $str2 .= '{id:'."\"".$row['ProgramCode']."\",";
     $str2 .= 'topic:'."\"".$row['Topic']."\",";
     $str2 .= 'exercises:'."\"".$row['Exercises']."\",";
@@ -49,4 +47,4 @@ if ($str2 != "[")
 $str2 .= ']';
 
 echo $str2;
-mysql_close($sql);
+mysqli_close($GLOBALS["dbh"]);

@@ -1,6 +1,12 @@
-///**
-// * Created by hamdy on 3/11/16.
-// */
+/**
+ * Created by hamdy on 3/11/16.
+ *
+ * In this file is implemented an asynchronus connection to the back end
+ * to retrieve the appropriate data using ajax technique and fits them
+ * to the proper forms in order to view them as a grid. It is mainly about
+ * viewing the grid table that show the Schedule of a class.
+ *
+ */
 
 var classTitle;
 
@@ -32,26 +38,6 @@ function showSchedule(str){
                 }, 0);
             }
         })
-
-        //if your grid is inside another element, for example a tab pane, you should use its parent's width:
-        /**
-         $(window).on('resize.jqGrid', function () {
-					var parent_width = $(grid_selector).closest('.tab-pane').width();
-					$(grid_selector).jqGrid( 'setGridWidth', parent_width );
-				})
-         //and also set width when tab pane becomes visible
-         $('#myTab a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-				  if($(e.target).attr('href') == '#mygrid') {
-					var parent_width = $(grid_selector).closest('.tab-pane').width();
-					$(grid_selector).jqGrid( 'setGridWidth', parent_width );
-				  }
-				})
-         */
-
-
-
-
-
         jQuery(grid_selector).jqGrid({
             //direction: "rtl",
 
@@ -67,10 +53,6 @@ function showSchedule(str){
 
             },
             subGridBeforeExpand: function(subgridDivId, rowId){
-                /*var openedSubGrids = document.getElementsByClassName("ui-icon ace-icon fa fa-minus center bigger-110 blue");
-                if(openedSubGrids.length>0) {
-                    openedSubGrids[0].click();
-                }*/
             },
             //for this example we are using local data
             subGridRowExpanded: function (subgridDivId, rowId) {
@@ -145,15 +127,6 @@ function showSchedule(str){
 
 
             ,
-            // grouping:true,
-            //groupingView : {
-            //		 groupField : ['topic'],
-            //		 groupDataSorted : true,
-            //		 plusicon : 'fa fa-chevron-down bigger-110',
-            //		 minusicon : 'fa fa-chevron-up bigger-110'
-            //	},
-            //caption: "Grouping"
-
 
         });
         var x = document.getElementsByClassName("ui-sgcollapsed sgcollapsed");
@@ -176,12 +149,6 @@ function showSchedule(str){
 
 
         $(window).triggerHandler('resize.jqGrid');//trigger window resize to make the grid get the correct size
-
-
-
-        //enable search/filter toolbar
-        //jQuery(grid_selector).jqGrid('filterToolbar',{defaultSearch:true,stringResult:true})
-        //jQuery(grid_selector).filterToolbar({});
 
 
         //switch element when editing inline
@@ -351,36 +318,14 @@ function showSchedule(str){
         //it may be possible to have some custom formatter to do this as the grid is being created to prevent this
         //or go back to default browser checkbox styles for the grid
         function styleCheckbox(table) {
-            /**
-             $(table).find('input:checkbox').addClass('ace')
-             .wrap('<label />')
-             .after('<span class="lbl align-top" />')
 
-
-             $('.ui-jqgrid-labels th[id*="_cb"]:first-child')
-             .find('input.cbox[type=checkbox]').addClass('ace')
-             .wrap('<label />').after('<span class="lbl align-top" />');
-             */
         }
 
 
         //unlike navButtons icons, action icons in rows seem to be hard-coded
         //you can change them like this in here if you want
         function updateActionIcons(table) {
-            /**
-             var replacement =
-             {
-                 'ui-ace-icon fa fa-pencil' : 'ace-icon fa fa-pencil blue',
-                 'ui-ace-icon fa fa-trash-o' : 'ace-icon fa fa-trash-o red',
-                 'ui-icon-disk' : 'ace-icon fa fa-check green',
-                 'ui-icon-cancel' : 'ace-icon fa fa-times red'
-             };
-             $(table).find('.ui-pg-div span.ui-icon').each(function(){
-						var icon = $(this);
-						var $class = $.trim(icon.attr('class').replace('ui-icon', ''));
-						if($class in replacement) icon.attr('class', 'ui-icon '+replacement[$class]);
-					})
-             */
+
         }
 
         //replace icons with FontAwesome icons like above
@@ -468,6 +413,7 @@ function addScheduleSubmitButton(){
     }
 
     document.forms["addScheduleForm"].action = 'readForm.php';
+    document.forms["addScheduleForm"].enctype='multipart/form-data';
     document.forms["addScheduleForm"].submit();
 
     window.setTimeout(ScheduleFun,2000);
@@ -490,6 +436,7 @@ function editScheduleSubmitButton(){
     }
 
     document.forms["editScheduleForm"].action = 'readEditForm.php';
+    document.forms["editScheduleForm"].enctype='multipart/form-data';
     document.forms["editScheduleForm"].submit();
     window.setTimeout(ScheduleFun2,1000);
 }
@@ -534,9 +481,9 @@ function setScheduleViewButton(){
 
     }
 
-    editSpan.onclick = function() {
+    /*editSpan.onclick = function() {
         viewModal.style.display = "none";
-    }
+    }*/
 
 
 }
@@ -635,7 +582,8 @@ function handleScheduleJSON(params,option){
             var sub_val = val.j;
             if (option == "edit") {
                 str = ("editSchedule_field" + count);
-                document.getElementById(str).value = json[0][sub_key];
+                if(document.getElementById(str).getAttribute("Type") != "file")
+                    document.getElementById(str).value = json[0][sub_key];
             }
             else if(option == "view") {
                 str = ("viewSchedule_field" + count);
@@ -652,6 +600,17 @@ function handleScheduleJSON(params,option){
     if (option == "edit") {
         setDate("editSchedule_field7", "editScheduleDay", "editScheduleMonth", "editScheduleYear");
 
+    }
+    if (option == "view"){
+        var path = window.location.pathname;
+        var arr = path.split("/");
+        path="";
+        for(var i=0;i<arr.length-1;i++){
+            path+=arr[i];
+            path+="/";
+        }
+        path+="ScheduleDocuments";
+        document.getElementById(str).innerHTML = '<a href="' + path + "/" + json[0][sub_key]+'" download>Download Picture</a>';
     }
 
 

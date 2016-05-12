@@ -4,6 +4,9 @@
  * User: hamdy
  * Date: 3/22/16
  * Time: 9:52 PM
+ *
+ * Check about valid Session to view this page.
+ *
  */
 
 if ($_SESSION["Type"]!="Admin"){
@@ -113,6 +116,14 @@ if ($_SESSION["Type"]!="Admin"){
                             <a href="#" onclick='setStaffEditButton("profile")'>
                                 <i class="ace-icon fa fa-user"></i>
                                 Profile
+                            </a>
+                        </li>
+
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#" onclick='setStaffEditButton("password")'>
+                                <i class="ace-icon fa fa-user"></i>
+                                Change Password
                             </a>
                         </li>
 
@@ -229,13 +240,12 @@ if ($_SESSION["Type"]!="Admin"){
                 <ul class="breadcrumb">
                     <li>
                         <i class="ace-icon fa fa-home home-icon"></i>
-                        <a href="#">Home</a>
+                        <a href="#">Technopedia</a>
                     </li>
 
                     <li>
-                        <a href="#">Tables</a>
+                        <a href="#">Administrator</a>
                     </li>
-                    <li class="active">jqGrid plugin</li>
                 </ul><!-- /.breadcrumb -->
 
             </div>
@@ -309,16 +319,12 @@ if ($_SESSION["Type"]!="Admin"){
                                                  * Date: 2/28/16
                                                  * Time: 7:29 PM
                                                  */
+                                                include "dbAccess.php";
 
-                                                $dbh= mysql_connect($GLOBALS["link"],$GLOBALS["DB"],$GLOBALS["DBpass"])
-                                                or die("Couldn't connect to database.");
-
-                                                $db = mysql_select_db($GLOBALS["DBName"], $dbh)
-                                                or die("Couldn't select database.");
 
                                                 $sql = "Select CourseName, ClassNo, Year From Class";
-                                                $result = mysql_query($sql);
-                                                while($row = mysql_fetch_array($result)){
+                                                $result = mysqli_query($GLOBALS["dbh"],$sql);
+                                                while($row = mysqli_fetch_array($result)){
                                                     $str = $row['CourseName'].'-'.$row['ClassNo'].'-'.$row['Year'];
                                                     $str2 = "\"".$str."\"";
                                                     $str2 = htmlspecialchars($str2, ENT_QUOTES);
@@ -326,7 +332,7 @@ if ($_SESSION["Type"]!="Admin"){
 
                                                 }
 
-                                                mysql_close($dbh);
+                                                mysqli_close($GLOBALS["dbh"]);
 
                                                 ?>
                                             </select>
@@ -346,20 +352,11 @@ if ($_SESSION["Type"]!="Admin"){
                                                  * Date: 2/28/16
                                                  * Time: 7:29 PM
                                                  */
-
-                                                //include 'pullData2.php';
-
-                                                //$data = getData("Class");
-
-                                                $dbh= mysql_connect($GLOBALS["link"],$GLOBALS["DB"],$GLOBALS["DBpass"])
-                                                or die("Couldn't connect to database.");
-
-                                                $db = mysql_select_db($GLOBALS["DBName"], $dbh)
-                                                or die("Couldn't select database.");
+                                                include "dbAccess.php";
 
                                                 $sql = "Select CandidateID, FirstNameEnglish, LastNameEnglish From Student";
-                                                $result = mysql_query($sql);
-                                                while($row = mysql_fetch_array($result)){
+                                                $result = mysqli_query($GLOBALS["dbh"],$sql);
+                                                while($row = mysqli_fetch_array($result)){
                                                     $str = $row['CandidateID'];
                                                     $str2 = "\"".$str."\"";
                                                     $str2 = htmlspecialchars($str2, ENT_QUOTES);
@@ -367,7 +364,7 @@ if ($_SESSION["Type"]!="Admin"){
 
                                                 }
 
-                                                mysql_close($dbh);
+                                                mysqli_close($GLOBALS["dbh"]);
 
                                                 ?>
                                             </select>
@@ -468,7 +465,7 @@ if ($_SESSION["Type"]!="Admin"){
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
                         <hr>
-                        <iframe name="dammy" onchange="addSubmitButton()" style="display: none"></iframe>
+                        <iframe name="dammy" style="display: none" onchange="addSubmitButton()" ></iframe>
                         <form id="addForm" method="post" target="dammy" class="form-horizontal" role="form">
 
                             <div class="form-group">
@@ -744,12 +741,6 @@ if ($_SESSION["Type"]!="Admin"){
                                     <button class="btn btn-info" type="submit" onclick="addSubmitButton()">
                                         <i class="ace-icon fa fa-check bigger-110"></i>
                                         Submit
-                                    </button>
-
-                                    &nbsp; &nbsp; &nbsp;
-                                    <button class="btn" type="reset">
-                                        <i class="ace-icon fa fa-undo bigger-110"></i>
-                                        Reset
                                     </button>
                                 </div>
                             </div>
@@ -1515,12 +1506,6 @@ if ($_SESSION["Type"]!="Admin"){
                                     <i class="ace-icon fa fa-check bigger-110"></i>
                                     Submit
                                 </button>
-
-                                &nbsp; &nbsp; &nbsp;
-                                <button class="btn" type="reset">
-                                    <i class="ace-icon fa fa-undo bigger-110"></i>
-                                    Reset
-                                </button>
                             </div>
                         </div>
                     </form>
@@ -1780,7 +1765,7 @@ if ($_SESSION["Type"]!="Admin"){
 
             <span class="close">×</span>
 
-            <h4 id = "label" class="blue bigger">View Student</h4>
+            <h4 id = "label" class="blue bigger">View Staff</h4>
             <div   class="row">
                 <div class="col-xs-12">
                     <!-- PAGE CONTENT BEGINS -->
@@ -1968,7 +1953,7 @@ if ($_SESSION["Type"]!="Admin"){
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Starting Time: </label>
 
                         <div class="col-sm-9">
-                            <input pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" type="text" name="field6" placeholder="In this form 15:55" class="col-xs-10 col-sm-5" />
+                            <input pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" type="text" name="field6" placeholder="In this form 15:55:00" class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -1976,7 +1961,19 @@ if ($_SESSION["Type"]!="Admin"){
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Ending Time: </label>
 
                         <div class="col-sm-9">
-                            <input pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" required type="text" name="field7" placeholder="In this form 15:55" class="col-xs-10 col-sm-5" />
+                            <input pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" type="text" name="field7" placeholder="In this form 15:55:00" class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Current/Old Class: </label>
+                        <div class="col-sm-9">
+                            <input style="display: none" type="text" name="field8" id="add_Classfield8" value="1" class="col-xs-10 col-sm-5" />
+
+                            <select onchange="classSelectBoxToTextBox('addClassType','add_Classfield8')" class="chosen-select form-control" id="addClassType" data-placeholder="Choose a Day...">
+                                <option value="1">Current Class</option>
+                                <option value="0">Old Class</option>
+                            </select>
+
                         </div>
                     </div>
 
@@ -1987,12 +1984,7 @@ if ($_SESSION["Type"]!="Admin"){
                                 <i class="ace-icon fa fa-check bigger-110"></i>
                                 Submit
                             </button>
-
                             &nbsp; &nbsp; &nbsp;
-                            <button class="btn" type="reset">
-                                <i class="ace-icon fa fa-undo bigger-110"></i>
-                                Reset
-                            </button>
                         </div>
                     </div>
                 </form>
@@ -2075,7 +2067,7 @@ if ($_SESSION["Type"]!="Admin"){
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Starting Time: </label>
 
                         <div class="col-sm-9">
-                            <input pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" type="text" name="edit_field6" id = "edit_Classfield6" placeholder="In this form 15:55" class="col-xs-10 col-sm-5" />
+                            <input pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" type="text" name="edit_field6" id = "edit_Classfield6" placeholder="In this form 15:55:00" class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -2083,7 +2075,19 @@ if ($_SESSION["Type"]!="Admin"){
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Ending Time: </label>
 
                         <div class="col-sm-9">
-                            <input pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" required type="text" name="edit_field7" id = "edit_Classfield7" placeholder="In this form 15:55" class="col-xs-10 col-sm-5" />
+                            <input pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" required type="text" name="edit_field7" id = "edit_Classfield7" placeholder="In this form 15:55:00" class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label readonly class="col-sm-3 control-label no-padding-right" for="form-field-1"> Current/Old Class: </label>
+                        <div class="col-sm-9">
+                            <input style="display: none" type="text" name="edit_field8" id="edit_Classfield8" value="1" class="col-xs-10 col-sm-5" />
+
+                            <select onchange="classSelectBoxToTextBox('editClassType','edit_Classfield8')" class="chosen-select form-control" id="editClassType" data-placeholder="Choose a Day...">
+                                <option value="1">Current Class</option>
+                                <option value="0">Old Class</option>
+                            </select>
+
                         </div>
                     </div>
 
@@ -2094,6 +2098,8 @@ if ($_SESSION["Type"]!="Admin"){
                                 <i class="ace-icon fa fa-check bigger-110"></i>
                                 Submit
                             </button>
+
+                            &nbsp;
                         </div>
                     </div>
                 </form>
@@ -2256,11 +2262,11 @@ if ($_SESSION["Type"]!="Admin"){
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Notes: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" name="field6" placeholder="Put Notes..." class="col-xs-10 col-sm-5" />
+                            <input type="text" name="field6" placeholder="Put Notes..." class="form-control" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Notes: </label>
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Date: </label>
 
                         <div class="col-sm-9">
                             <input style="display: none" type="text" name="field7" id="addSchedule_field7" value="2000-01-01" class="col-xs-10 col-sm-5" />
@@ -2332,11 +2338,6 @@ if ($_SESSION["Type"]!="Admin"){
                                 Submit
                             </button>
 
-                            &nbsp; &nbsp; &nbsp;
-                            <button class="btn" type="reset">
-                                <i class="ace-icon fa fa-undo bigger-110"></i>
-                                Reset
-                            </button>
                         </div>
                     </div>
                 </form>
@@ -2410,11 +2411,11 @@ if ($_SESSION["Type"]!="Admin"){
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Notes: </label>
 
                         <div class="col-sm-9">
-                            <input type="text" name="edit_field6" id="editSchedule_field6" placeholder="Put Notes..." class="col-xs-10 col-sm-5" />
+                            <input type="text" name="edit_field6" id="editSchedule_field6" placeholder="Put Notes..." class="form-control" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Notes: </label>
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Date: </label>
 
                         <div class="col-sm-9">
                             <input style="display: none" type="text" name="edit_field7" id="editSchedule_field7" value="2000-01-01" class="col-xs-10 col-sm-5" />
@@ -2475,7 +2476,7 @@ if ($_SESSION["Type"]!="Admin"){
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Document/Picture: </label>
 
                         <div class="col-sm-9">
-                            <input type="file" name="edit_field8" id="editSchedule_field8" placeholder="Add Document/Picture..." class="col-xs-10 col-sm-5" />
+                            <input type="file" name="edit_field8" id="editSchedule_field8"  placeholder="Add Document/Picture..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
 
@@ -2484,12 +2485,6 @@ if ($_SESSION["Type"]!="Admin"){
                             <button class="btn btn-info" type="submit" onclick="editScheduleSubmitButton()">
                                 <i class="ace-icon fa fa-check bigger-110"></i>
                                 Submit
-                            </button>
-
-                            &nbsp; &nbsp; &nbsp;
-                            <button class="btn" type="reset">
-                                <i class="ace-icon fa fa-undo bigger-110"></i>
-                                Reset
                             </button>
                         </div>
                     </div>
@@ -2618,7 +2613,7 @@ if ($_SESSION["Type"]!="Admin"){
                             <input readonly type="text" name="edit_field0" id="edit_Profilefield0" placeholder="Put Username..." class="col-xs-10 col-sm-5" />
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div style="display: none" class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Staff Password: </label>
 
                         <div class="col-sm-9">
@@ -2821,12 +2816,6 @@ if ($_SESSION["Type"]!="Admin"){
                                 <i class="ace-icon fa fa-check bigger-110"></i>
                                 Submit
                             </button>
-
-                            &nbsp; &nbsp; &nbsp;
-                            <button class="btn" type="reset">
-                                <i class="ace-icon fa fa-undo bigger-110"></i>
-                                Reset
-                            </button>
                         </div>
                     </div>
                 </form>
@@ -2838,6 +2827,56 @@ if ($_SESSION["Type"]!="Admin"){
 
 </div>
 
+
+</div>
+
+<div id="passwordModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+
+        <h4 class="blue bigger"><label>Hello</label><span> </span><label id = "passwordUsername"> <?php echo $_SESSION['username'];?></label><label id = "profileLabel">! Change your Password</label></h4>
+
+        <div   class="row">
+            <div class="col-xs-12">
+                <!-- PAGE CONTENT BEGINS -->
+                <hr>
+                <iframe style="display: none" name="dammy22" ></iframe>
+                <form id="passwordForm" method="post" action="changePassword.php" target="dammy22" class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Username: </label>
+                        <div class="col-sm-9">
+                            <input readonly type="text" name="userName"  id="userName" placeholder="Put Current Password..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Password: </label>
+                        <div class="col-sm-9">
+                            <input type="password" name="edit_PasswordField0"  id="edit_PasswordField0" placeholder="Put Current Password..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> New Password: </label>
+
+                        <div class="col-sm-9">
+                            <input type="password" name="edit_PasswordField1" id="edit_PasswordField1" placeholder="Put New Password..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="clearfix form-actions">
+                        <div class="col-md-offset-3 col-md-9">
+                            <button class="btn btn-info" type="submit">
+                                <i class="ace-icon fa fa-check bigger-110"></i>
+                                Submit
+                            </button>
+
+                        </div>
+                    </div>
+                </form>
+                <!-- PAGE CONTENT ENDS -->
+
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div>
 
 </div>
 
@@ -2926,14 +2965,16 @@ if ($_SESSION["Type"]!="Admin"){
     var addClassModal = document.getElementById('addClass');
     var editClassModal = document.getElementById('editClass');
     var viewClassModal = document.getElementById('myClassViewModal');
+    var passwordModal = document.getElementById('passwordModal');
 
     window.onclick = function (event) {
         if (event.target == editProfileModal || event.target == addScheduleModal || event.target == editScheduleModal || event.target == viewScheduleModal
             || event.target == addStudentModal || event.target == editStudentModal || event.target == viewStudentModal
             || event.target == addStaffModal || event.target == editStaffModal || event.target == viewStaffModal
-            || event.target == addClassModal || event.target == editClassModal || event.target == viewClassModal) {
+            || event.target == addClassModal || event.target == editClassModal || event.target == viewClassModal
+            || event.target == passwordModal) {
             $('#profileModal,#addScheduleModal,#editScheduleModal, #viewScheduleModal, #myModal, #myEditModal, ' +
-                '#myViewModal, #addStaffModal,#editStaffModal,#myStaffViewModal, #addClass,#editClass,#myClassViewModal').css('display', 'none');
+                '#myViewModal, #addStaffModal,#editStaffModal,#myStaffViewModal, #addClass,#editClass,#myClassViewModal,#passwordModal').css('display', 'none');
         }
     }
 </script>

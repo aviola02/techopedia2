@@ -4,16 +4,12 @@
  * User: Andreas
  * Date: 3/11/2016
  * Time: 9:41 PM
+ *
  */
 include "dbAccess.php";
 $id = $_REQUEST["q"];
 $tableName = $_REQUEST["q2"];
 
-$dbh= mysql_connect($GLOBALS["link"],$GLOBALS["DB"],$GLOBALS["DBpass"])
-or die("Couldn't connect to database.");
-
-$db = mysql_select_db($GLOBALS["DBName"], $dbh)
-or die("Couldn't select database.");
 if ($tableName=="Student")
     $sql = "Delete From ".$tableName." Where IdentityNo = '".$id."'";
 else if($tableName=="Staff")
@@ -47,5 +43,7 @@ else if($tableName=="Exam")
     $sql = "Delete From ".$tableName." Where ExamCode = ".$id;
 
 echo $sql;
-mysql_query($sql);
+mysqli_query($GLOBALS["dbh"],$sql);
+
+mysqli_close($GLOBALS["dbh"]);
 

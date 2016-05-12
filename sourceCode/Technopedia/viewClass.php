@@ -4,23 +4,21 @@
  * User: hamdy
  * Date: 3/19/16
  * Time: 6:49 PM
+ *
+ * This file is responsible to retrieve data from the data base about
+ * a class and return them in the appropriate format in order to be used.
+ *
  */
 include "dbAccess.php";
 $str = $_REQUEST["q"];
 
-$dbh= mysql_connect($GLOBALS["link"],$GLOBALS["DB"],$GLOBALS["DBpass"])
-or die("Couldn't connect to database.");
-
-$db = mysql_select_db($GLOBALS["DBName"], $dbh)
-or die("Couldn't select database.");
-
 $sql = "Select * From ".$str;
 
-$result = mysql_query($sql);
+$result = mysqli_query($GLOBALS["dbh"],$sql);
 
 $str2="[";
 
-while ($row = mysql_fetch_array($result)){
+while ($row = mysqli_fetch_array($result)){
 
     $str2 .= '{id:'."'".$row['CourseName']."-".$row['ClassNo']."-".$row['Year']."',";
     $str2 .= 'room:'."'".$row['RoomNo']."',";
@@ -32,4 +30,4 @@ while ($row = mysql_fetch_array($result)){
 }
 $str2.="]";
 echo $str2;
-mysql_close($dbh);
+mysqli_close($GLOBALS["dbh"]);

@@ -4,6 +4,11 @@
  * User: Andreas
  * Date: 2/23/2016
  * Time: 8:12 PM
+ *
+ * This file is responsible to retrieve data from the data base about
+ * a specific student in a specific class and return them in the appropriate
+ * format in order to be used.
+ *
  */
 include "dbAccess.php";
 $str = $_REQUEST["q"];
@@ -27,21 +32,17 @@ else {
     $year = $x[2];//for classes from previous years
     $pcode = $x[3];
 }
-$dbh= mysql_connect($GLOBALS["link"],$GLOBALS["DB"],$GLOBALS["DBpass"])
-or die("Couldn't connect to database.");
 
-$db = mysql_select_db($GLOBALS["DBName"], $dbh)
-or die("Couldn't select database.");
 
 $sql = "Select Student.CandidateID, Student.FirstNameEnglish, Student.LastNameEnglish, Attendances.Attendance From Attendances, Student Where Student.CandidateID=Attendances.CandidateID AND Attendances.CourseName = '".$className."' And Attendances.ClassNo = ".$classNo." And Attendances.Year = ".$year." AND Attendances.ProgramCode = ".$pcode;
 
-$result = mysql_query($sql);
+$result = mysqli_query($GLOBALS["dbh"],$sql);
 
 
 $str2 = '[';
 
 
-while ($row = mysql_fetch_array($result)){
+while ($row = mysqli_fetch_array($result)){
     $str2 .= '{id:'."\"".$row['CandidateID']."\",";
     $str2 .= 'FirstName:'."\"".$row['FirstNameEnglish']."\",";
     $str2 .= 'LastName:'."\"".$row['LastNameEnglish']."\",";
@@ -58,7 +59,7 @@ if (strlen($str2)!=1){
 $str2 .= ']';
 
 echo $str2;
-mysql_close($sql);
+mysqli_close($GLOBALS["dbh"]);
 
 
 

@@ -4,15 +4,35 @@
  * User: hamdy
  * Date: 2/28/16
  * Time: 7:29 PM
+ *
+ * * Here is the implementation of the dynamic part of the Navigation
+ * Menu that is used by the Teacher and the Administrator. Particularly
+ * is the part of the Navigation menu about the Classes and the Schedules
+ * of every Class.
+ *
+ *
  */
 include "dbAccess.php";
 
-$dbh= mysql_connect($GLOBALS["link"],$GLOBALS["DB"],$GLOBALS["DBpass"])
-or die("Couldn't connect to database.");
+if ($_SESSION["Type"]=="Admin"){
+    $sql = "Select * From Class Where `IsCurrentClass` = '1'";
+}
+else
+    $sql = "Select * From Class Where `TeacherUsername` = '".$username."' And `IsCurrentClass` = '1'";
+$result = mysqli_query($GLOBALS["dbh"],$sql);
+if (mysqli_num_rows($result)==0){
+    echo '<li class="">
+        <a href="#" class="">
+            <i class="menu-icon fa fa-pencil-square-o"></i>
+            <span class="menu-text"> Classes </span>
 
-$db = mysql_select_db($GLOBALS["DBName"], $dbh)
-or die("Couldn't select database.");
-echo '<li class="">
+            <b class="arrow fa fa-angle-down"></b>
+        </a>
+
+        <b class="arrow"></b>
+        <ul class="submenu">';
+} else {
+    echo '<li class="">
         <a href="#" class="dropdown-toggle">
             <i class="menu-icon fa fa-pencil-square-o"></i>
             <span class="menu-text"> Classes </span>
@@ -22,15 +42,9 @@ echo '<li class="">
 
         <b class="arrow"></b>
         <ul class="submenu">';
-
-if ($_SESSION["Type"]=="Admin"){
-    $sql = "Select * From Class Where "."`Year` = '".date("Y")."'";
 }
-else
-    $sql = "Select * From Class Where "."`TeacherUsername` = '".$username."' And `Year` = '".date("Y")."'";
-$result = mysql_query($sql);
-while($row = mysql_fetch_array($result)){
-    $str = $row['CourseName']."-".$row['ClassNo'];
+while($row = mysqli_fetch_array($result)){
+    $str = $row['CourseName']."-".$row['ClassNo']."-".$row['Year'];
     $str2 = "\"".$str."\"";
     $str2 = htmlspecialchars($str2, ENT_QUOTES);
     echo '<li class="">
@@ -41,7 +55,29 @@ while($row = mysql_fetch_array($result)){
 
 }
 
-echo '</ul>
+
+if ($_SESSION["Type"]=="Admin"){
+    $sql = "Select * From Class Where `IsCurrentClass` = '0'";
+}
+else
+    $sql = "Select * From Class Where "."`TeacherUsername` = '".$username."' And `IsCurrentClass` = '0'";
+$result = mysqli_query($GLOBALS["dbh"],$sql);
+if (mysqli_num_rows($result)==0) {
+    echo '</ul>
+    </li>
+            <li class="">
+        <a href="#" class="">
+            <i class="menu-icon fa fa-pencil-square-o"></i>
+            <span class="menu-text"> Old Classes </span>
+
+            <b class="arrow fa fa-angle-down"></b>
+        </a>
+
+        <b class="arrow"></b>
+        <ul class="submenu">';
+}
+else {
+    echo '</ul>
     </li>
             <li class="">
         <a href="#" class="dropdown-toggle">
@@ -53,15 +89,8 @@ echo '</ul>
 
         <b class="arrow"></b>
         <ul class="submenu">';
-
-
-if ($_SESSION["Type"]=="Admin"){
-    $sql = "Select * From Class Where "."`Year` != '".date("Y")."'";
 }
-else
-    $sql = "Select * From Class Where "."`TeacherUsername` = '".$username."' And `Year` != '".date("Y")."'";
-$result = mysql_query($sql);
-while($row = mysql_fetch_array($result)){
+while($row = mysqli_fetch_array($result)){
     $str = $row['CourseName']."-".$row['ClassNo']."-".$row['Year'];
     $str2 = "\"".$str."\"";
     $str2 = htmlspecialchars($str2, ENT_QUOTES);
@@ -70,7 +99,7 @@ while($row = mysql_fetch_array($result)){
 
                 <b class="arrow"></b>
             </li>';
-    /*<li><a href="form-general.html"><i class="icon-angle-right"></i> General</a></li>*/
+
 }
 
 echo '</ul>
@@ -102,7 +131,7 @@ echo '</li><li class="">
                 <b class="arrow"></b></li>';
 
 
-mysql_close($dbh);
+mysqli_close($GLOBALS["dbh"]);
 
 
 ?>

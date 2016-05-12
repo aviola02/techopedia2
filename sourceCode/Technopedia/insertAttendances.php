@@ -4,6 +4,10 @@
  * User: Andreas
  * Date: 4/2/2016
  * Time: 2:57 PM
+ *
+ * This file is responsible to insert an attendance when its checkbox
+ * is filled with positive selection.
+ *
  */
 include "dbAccess.php";
 $str = $_REQUEST["q"];
@@ -25,18 +29,13 @@ else
 
 $pcode = $_REQUEST["q2"];
 
-$dbh= mysql_connect($GLOBALS["link"],$GLOBALS["DB"],$GLOBALS["DBpass"])
-or die("Couldn't connect to database.");
-
-$db = mysql_select_db($GLOBALS["DBName"], $dbh)
-or die("Couldn't select database.");
 
 $sql = "Select CandidateID  From ClassStudent Where CourseName = '".$className."' And ClassNo = ".$classNo." And Year = ".$year;
-$result = mysql_query($sql);
+$result = mysqli_query($GLOBALS["dbh"],$sql);
 
 $table = array();
 
-while ($row = mysql_fetch_array($result)){
+while ($row = mysqli_fetch_array($result)){
     $table[]=$row[0];
 }
 
@@ -44,8 +43,8 @@ $i=0;
 
 while($i < count($table)){
     $sql = "INSERT INTO Attendances (CourseName, ClassNo, Year, ProgramCode ,CandidateID, Attendance) VALUES ( '".$className."', '".$classNo."', '".$year."', '".$pcode."', '".$table[$i]."', '0')";
-    mysql_query($sql);
+    mysqli_query($GLOBALS["dbh"],$sql);
     $i++;
 }
 
-mysql_close($sql);
+mysqli_close($GLOBALS["dbh"]);

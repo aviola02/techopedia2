@@ -1,5 +1,25 @@
 <?php
 
+/**
+ * Created by PhpStorm.
+ * User: hamdy
+ * Date: 3/22/16
+ * Time: 9:52 PM
+ *
+ * Στο αρχείο αυτό υλοποιούντε οι λειτουργίες διαχείρισης που αφορούν τον δάσκαλο.
+ * Ο Δάσκαλος θα μπορεί να ανατρέχει και να διαχειρίζεται τα μαθήματα που κάνει.
+ * Τα μαθήματα παρουσιάζονται σε πίνακα ο οποίος επιτρέπει πρόσθεση, διαγραφή,
+ * παρουσίαση και τροποποίηση της κάθε εγγραφής. Οι πίνακες περιέχουν το κάθε
+ * μάθημα της τάξης που επιλέχθικε. Επίσης, ο δάσκαλος μπορεί να ανατρέχει στο
+ * ημερολόγιο για να δεί το πρόγραμμα του φροντιστηρίου με τις εξετάσεις και τα
+ * διάφορα events. Παρουσιάζονται σε ημερολόγιο με δυνατότητα πρόσθεσης, διαγραφής,
+ * παρουσίασης και τροποποίησης της κάθε εγγραφής. Τέλος, μπορεί να δεί και να
+ * κάνει διάφορα είδη αναζητήσεων όσο αφορά τις παρουσίες των μαθητών. Αναζητησεις
+ * μπορεί να κάνει βάζοντας όσα φίλτρα θέλει πάνω στον πίνακα με τις παρουσίες και
+ * απουσίες των μαθητών.
+ *
+ */
+
     if ($_SESSION["Type"]!="Teacher"){
         header("Location: login2.html");
     }
@@ -104,6 +124,13 @@
                                 Profile
                             </a>
                         </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#" onclick='setStaffEditButton("password")'>
+                                <i class="ace-icon fa fa-user"></i>
+                                Change Password
+                            </a>
+                        </li>
 
                         <li class="divider"></li>
 
@@ -132,8 +159,12 @@
         </script>
 
         <ul class="nav nav-list">
+<!-- embedded php code in order to display the dynamic part of the Navigation Menu -->
+            <?php
+            // embedded php code in order to display the dynamic part of the Navigation Menu
+            include 'ClassNav.php';
 
-            <?php include 'ClassNav.php'; ?>
+            ?>
 
         </ul><!-- /.nav-list -->
 
@@ -156,8 +187,12 @@
                 <ul class="breadcrumb">
                     <li>
                         <i class="ace-icon fa fa-home home-icon"></i>
+                        <a>Technopedia</a>
                     </li>
-                    <a>Manage your schedule of every class and have a look on what is coming next.</a>
+                    <li>
+                        <a>Teacher</a>
+                    </li>
+
                 </ul><!-- /.breadcrumb -->
 
             </div>
@@ -182,7 +217,6 @@
                     </div><!-- /.col -->
                 </div><!-- /.row -->
 
-                <hr>
 
 
                 <div class="row">
@@ -224,11 +258,12 @@
 </div><!-- /.main-container -->
 
 
+<!--They follow all the Modals about every feature that the Teacher profile provides-->
+
 <div id="profileModal" class="modal">
     <!-- Modal content -->
         <div class="modal-content">
 
-            <span class="close">×</span>
             <h4 class="blue bigger"><label>Hello</label><span> </span><label id = "profileUsername"> <?php echo $_SESSION['username'];?></label><label id = "profileLabel">! Edit your Profile</label></h4>
 
             <div   class="row">
@@ -246,7 +281,7 @@
                                 <input readonly type="text" name="edit_field0" id="edit_Profilefield0" placeholder="Put Username..." class="col-xs-10 col-sm-5" />
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div style="display: none" class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Staff Password: </label>
 
                             <div class="col-sm-9">
@@ -598,12 +633,6 @@
                                 <i class="ace-icon fa fa-check bigger-110"></i>
                                 Submit
                             </button>
-
-                            &nbsp; &nbsp; &nbsp;
-                            <button class="btn" type="reset">
-                                <i class="ace-icon fa fa-undo bigger-110"></i>
-                                Reset
-                            </button>
                         </div>
                     </div>
                 </form>
@@ -863,6 +892,57 @@
     </div><!-- /.col -->
 </div><!-- /.row -->
 
+<div id="passwordModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+
+        <h4 class="blue bigger"><label>Hello</label><span> </span><label id = "passwordUsername"> <?php echo $_SESSION['username'];?></label><label id = "profileLabel">! Change your Password</label></h4>
+
+        <div   class="row">
+            <div class="col-xs-12">
+                <!-- PAGE CONTENT BEGINS -->
+                <hr>
+                <iframe style="display: none" name="dammy22" ></iframe>
+                <form id="passwordForm" method="post" action="changePassword.php" target="dammy22" class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Username: </label>
+                        <div class="col-sm-9">
+                            <input readonly type="text" name="userName"  id="userName" placeholder="Put Current Password..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Password: </label>
+                        <div class="col-sm-9">
+                            <input type="password" name="edit_PasswordField0"  id="edit_PasswordField0" placeholder="Put Current Password..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> New Password: </label>
+
+                        <div class="col-sm-9">
+                            <input type="password" name="edit_PasswordField1" id="edit_PasswordField1" placeholder="Put New Password..." class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+
+                    <div class="clearfix form-actions">
+                        <div class="col-md-offset-3 col-md-9">
+                            <button class="btn btn-info" type="submit">
+                                <i class="ace-icon fa fa-check bigger-110"></i>
+                                Submit
+                            </button>
+
+                        </div>
+                    </div>
+                </form>
+                <!-- PAGE CONTENT ENDS -->
+
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div>
+
+</div>
+
+
 
     <!-- basic scripts -->
 
@@ -924,10 +1004,11 @@
         var addScheduleModal = document.getElementById('addScheduleModal');
         var editScheduleModal = document.getElementById('editScheduleModal');
         var viewScheduleModal = document.getElementById('viewScheduleModal');
+        var editPasswordModal = document.getElementById('passwordModal');
 
         window.onclick = function (event) {
-            if (event.target == editProfileModal || event.target == addScheduleModal || event.target == editScheduleModal || event.target == viewScheduleModal) {
-                $('#profileModal,#addScheduleModal,#editScheduleModal, #viewScheduleModal').css('display', 'none');
+            if (event.target == editProfileModal || event.target == addScheduleModal || event.target == editScheduleModal || event.target == viewScheduleModal || event.target == editPasswordModal) {
+                $('#profileModal,#addScheduleModal,#editScheduleModal, #viewScheduleModal, #passwordModal').css('display', 'none');
             }
         }
         </script>

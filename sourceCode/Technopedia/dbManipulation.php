@@ -4,31 +4,37 @@
  * User: hamdy
  * Date: 2/14/16
  * Time: 4:25 PM
+ *
+ *
+ * This file contains the implementation of manipulating
+ * the Data Base of the System. In particular, here we have
+ * the implementation of every insert record to a Data Base Table, edit record
+ * from a Data Base Table, view a record of a Data Base Table. This file,
+ * also contains the login validation.
+ *
+ *
  */
 include "dbAccess.php";
 $username;
 $GLOBALS['$username'];
 
-$dbh= mysql_connect($GLOBALS["link"],$GLOBALS["DB"],$GLOBALS["DBpass"])
-or die("Couldn't connect to database.");
-
-$db = mysql_select_db($GLOBALS["DBName"], $dbh)
-or die("Couldn't select database.");
-
+/**
+ *
+ * Insert a record into a specific Data Base Table.
+ *
+ * @param $table
+ * @param $tableName
+ */
 function insert($table, $tableName){
 
-    $dbh= mysql_connect($GLOBALS["link"],$GLOBALS["DB"],$GLOBALS["DBpass"])
-    or die("Couldn't connect to database.");
-
-    $db = mysql_select_db($GLOBALS["DBName"], $dbh)
-    or die("Couldn't select database.");
-
+    if ($tableName == "Class")
+        $table[0]=preg_replace('/\s+/', '', $table[0]);
 
     $columns = "INSERT INTO ".$tableName." (";
 
     $readColNames = "SHOW COLUMNS FROM ".$tableName;
-    $result = mysql_query($readColNames);
-    while($row = mysql_fetch_array($result))
+    $result = mysqli_query($GLOBALS["dbh"],$readColNames);
+    while($row = mysqli_fetch_array($result))
         $columns.=$row['Field'].",";
 
     $columns = rtrim($columns,",");
@@ -45,31 +51,32 @@ function insert($table, $tableName){
 
     echo $columns;
 
-    mysql_set_charset('utf8');
-    mysql_query($columns);
-
-    mysql_close($dbh);
+    mysqli_set_charset($GLOBALS["dbh"],'utf8');
+    mysqli_query($GLOBALS["dbh"],$columns);
+    mysqli_close($GLOBALS["dbh"]);
 
 }
 
+/**
+ *
+ * Edit a record from a specific Data Base Table.
+ *
+ * @param $table
+ * @param $tableName
+ */
 function edit($table, $tableName){
 
-    $dbh= mysql_connect($GLOBALS["link"],$GLOBALS["DB"],$GLOBALS["DBpass"])
-    or die("Couldn't connect to database.");
-
-    $db = mysql_select_db($GLOBALS["DBName"], $dbh)
-    or die("Couldn't select database.");
     if($tableName == "Profile"){
-        $table[1]=md5($table[1]);
+        //$table[1]=md5($table[1]);
         $tableName="Staff";
     }
     $i=0;
     $columns = "UPDATE ".$tableName." SET ";
 
     $readColNames = "SHOW COLUMNS FROM ".$tableName;
-    $result = mysql_query($readColNames);
+    $result = mysqli_query($GLOBALS["dbh"],$readColNames);
 
-    while($row = mysql_fetch_array($result)) {
+    while($row = mysqli_fetch_array($result)) {
         $columns .= $row['Field'] . ' = "' . $table[$i].'", ';
         $i++;
     }
@@ -92,15 +99,18 @@ function edit($table, $tableName){
         $columns.="CourseName = '".$table[0]."' AND ClassNo = ".$table[1]." AND Year = ".$table[2]." AND ProgramCode = ".$table[3];
 
     echo $columns;
-    mysql_set_charset('utf8');
-    mysql_query($columns);
+    mysqli_set_charset($GLOBALS["dbh"],'utf8');
+    mysqli_query($GLOBALS["dbh"],$columns);
 
-    mysql_close($dbh);
+    mysqli_close($GLOBALS["dbh"]);
 
 }
 
 
 /**
+ *
+ * View a record from a specific Data Base Table.
+ *
  * @param $table
  * @param $tableName
  */
@@ -108,18 +118,13 @@ function view($table, $tableName){
     $columns = null;
     $count = 0;
 
-
-    $dbh= mysql_connect($GLOBALS["link"],$GLOBALS["DB"],$GLOBALS["DBpass"])
-    or die("Couldn't connect to database.");
-
-    $db = mysql_select_db($GLOBALS["DBName"], $dbh)
-    or die("Couldn't select database.");
-    mysql_set_charset('utf8');
+    mysqli_set_charset($GLOBALS["dbh"],'utf8');
     $readColNames = "SHOW COLUMNS FROM ".$tableName;
-    $result = mysql_query($readColNames);
+    $result = mysqli_query($GLOBALS["dbh"],$readColNames);
+    $result = mysqli_query($GLOBALS["dbh"],$readColNames);
 
 
-    while($row = mysql_fetch_array($result)){
+    while($row = mysqli_fetch_array($result)){
         $columns[$count]=$row['Field'];
         $count++;
     }
@@ -141,15 +146,23 @@ function view($table, $tableName){
     return $results;
 
 
-    mysql_close($dbh);
+    mysqli_close($GLOBALS["dbh"]);
 }
 
-
+/**
+ *
+ * Check the validity of an attempt to login.
+ *
+ * @param $username
+ * @param $password
+ */
 function checkValidLogin($username, $password){
+
+
     $tableName = "Staff";
     $sql = "Select * From ".$tableName." Where "."`Username` = '".$username."' and `StaffPassword` = '".md5($password)."'";
-    $result = mysql_query($sql);
-   if (mysql_numrows($result) == 0){ // if the login is invalid
+    $result = mysqli_query($GLOBALS["dbh"],$sql);
+   if (mysqli_num_rows($result) == 0){ // if the login is invalid
                include "login2.html";
                 echo '
                     <script type="text/javascript">
@@ -157,7 +170,7 @@ function checkValidLogin($username, $password){
                     </script>';
     }
     else { //if the login is valid
-        while ($row = mysql_fetch_array($result)) {
+        while ($row = mysqli_fetch_array($result)) {
             $username = $row['Username'];
             $type = $row['Type'];
 

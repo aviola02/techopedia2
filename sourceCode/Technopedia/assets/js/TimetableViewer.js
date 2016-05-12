@@ -1,5 +1,13 @@
 /**
  * Created by hamdy on 3/16/16.
+ *
+ *
+ * This file is responsible about all the viewing the calendar (timetable)
+ * with the vents and the examinations of the school and their details.
+ * Its is also the class responsible for asynchronous connection with
+ * the ajax functions
+ *
+ *
  */
 
 function ajaxCall(str,category){
@@ -42,15 +50,21 @@ function ajaxCall(str,category){
 
     xmlhttp.send();
     return xmlhttp.onreadystatechange();
-    //table.fnDestroy();
 }
 
 
-function createTimetable(){
+function createTimetable(x) {
 
-    var htmlCode = "<div class=\"col-sm-9\"> <div class=\"space\"></div> <div id=\"calendar\"></div> <div class=\"col-sm-3\"> <div class=\"widget-body\"> <div class=\"widget-main no-padding\"> <div id=\"external-events\"> <div class=\"external-event label-grey\" data-class=\"label-grey\"> <i class=\"ace-icon fa fa-arrows\"></i>Examinations </div> <div class=\"external-event label-danger\" data-class=\"label-danger\"> <i class=\"ace-icon fa fa-arrows\"></i>Events </div> </div> </div>";
 
-    document.getElementById("timetable").innerHTML = htmlCode;
+        var htmlCode = "<div class=\"col-sm-9\"> <div class=\"space\"></div> <div id=\"calendar\"></div> <div class=\"col-sm-3\"> <div class=\"widget-body\"> <div class=\"widget-main no-padding\"> <div id=\"external-events\"> <div class=\"external-event label-grey\" data-class=\"label-grey\"> <i class=\"ace-icon fa fa-arrows\"></i>Examinations </div> <div class=\"external-event label-danger\" data-class=\"label-danger\"> <i class=\"ace-icon fa fa-arrows\"></i>Events </div> </div> </div>";
+
+        if (document.getElementById("timetable").innerHTML.length<=34 || x=="edit")
+            document.getElementById("timetable").innerHTML = htmlCode;
+        else {
+            document.getElementById("timetable").innerHTML = "";
+            return;
+        }
+
 
     var storedEvents='[';
     storedEvents+=ajaxCall("Event","events");
@@ -167,13 +181,13 @@ function createTimetable(){
                     <div class="form-group">\
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Start Time: </label>\
                 <div class="col-sm-9">\
-                    <input pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" required type="text" name="field3" placeholder="e.g. 18:45" class="col-xs-10 col-sm-5" />\
+                    <input pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" required type="text" name="field3" placeholder="e.g. 18:45:00" class="col-xs-10 col-sm-5" />\
                     </div>\
                     </div>\
                     <div class="form-group">\
                     <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> End Time: </label>\
                 <div class="col-sm-9">\
-                    <input pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" required type="text" name="field4" placeholder="e.g. 18:45" class="col-xs-10 col-sm-5" />\
+                    <input pattern="[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" required type="text" name="field4" placeholder="e.g. 18:45:00" class="col-xs-10 col-sm-5" />\
                     </div>\
                     </div>\
                     <div class="form-group">\
@@ -317,36 +331,6 @@ function createTimetable(){
                     modal.remove();
                 });
 
-
-
-
-
-                //console.log(calEvent.id);
-                //console.log(jsEvent);
-                //console.log(view);
-
-                // change the border color just for fun
-                //$(this).css('border-color', 'red');
-
-                /* commented out */
-
-                //bootbox.prompt("New Event Title:", function(title) {
-                //    if (title !== null) {
-                //        calendar.fullCalendar('renderEvent',
-                //            {
-                //                title: title,
-                //                start: start,
-                //                end: end,
-                //                allDay: allDay,
-                //                className: 'label-info'
-                //            },
-                //            true // make the event "stick"
-                //        );
-                //    }
-                //});
-                //
-                //
-                //calendar.fullCalendar('unselect');
             }
             ,
             eventClick: function(calEvent, jsEvent, view) {
@@ -627,7 +611,7 @@ function EventFun() {
     var modal =  document.getElementById('addEventModal');
     modal.style.visibility = "hidden";
     modal.remove();
-    createTimetable();
+    createTimetable("edit");
     document.documentElement.style.overflow = "auto";
     document.body.style.marginRight='0px';
 }
@@ -650,7 +634,7 @@ function EventFun2() {
     var modal =  document.getElementById('myEventExamEditModal');
     modal.style.visibility = "hidden";
     modal.remove();
-    createTimetable();
+    createTimetable("edit");
     document.documentElement.style.overflow = "auto";
     document.body.style.marginRight='0px';
 }
@@ -670,5 +654,5 @@ function deleteEventSubmitButton(){
     xmlhttp.open("GET", "deleteRecord.php?q="+ID+"&q2="+type, false);
     xmlhttp.send();
 
-    createTimetable();
+    createTimetable("edit");
 }

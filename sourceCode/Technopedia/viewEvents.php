@@ -4,22 +4,20 @@
  * User: hamdy
  * Date: 3/16/16
  * Time: 4:59 PM
+ *
+ * This file is responsible to retrieve data from the data base about
+ * an event and return them in the appropriate format in order to be used.
+ *
  */
 include "dbAccess.php";
 $str = $_REQUEST["q"];
 
-$dbh= mysql_connect($GLOBALS["link"],$GLOBALS["DB"],$GLOBALS["DBpass"])
-or die("Couldn't connect to database.");
-
-$db = mysql_select_db($GLOBALS["DBName"], $dbh)
-or die("Couldn't select database.");
-
 $sql = "Select * From " .$str;
 
-$result = mysql_query($sql);
+$result = mysqli_query($GLOBALS["dbh"],$sql);
 
 
-while ($row = mysql_fetch_array($result)){
+while ($row = mysqli_fetch_array($result)){
 
     $str2 .= '{id:'."'".$row['Number']."',";
     $str2 .= 'title:'."'".$row['Name']."',";
@@ -32,4 +30,4 @@ while ($row = mysql_fetch_array($result)){
 }
 
 echo $str2;
-mysql_close($dbh);
+mysqli_close($GLOBALS["dbh"]);
